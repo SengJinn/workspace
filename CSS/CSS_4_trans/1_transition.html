@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /*
+    transition
+    css 속성의 값이 변화할 때, 속성 값의 변화가
+    일정 시간(duration)에 걸쳐 일어나도록 하는 속성
+    */
+    .trans{
+        width:300px;
+        height:300px;
+        background-color: skyblue;
+        transition-property: background-color, width, height;
+        /*
+            s - seconds
+            ms - millis seconds
+        */
+        transition-duration: 3s;
+        transition-duration: 3000ms;
+        /* transition 효과를 실행하기 전 대기 시간*/
+        transition-delay: 500ms;
+        /*transition 효과의 실행 흐름 정의*/
+        transition-timing-function: linear;
+        transition: width 1s, height 2s, background-color 2s linear 0.5s; 
+        
+    }
+
+    .trans:hover{
+        width:600px;
+        height:700px;
+        background-color: pink; 
+    }
+
+    .stick{
+        width:20px;
+        height: 20px;
+        /* 상 하 10px의 마진 좌우는 0 */
+        margin: 10px 0;
+        background-color: pink;
+    }
+    /*
+        + 지정된 태그요소 뒤에 있는 형제 요소 하나를 선택
+        - 지정된 태그요소 뒤에 배치된 모든 형제 요소
+    */
+    input[type=checkbox]:checked ~.stick{
+        width: 100%;
+        background-color: skyblue;
+        transition-property: all;
+        transition-duration: 4s;
+    }
+    .stick1{
+        transition-timing-function: ease;
+    }
+    .stick2{
+        transition-timing-function: linear;
+    }
+    .stick3{
+        transition-timing-function: ease-in;
+    }
+    .stick4{
+        transition-timing-function: ease-out;
+    }
+    .stick5{
+        transition-timing-function: ease-in-out;
+    }
+    .stick6{
+        transition-timing-function: step-start;
+    }
+    .stick7{
+        transition-timing-function: step-end;
+    }
+    .stick8{
+        transition-timing-function: steps(3, start);
+    }
+    .stick9{
+        transition-timing-function: steps(3, end);
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="trans"></div>
+    <br/><hr/>
+    <input type="checkbox" /> 체크! 
+    <!-- (p+div.stick.stick$)*9 -->
+    <p>ease</p>
+    <div class="stick stick1"></div>
+    <p>linear</p>
+    <div class="stick stick2"></div>
+    <p>ease-in</p>
+    <div class="stick stick3"></div>
+    <p>ease-out</p>
+    <div class="stick stick4"></div>
+    <p>ease-in-out</p>
+    <div class="stick stick5"></div>
+    <p>step-start</p>
+    <div class="stick stick6"></div>
+    <p>step-end</p>
+    <div class="stick stick7"></div>
+    <p>steps</p>
+    <div class="stick stick8"></div>
+    <p>step(3,end)</p>
+    <div class="stick stick9"></div>
+</body>
+</html>

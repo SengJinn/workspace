@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: red;
+        }
+        /* h1 태그요소에 마우스가 over되었을 때 */
+        h1:hover{
+            color: blue;
+            /* 마우스 포인터 모양 */
+            cursor: text; /*문자열을 지정한 것처럼 문자 선택자 모양*/
+            cursor: pointer; /*반응이 가능한 것을 의미하는 손가락 모양 생성*/
+            /*돋보기 모양*/
+            cursor: zoom-in;
+            cursor: zoom-out;
+            /* + + 모양 */
+            cursor: copy;
+        }
+
+        h1:active{
+            color:orange; 
+        }
+        /*input 태그 요소 중 disabled 상태인 요소*/
+        input:disabled{
+            background-color: lightgray;
+        }
+        input:enabled{
+            color: white;
+            background-color: pink;
+        }
+        input:read-only{
+            color: skyblue;
+            background-color: hotpink;
+        }
+
+        input:focus{
+            background-color: white;
+            color: gray;
+            /*solid 실선, dotted 점선, dashed 굵은 점선*/
+            outline-color: aqua;
+            outline-style: dotted;
+            /*선 굵기*/
+            outline-width: 1mm;
+            /*아웃라인 사용안함*/
+            outline: none;
+            border: none;
+        }
+
+        .accept:checked{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>반응-상태 선택지</h1>
+
+    <h2>사용 가능 - enabled</h2>
+    <input type="text" placeholder="이곳은 아이디 작성공간"/>
+
+    <h2>사용 불가능 - disabled</h2>
+    <input type="text" value="aaa" disabled />
+    
+    <h2>읽기 전용 - readonly</h2>
+    <input type="text" value="bbb" readonly/>
+
+    <hr/>
+    <label>
+        <input type="checkbox" class="accept"/> checkbox
+    </label>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //비교 연산자
+        //좌변과 우변의 값을 비교하여
+        //수식의 결과가 참인지 거짓인지를 boolean 타입으로 반환
+        //결과는 true(참) 아니면 false(거짓) 둘 중에 하나
+        /*
+            비교연산자 - 좌항과 우항의 크기를 비교
+            좌항 > 우항 : 좌항의 값이 우항보다 크면 참
+            좌항 < 우항 : 우항의 값이 좌항보다 크면 참
+            좌항 >= 우항: 좌항의 값이 크거나 우항과 같으면 참
+            좌항 <= 우항: 우항의 값이 크거나 좌항과 같으면 참
+
+            동등비교연산자 - 좌항과 우항의 값이 일치하는지 비교
+            좌항 == 우항 : 좌항과 우항의 값이 일치하면 true참
+            좌항 != 우항 : 좌항과 우항의 값이 일치하지 않으면 true참
+        */
+        let num1 = 100;
+        let num2 = 200;
+        // num1의 값이 num2의 값보다 크거나 같은가?
+        let result = num1 >= num2;
+        document.write("<h1>num1과 num2의 크기 비교</h1>");
+        document.write("num1:" + num1 + "<br/>");
+        document.write("num2:" + num2 + "<br/>");
+        document.write("num1 >= num2 :" + result + "<br/>");
+        //num1의 값이 num2의 값보다 큰가?
+        result = num1 > num2;
+        document.write("num1>num2:" + result + "<br/>");
+        //num2의 값이 num1보다 크거나 같은가?
+        result= num1 <= num2;
+        document.write("num1<=num2:" + result + "<br/>");
+        // num2의 값이 num1보다 큰가?
+        result = num1 < num2;
+        document.write("num1 < num2:" + result + "<br/>");
+
+        // ==, !=
+        const strAge = '26';
+        const numAge = 26;
+        //좌항과 우항의 값이 일치하는가?
+        result = strAge == numAge;
+        console.log("strAge == numAge : ", result);
+
+        //좌항과 우항의 값이 일치하지 않는가?
+        result = strAge != numAge;
+        console.log("strAge != numAge : ", result);
+
+        // ===, !==  좌항과 우항의 데이터 타입까지 비교
+        result = strAge === numAge;
+        console.log("strAge === numAge :", result);
+
+        /*
+            논리 비교 연산자
+            단항 또는 이형연산자로서 좌항과 우항의 논리값을 비교하는 연산자
+            연산자 - 좌항과 우항의 ture false 값을 비교해서 논리값을 출력하는 연산자
+
+            단항연산자 - 항이 하나인 연산자
+            ! : 논리 부정
+            !true == false
+            !false == true
+
+            이항연산자
+            || : (shift + 원화표시) - 논리 합 연산자(or 연산자)
+            && : 논리 곱(and 연산자)
+            좌항과 우항의 논리 값을 비교해서 boolean 타입의 결과를 반환
+            false - 0
+            true - 1
+
+            좌항        우항        논리합      논리곱
+            true(1)    true(1)     true(2)     true(1)
+            false(0)   true(1)     true(1)     false(0)
+            true(1)    false(0)    true(1)     false(0)
+            false(0)   false(0)    false(0)    false(0)
+        */
+
+        let bool1 = false;
+        let bool2 = (4 < 2);
+        //       false    (4<2)=false
+        // 둘중에 하나라도 참이면 참
+        result = bool1 || bool2;
+        console.log("bool1 || bool2 : " , result);
+        //        !false || (4<2)
+        //          true || false
+        result = !bool1 || bool2;
+        console.log("!boo11 || boo12 :" , result);
+
+        //둘다 참일 때만 참 나머지는 거짓
+        //       false && false
+        result = bool1 && bool2;
+        console.log("bool1 && bool2:", result);
+        //         true && true
+        result = !bool1 && !bool2;
+        console.log("bool1 && bool2:" , result);
+
+        /*
+            대입연산자와 복합대입연산자
+            +=, -=, *=, /=, %=
+            code를 줄여주는 연산자
+        */
+        let x = 3;
+        let y = 6;
+        // x에 저장된 값과 y에 저장된 값을 더하여 x라는 변수에 재할당
+        x = x + y;
+        console.log(x);
+        x = x + y;
+        console.log(x);
+
+        /*
+            대입되는 변수가 피연산자로 사용될 때 사용할 수 있는 연산자가
+            복합대입연산자
+        */
+
+        x += y;
+        console.log(x);
+        // x = x - y
+        x -= y;
+        console.log(x);
+        //  x = x*y;
+        x *= y;
+        console.log(x);
+        // x = x / y;
+        x /= y;
+        console.log(x);
+        console.log(y);
+
+        let count = 0;
+        //연산된 결과를 count에 대입
+        count = count + 1;
+        // 좌항과 우항을 더한 뒤 좌항의 변수에 대입
+        count += 1;
+        // 증가하는 값이 1이라면 
+        // 증감연산자를 이용하여 처리
+        // 후위 연산
+        count++;
+        console.log(count);
+
+        count = count - 1;
+        count -= 1;
+        count --; 
+        console.log(count);
+
+        //전위 연산
+        ++count;
+        console.log(count);
+        --count;
+        console.log(count);
+
+        result = count++;
+        console.log(result);
+        console.log(count);
+        //result + count;
+        // count = count + 1;
+        result = count++;
+        console.log(result);
+        console.log(count);
+
+        result = ++count;
+        console.log("result :", result);
+        console.log("count :", count);
+        // result 2 , count 2
+        console.log(++count > 2);
+
+    </script>
+</body>
+</html>

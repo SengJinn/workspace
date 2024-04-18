@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*
+            transform(변형)
+            좌표공간을 변형함으로써 일반적인 문서의 흐름을 방해하지 않고 컨텐츠의 형태와 위치를 변경하는 속성
+            - Box 모델(Block요소)만 transform 속성 적용 가능
+            이동(translate), 회전(rotate), 확대축소(scale), 비틀기(skew)
+            효과를 부여하기 위한 속성 제공
+
+        */
+
+        .originals{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            background: url(../../img/transform_rotate.png);
+        }
+
+        /*
+            rotate 해당 요소를 주어진 각도 만큼 시계방향 or 반시계방향 or 지정좌표 기준으로 회전 시키는 속성
+            단위는 deg (degree)
+        */
+        .rotate:hover{
+            transform: rotateX(45deg);
+            transform: rotateY(50deg);
+            transform: rotate(180deg);
+        }
+        /*
+            scale(배율) 해당 요소의 크기를 주어진 배율 만큼 늘리거나 줄임.
+            기본값은 1에서 배율 만큼 증가 또는 감소
+        */
+        .scale:hover{
+            margin: 200px 0 200px 200px;
+            transform: scaleX(2);
+            transform: scaleY(2);
+            /*               x,y*/
+            transform: scale(2.2);
+        }
+
+        /*
+            skewX() 해당 요소를 주어진 각도 만큼 x축 방향으로 기울임
+            skewY() 해당 요소를 주어진 각도 만큼 y축 방향으로 기울임
+            skew() 해당 요소를 주어진 각도 만큼 xy축 방향으로 기울임
+        */
+        .skew{
+            background-color: skyblue;
+            background-image: url(../../img/transform_skew.png);
+            background-repeat: no-repeat;
+            height: 400px;
+        }
+
+        .skew:hover{
+            transform: skewX(45deg);
+            transform: skewY(60deg);
+            transform: skew(10deg, 20deg);
+        }
+        /*
+            translate(이동할 거리)
+            해당 요소를 현재 위치에서 주어진 거리만큼 이동하여 출력
+        */
+        .translate:hover{
+            transform: translateX(100px);
+            transform: translateX(-100px);
+            transform: translateY(100px);
+            transform: translate(100px, -100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="originals"></div>
+    <div class="originals rotate"></div>
+    <div class="originals scale"></div>
+    <div class="originals skew"></div>
+    <div class="originals translate"></div>
+</body>
+</html>

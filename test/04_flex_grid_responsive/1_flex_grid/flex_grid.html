@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<HTML>
+ <HEAD>
+  <TITLE> FLEX </TITLE>
+  <META charset="utf-8">
+	<style>
+		.wrap{
+			border: red solid 1px;
+			padding: 0;
+		}
+
+		.menus{
+		
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			row-gap: 10px;
+            column-gap: 10px;
+			
+		}
+
+		.menu{
+			/* width: 600px; */
+			height: 300px;
+			border: 1px black solid;
+			box-sizing: border-box;
+		}
+
+		.menu1{
+			background: url(img/dish1.jpg) no-repeat center;
+		}
+
+		.menu2{
+			background:url(img/dish2.jpg) no-repeat center;
+		}
+
+		.menu3{
+			background:url(img/dish3.jpg) no-repeat center;
+		}
+
+		.menu4{
+			background:url(img/dish4.jpg) no-repeat center;
+		}
+
+		.menu5{
+			background:url(img/dish5.jpg) no-repeat center;
+			background-size:cover;
+			grid-column-start: 2;
+			grid-column-end: 4;
+			/* width: 1210px; */
+		}
+
+		footer{
+			/* width: 1820px; */
+			height: 200px;
+			background-color: black;
+			color: white;
+			margin-top: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			font-family: 'Times New Roman', Times, serif;
+		}
+
+		header{
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+	</style>
+</HEAD>
+ <BODY>
+	<div class="wrap">
+		<header>
+			<h1>솔로의 식탁</h1>
+		</header>
+		<article>
+			<div class="menus">
+				<div class="menu menu1">					
+				</div>
+				<div class="menu menu2">					
+				</div>
+				<div class="menu menu3">					
+				</div>
+				<div class="menu menu4">					
+				</div>
+				<div class="menu menu5">					
+				</div>
+			</div>
+		</article>
+		<footer>
+			<p>솔로의 식탁</p>
+		</footer>
+	</div>
+ </BODY>
+</HTML>
+<script>
+</script>

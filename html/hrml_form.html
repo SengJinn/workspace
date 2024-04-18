@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" value="1d001" /> <br/>
+        <input type="text" value="100" disabled /> <br/>
+        <input type="text" value="200" readonly /> <br/>
+        <input type="password" placeholder="비밀번호 작성" />
+        <br/>
+
+        <input type="text" autofocus /> <br/>
+        <hr/>
+        <label>
+        <input type="checkbox" /> 동의하시겠습니까?
+        </label>
+        <hr/>
+            <input type="checkbox" checked /> 탈퇴하시겠습니까?
+            <br/>
+            <input type="checkbox" id="accept" /> <label for="accept">뭐할겁니까?</label>
+            <br/> <hr/>
+            <input type="checkbox" name="dogs" /> 진돗개
+            <input type="checkbox" name="dogs" /> 푸들
+            <input type="checkbox" name="dogs" /> 풍산개 <br/>
+            <input type="radio" name="fruit" checked /> 딸기
+            <input type="radio" name="fruit" /> 포도
+            <br/>
+            <input type="radio" name="car" checked /> K3
+            <input type="radio" name="car" /> 싼타페
+            <input type="radio" name="car" /> 벤츠
+            <!-- 라디오 태그는 네임이 같을 경우 그것들 중 하나만 체크됨 네임이 다르면 상관X -->
+            <br/>
+            <!-- 내부의 입력 요소를 묶어주는 역할-->
+            <fieldset disabled>
+                <!-- 필드셋의 제목 지정 -->
+                <legend> SELECT BOX </legend>
+                <select>
+                    <option>오렌지</option>
+                    <!-- 해당 옵션이 선택된 상태로 출력 slected -->
+                    <option selected >딸기</option>
+                    <option>귤</option>
+                </select>
+                <select name="hobby" multiple>
+                    <optgroup label="게임">
+                        <option>LOL</option>
+                        <option>로아</option>
+                        <option>아스티넬</option>
+                    </optgroup>
+                    <optgroup label="독서">
+                        <option>오만과편견</option>
+                        <option>폭풍의언덕</option>
+                        <option>제인에어</option>
+                    </optgroup>
+                </select>
+            </fieldset>
+            <h3>Data list</h3>
+            <datalist id="dept_list">
+                <option value="컴퓨터공학과"></option>
+                <option value="국어국문과"></option>
+                <option value="미디어커뮤과"></option>
+                <option value="언론정보과"></option>
+                <option value="패션디자인과"></option>
+            </datalist>
+            <input list="dept_list"/>
+
+    <br/>
+    <h3>파일 입력 필드</h3>
+    <input type="file" /> 
+    <h4>multiple</h4>
+    <input type="file" multiple />
+    <h4>accept-파일 타입 제한</h4>
+    <input type="file" accept="text/html"/>
+    <input type="file" accept="html"/>
+    <br/>
+    <!-- 여러행에 걸쳐 텍스트를 입력받는 요소 -->
+    <textarea cols="50" rows="5"></textarea>
+    </form>
+
+    <form >
+    <h3>HTML5 입력태그 요소</h3>
+    <!-- 날짜형식 -->
+    <input type="date" required/> <br/>
+    <!-- 이메일 형식 -->
+    <input type="email" /> <br/>
+    <!-- 숫자 형식 -->
+    <input type="number" />
+    <!-- 범위 슬라이더 -->
+    <input type="range" min="-50" max="100" value="0"/>
+    <!-- 색상 코드 -->
+    <input type="color" /> <br/>
+    <!-- 검색상자 -->
+    <input type="search" /> <br/>
+    <!-- form 태그 내부의 데이터를 제출하는 버튼 -->
+    <input type="submit" />
+    </form>
+</body>
+</html>

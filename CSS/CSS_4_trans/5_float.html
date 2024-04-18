@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 960px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,ol{
+            list-style: none;
+        }
+
+        header{
+            width:100%;
+            height: 50px;
+            background-color: lightpink;
+            padding: 25px 0;
+        }
+        /*header navigation*/
+        header>nav>ul>li{
+            float:left;
+            width: 192px;
+            height: 50px;
+            background-color: paleturquoise;
+            border: 1px solid white;
+            /*
+                content-box : 컨텐츠 영역을 기준으로 크기를 지정 (기본값)
+                border-box : 외곽선을 기준으로 크기를 지정
+            */
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        /*header navigation inner_menu*/
+        header>nav>ul>li> .inner_menu{
+            position: absolute;
+            width: 192px;
+            background-color: rgba(255,255,255,0.8);
+            /* display: none;*/
+            height: 0px;
+            overflow: hidden;
+            transition: all 0.3s linear;
+        }
+
+        /*header>nav>ul:hover>li. inner_menu*/
+            header>nav>ul>li:hover .inner_menu{
+            /* display: block; */
+            height: 150px;
+        }
+
+        aside{
+            width: 15%;
+            /* 최소 높이 */
+            min-height: 400px;
+            background-color: skyblue;
+            float: left;
+        }
+        aside.right{
+            float: right;
+        }
+
+        section{
+            width: 70%;
+            background-color: ivory;
+            min-height: 400px;
+            float: left;
+        }
+
+        footer{
+            /*float left 속성을 무시하고 새로이 배치*/
+            clear: left;
+            clear: right;
+            /*모든 float 속성 삭제*/
+            clear: both;
+            width: 100%;
+            height: 100px;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <!-- nav>ul>(li>a+ul.inner_menu>(li>a{menu-$})*3)*5-->
+            <nav>
+                <ul>
+                    <li>
+                        <a href="">HOME</a>
+                        <ul class="inner_menu">
+                        <li><a href="">menu-1</a></li>
+                        <li><a href="">menu-2</a></li>
+                        <li><a href="">menu-3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">ABOUT US</a>
+                        <ul class="inner_menu">
+                        <li><a href="">menu-1</a></li>
+                        <li><a href="">menu-2</a></li>
+                        <li><a href="">menu-3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">CONTACT</a>
+                        <ul class="inner_menu">
+                        <li><a href="">menu-1</a></li>
+                        <li><a href="">menu-2</a></li>
+                        <li><a href="">menu-3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">TRAVEL</a>
+                        <ul class="inner_menu">
+                        <li><a href="">menu-1</a></li>
+                        <li><a href="">menu-2</a></li>
+                        <li><a href="">menu-3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">FOOD</a>
+                        <ul class="inner_menu">
+                        <li><a href="">menu-1</a></li>
+                        <li><a href="">menu-2</a></li>
+                        <li><a href="">menu-3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+        <aside>left</aside>
+        <section>
+            <h2>집에 가고 싶다...</h2>
+            <article>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam libero rem repudiandae, excepturi ullam consequatur quibusdam asperiores reiciendis dolorum perspiciatis, odio voluptate aliquid sit quo iure cum. Inventore, similique deleniti.
+                </p>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni iure nisi iusto tempore, eveniet at? Laboriosam incidunt ducimus soluta accusamus, architecto possimus, cumque id veritatis quae voluptate in, hic quas!
+                </p>
+            </article>
+        </section>
+        <aside class="right">right</aside>
+        <footer></footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: inline-block;
+            /* margin-left: 100px; */
+            /* 
+                position: absolute;
+                left: 100px; 
+            */
+            /*
+                transform: translateX(100px);
+            */
+            }
+            .box{
+                animation: 2s myani;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease;
+                /* ease 천천히 시작해서 빨라졌다가 마지막에 다시 천천히*/
+                animation-direction: normal;
+
+                position: absolute;
+                left: 100px;
+            }
+
+            @keyframes myani{
+                25%{ transform: translateX(100px);
+                }
+
+                50%{
+                    transform: translateX(200px);
+                }
+
+                75%{
+                    transform: translateX(100px);
+                }
+            }
+
+            @keyframes myani{
+                25%{ margin-left: 100px;
+                }
+
+                50%{
+                    margin-left: 200px;
+                }
+
+                75%{
+                    margin-left: 100px;
+                }
+            }
+
+            @keyframes myani{
+                25%{ left: 100px;
+                }
+
+                50%{
+                    left: 200px;
+                }
+
+                75%{
+                    left: 100px;
+                }
+            }
+            
+    </style>
+</head>
+<body>
+    <div class="box">BOX</div>
+    <div>dummy</div>
+</body>
+</html>

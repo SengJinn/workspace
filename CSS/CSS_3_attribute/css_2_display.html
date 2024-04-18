@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            background-color: aqua;
+            width: 150px;
+            height: 150px;
+            /*한라인에 컨텐츠를 출력하고 컨텐츠 크기만큼의 박스를 가짐*/
+            display: inline;
+            /*한라인에 컨텐츠를 출력하고 지정한 만큼의 박스를 가짐*/
+            display: inline-block;
+        }
+
+        h2.none{
+            display:none;
+        }
+
+        h2.hidden{
+            /* visible, hidden, collapse */
+           
+            
+            visibility: collapse;
+        }
+    </style>
+</head>
+<body>
+    <!-- h2{content-$}*5 -->
+    <h2 class="none">content-1</h2>
+    <h2>content-2</h2>
+    <h2 class="hidden">content-3</h2>
+    <h2>content-4</h2>
+    <h2>content-5</h2>
+</body>
+</html>

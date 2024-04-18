@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol{
+            list-style: none;
+            padding-left: 0;
+        }
+        nav{
+            width: 1000px;
+            margin: 20px auto;
+        }
+        ol li{
+            border: 1px solid black;
+
+            width: 250px;
+            height: 50px;
+            float: left;
+            box-sizing: border-box; /* 외곽선을 포함해서 컨텐츠의 크기를 지정해줌) */
+            background-color: gray;
+            color: white;
+            /* margin-left: -6px;
+            display: inline-block */
+            text-align: center;
+            line-height: 50px;
+
+        }
+        ol li:hover{
+            background-color: white;
+            color: gray;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- nav>ol>li{menu-$}*4 -->
+    <nav>
+        <ol>
+            <li>menu-1</li>
+            <li>menu-2</li>
+            <li>menu-3</li>
+            <li>menu-4</li>
+        </ol>
+    </nav>
+</body>
+</html>

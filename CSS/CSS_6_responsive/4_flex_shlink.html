@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .wrap{
+            width: 600px;
+            margin: 0 auto;
+            display: flex;
+            background: gray;
+            flex-wrap: nowrap; /*기본값인 nowrap인 경우에만 shlink가 의미가 있음*/
+        }
+
+        .item{
+            /*기준 크기*/
+            flex-basis: 200px;
+            height: 100px;
+            
+        }
+
+        /*
+            wrap = 600px
+            200px * 4 =800px
+            flex box를 벗어나는 크기가 200px
+            200px / 4 = 50px
+        */
+
+        .item01{
+            background-color: azure;
+            flex-shrink: 1;
+        }
+
+        .item02{
+            background-color: palegoldenrod;
+            flex-shrink: 1;
+        }
+
+        .item03{
+            background-color: plum;
+            flex-shrink: 2;
+        }
+
+        .item04{
+            background-color: purple;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- div.wrap>div.item.item$${$$}*4 -->
+    <div class="wrap">
+        <div class="item item01">01</div>
+        <div class="item item02">02</div>
+        <div class="item item03">03</div>
+        <div class="item item04">04</div>
+    </div>
+</body>
+</html>

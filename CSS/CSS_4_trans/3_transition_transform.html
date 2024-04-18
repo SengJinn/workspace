@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+    .box{
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    transition: width 1s, heigt 2s, transform 3s linear;
+    }
+    input[type=checkbox]:checked +.box{
+    /* input[type=checkbox]:checked ~.box{ */
+        width: 200px;
+        height: 200px;
+        transform: skew(720deg);
+        /* ~표시는 뒤에 이어지는 모든 형제 요소. + 표시는 뒤에 나오는 직후의 형제 요소만 해당*/
+    }
+</style>
+</head>
+
+<body>
+    <input type="checkbox"/> 체크! 
+    <!-- div.box{Hello}*2 -->
+    <div class="box">Hello</div>
+    <br/>
+    <div class="box">Hello</div>
+</body>
+</html>

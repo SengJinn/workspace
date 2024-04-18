@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 태그요소 상관없이 target 속성이 존재하는 모든 요소 */
+        [target]{
+            font-size:35px;
+        }
+        /* a 태그 요소 중에 target 속성에 부여된 값이 _blank 인 요소 */
+        a[target=_blank]{
+            color:red;
+        }
+    /* a태그 요소 중에 class속성에 부여된 값이 정확하게 apple인 요소 */
+        a[class=apple]{
+            color:aqua;
+        }
+
+        a[class|=orange]{
+            color:orange;
+        }
+
+        a[class~=banana]{
+            color:yellow;
+            background-color: pink;
+        }
+
+        div[class^=dummy]{
+            background-color: red;
+            color: white;
+        }
+
+        div[class$=end]{
+            background-color: blue;
+            color: white
+        }
+
+        div[class*=grape]{
+            background-color: pink;
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- a[href=#]{link}*3 -->
+    <a href="#" target="_blank">link</a>
+    <a href="#" target="_self">link</a>
+    <a href="#">link</a>
+    <br/><hr/>
+    <!-- a[href=#]*3 -->
+    <h3>class속성값이 정확하게 apple인 요소</h3>
+    <h4>a[class=apple]</h4>
+    <a href="#" class="apple">apple</a> <br/>
+    <a href="#" class="apple pine">apple pine</a> <br/>
+    <a href="#" class="pine-apple">pine-apple</a> <br/>
+
+    <!-- a[href=# class]*5 -->
+    <!-- shift + 원화표시 == 파이프  -->
+    <h3>orange class만 가지고 있거나 orange-으로 시작하는 class</h3>
+    <h4>a[class|=orange]</h4>
+    <a href="#" class="orange">orange</a> <br/>
+    <a href="#" class="red orange">red orange</a> <br/> 
+    <a href="#" class="red-orange">red-orange</a> <br/>
+    <a href="#" class="orange-red">orange-red</a> <br/>
+    <a href="#" class="orange_red">orange_red</a> <br/>
+    <br/><hr/>
+
+    <!-- a[href=# class]*3 -->
+    <h3>class속성에 "banana"라는 값이 존재하는 요소</h3>
+    <h4>a[class~=banana]</h4>
+    <a href="#" class="banana">banana</a><br/>
+    <a href="#" class="monkey banana">monkey banana</a><br/>
+    <a href="#" class="banana-monkey">banana-monkey</a><br/>
+
+    <!-- div.dummy{dummy}*5 -->
+    <h3>class 속성 값이 dummy로 시작하는 모든 요소</h3>
+    <h4>div[class^=dummy]</h4>
+    <div class="dummy">dummy</div>
+    <div class="dummy test">dummy</div>
+    <div class="dummy-test">dummy</div>
+    <div class="dummy_test">dummy</div>
+    <div class="test dummy">dummy</div>
+    <div class="test_dummy">dummy</div>
+
+    <br/><hr/>
+    <h3>class 속성값이 "end"로 끝나는 모든 요소</h3>
+    <h4>[class$=end]</h4>
+    <!-- div[class=end]{end}*4 -->
+    <div class="end">end</div>
+    <div class="start end">start end</div>
+    <div class="end what">end what</div>
+    <div class="end bye">end bye</div>
+
+    <br/><hr/>
+    <h3>class 속성값이 어떻게 조합되든 상관없이 grape만 완성되면 선택</h3>
+    <h4>[class*=grape]</h4>
+    <!-- div[class=grape]{grape}*5 -->
+    <div class="grape">grape</div>
+    <div class="tasty grape">tasty grape</div>
+    <div class="grape-tasty">grape-tasty</div>
+    <div class="tastygrape">tastygrape</div>
+    <!-- 대소문자 구분 -->
+    <div class="tastyGrape">tastyGrape</div>
+
+</body>
+</html>

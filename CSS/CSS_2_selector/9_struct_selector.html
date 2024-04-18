@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width: 260px;
+            height: 300px;
+            background-color: paleturquoise;
+            border: 1px solid black;
+        }
+        .box{
+            float: left;
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            /*      상 우  하 좌*/
+            margin: 0 5px 5px 0;
+           /* padding: 3px 0 0 3px;*/
+        }
+        /*구조 선택지*/
+        /*선택자로 검색된 요소 중 가장 처음에 존재하는 요소 선택*/
+        .box:first-child{
+            color: red;
+        }
+        /*선택자로 검색된 요소 중 가장 마지막에 존재하는 요소 선택*/
+        .box:last-child{
+            color:blue; 
+        }
+        /*클래스 이름이 box인 모든 요소를 검색하여
+        순번을 부여
+        순번은 1부터 시작하여 1씩 증가*/
+        .box:nth-child(2){
+            color: orange;
+        }
+        /*일정한 규칙에 따라 한줄로 배열된 수의 열
+        n은 부터 시작하는 모든 양의 정수를 나타냄*/
+        .box:nth-child(2n){
+            color: aliceblue;
+        }
+        .box:nth-child(7n){
+            color: pink;
+        }
+        .box:nth-child(7n-1){
+                background-color: red;
+                color: white;
+        }
+        /*선택지로 검색된 요소들 중에 마지막에 검색된 요소에서 순번에 따라 선택*/
+        .box:nth-last-child(3){
+            background-color: yellow;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- div#wrap>div.box{$}*31-->
+        <!-- div#wrap>div.box{$}*31 두자리로 숫자 표현-->
+    <div id="wrap">
+        <div class="box">01</div>
+        <div class="box">02</div>
+        <div class="box">03</div>
+        <div class="box">04</div>
+        <div class="box">05</div>
+        <div class="box">06</div>
+        <div class="box">07</div>
+        <div class="box">08</div>
+        <div class="box">09</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+        <div class="box">13</div>
+        <div class="box">14</div>
+        <div class="box">15</div>
+        <div class="box">16</div>
+        <div class="box">17</div>
+        <div class="box">18</div>
+        <div class="box">19</div>
+        <div class="box">20</div>
+        <div class="box">21</div>
+        <div class="box">22</div>
+        <div class="box">23</div>
+        <div class="box">24</div>
+        <div class="box">25</div>
+        <div class="box">26</div>
+        <div class="box">27</div>
+        <div class="box">28</div>
+        <div class="box">29</div>
+        <div class="box">30</div>
+        <div class="box">31</div>
+    </div>
+</body>
+</html>

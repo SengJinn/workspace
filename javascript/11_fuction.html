@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            함수(function) - 하나의 특별한 목적을 가진 작업을 수행하기 위해 독립적으로 설계된 코드의 집합.
+            javascript 함수 선언 키워드 : fuction
+            함수 이름 : 함수를 호출(실행)하기 위해 명시된 식별자 표기법은 카멜 표기법을 따름
+            매개변수(parameter) : 함수를 호출할 때 함수 실행에 필요한 데이터를 전달 받아 저장하는 변수 함수 실행 블럭{} 내부에서 사용
+            함수블럭(바디-본문) : 함수의 고유 기능을 수행하는 명령문의 집합
+            반환문(return문) : 함수가 모든 작업을 수행하고 반환되는 데이터를 명시. 함수의 기능이 완료됨을 의미
+            ------------------------------------------------------------
+            함수 선언
+            선언적 함수
+            function 함수 이름(매개변수, 매개변수, ...){
+                함수 블럭 - 실행 블럭{}
+                //실행문들...
+                //함수 기능이 수행되고 나서 결과를 호출한 곳으로
+                //반환(전달)할 때 사용되는 return문
+                return 결과값; [optional]
+            }
+        */
+        // add(); // 이 위치는 변수 선언 전이라 사용불가
+        let a = 1, b = 2;
+        let result = 0;
+
+        // 선언적 함수는 script 상단으로 hoisting되므로 어디에서나 호출 가능
+        add();
+        console.log("add 함수 선언 전 호출 결과 :" + result);
+
+        //매개변수도 없고 반환값이 없는 기본적인 형태의 함수
+        //호출 시 실행 블럭만 수행 후 종료
+        function add(){
+            result = a + b;
+        }
+        //선언된 함수는 호출이 되어야 실행
+
+        console.log("add 함수 호출 전 :" + result);
+
+        add(); //함수 호출(실행)
+
+        console.log("add 함수 호출 결과 :" + result);
+
+        // 매개변수는 없고 반환값이 있는 함수
+        function addReturn(){
+            // a, b가 더해진 결과를 호출한 곳으로 되돌려준다(반환한다.)
+            return a + b;
+        }
+
+        let resultReturn = addReturn(); // a + b
+        console.log("resultReturn:" + resultReturn);
+
+        //매개변수가 2개 존재하고 반환하는 값은 없는 함수
+        function addParam(x,y){
+            result = x + y;
+        }
+
+        // addParam 함수 호출 시 필요한 인자값(arguments) 전달
+        addParam(10,20);
+        console.log("addParam 호출 후 result:" + result);
+
+        //매개변수가 두 개 존재하고 전달된 매개변수에 저장된 인자값으로 연산한 후에 결과를 호출한 위치에 반환
+        function ext(x,y){
+
+            //매개변수는 함수 내부에서 사용되는 지역변수
+            //함수 블럭 밖에서는 사용 불가
+            //Uncaught ReferenceError : x is not defined
+            console.log("ext param : x-" + x + ", y -"+ y);
+            return x ** y;
+        }
+        result = ext(2,3);
+        console.log("ext(2,3); 후 결과 : " + result);
+
+        function twoDan(){
+            document,write(" 2x1 = 2 <br/>");
+            document,write(" 2x2 = 2 <br/>");
+            document,write(" 2x3 = 2 <br/>");
+            document,write(" 2x4 = 2 <br/>");
+            document,write(" 2x5 = 2 <br/>");
+            document,write(" 2x6 = 2 <br/>");
+            document,write(" 2x7 = 2 <br/>");
+            document,write(" 2x8 = 2 <br/>");
+            document,write(" 2x9 = 2 <br/>");
+        }
+
+        for(let i = 1; i <= 9; i++){
+            document.write(" 2 X "+i+" = "+(2 * i)+" <br/>");
+        }
+
+        document.write("<hr/>");
+
+        /*
+            quiz - 매개변수로 구구단의 단수를 하나 전달 받아 호출 했을 때 twoDan과 같이 해당 단수를 출력하는 함수를 선언하시오.
+        */
+        
+        function targetDan(dan){
+            for(let i = 1; i <= 9; i++){
+            document.write(dan + "X" +i+ "=" +(dan * i)+ "<br/>");
+            }
+        }
+        targetDan(3);
+        targetDan(13);
+
+        //기명 함수와 익명 함수
+        let anonyFunc = function(){ //익명함수
+            console.log("익명 함수 호출");
+        }
+
+        anonyFunc();
+
+        //화살표 함수를 사용한 익명함수 명시
+        // 변수 = (매개변수들...) => {실행문;}
+        let arrowFunc = () => {
+            console.log("arrow function 호출");
+        }
+        arrowFunc();
+
+        let arrowParam = (a) => {
+            alert(a+"받음");
+        }
+        arrowParam(10);
+
+        function factorial(num){
+            if(num > 1){
+                //함수 내부에서 함수 자신을 다시 호출
+                // 재귀 함수라고 부름
+                return num * factorial(num - 1);
+            }else{
+                return num;
+            }
+        }
+        let factorialResult = factorial(5);
+        console.log("factorialResult:" + factorialResult);
+        
+    </script>
+</body>
+</html>

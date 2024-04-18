@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* id 속성에 부여된 값이 "header"인 태그 요소
+        keyword : # */
+        div{
+            /*border 외곽선 : 선굵기 선스타일 선색상*/
+            border: 1px solid black;
+        }
+        #header{
+            /* 태그요소의 폭(너비) */
+            width: 800px;
+            background-color: gold;
+        }
+
+        #wrap{
+            width:800px;
+        }
+
+        #aside{
+            width:30%;
+            background-color: dodgerblue;
+        }
+        #content{
+            width: 70%;
+            background-color: ivory;
+        }
+
+        div[id=aside]{
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>#header tag</h1>
+    </div>
+    <div id="wrap">
+        <div id="aside">
+            <h1>#aside tag</h1>
+        </div>
+        <div id="content">
+            <h1>#content tag</h1>
+        </div>
+        <div id="content">
+            <h1>#content tag</h1>
+        </div>
+    </div>
+    <!-- id 속성에 부여될 수 있는 값은 하나.
+    이를 어기고 두 개 이상 적을 시에는 id 속성이 무시된다.-->
+</body>
+</html>

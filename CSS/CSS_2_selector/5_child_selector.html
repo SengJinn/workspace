@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /*동일한 우선 순위로 선택되어졌다고 하면
+       태그 요소를 찾기 위한 계층을 자세하게 표현한 선택지가 우선 순위를 가짐.*/
+       #header div h1{
+            background-color: aquamarine;
+        }
+        #header h1{
+            background-color: skyblue;
+            color: lightpink;
+        }
+        #header>h1{
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <!-- div#header  -->
+    <div id="header">
+        <h1>lorem ipsum</h1>
+        <!-- div#nav>h1{Navigation} -->
+        <div id="nav">
+            <h1>Navigation</h1>
+        </div>
+    </div>
+    <!-- div.dummy>h1{dummy}h2{dummy} -->
+    <div class="dummy">
+        <h1>dummy</h1>
+        <h2>dummy</h2>
+    </div>
+</body>
+</html>

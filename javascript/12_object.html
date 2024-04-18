@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            자바스크립트의 객체
+            자바스크립트의 모든 개념들이 객체에 포함된다고 봐도 무방할 정도로 범위가 넓음.
+
+            property(속성, attribute) - 프로퍼티 와 함수의 집합체
+        */
+        let product = {};
+        let person = {
+            name : "홍길동",
+            birth : "2023-10-19",
+            bloodtype : "A",
+            age : 23,
+            //method - 객체가 수행할 수 있는 행위
+            eat : function(food){
+                 return this.name+ "님이" + food + "를 먹습니다.";
+            }
+        };
+
+        //객체 안에 있는 프로퍼티(속성) 접근
+        //객체변수. 프로퍼티명
+        //객체변수['프로퍼티명']
+
+        //변수 선언과 동시에 객체 생성 및 속성 값 초기화
+        //JSON 표기법
+        //Javascript Object Notation
+        //(속성:값, 속성:값, 속성:값, 속성:함수)
+        console.log(person.name);
+        console.log(person['name']);
+        person.name = "최기근";
+        let doEat = person.eat("칼국수");
+        console.log(doEat);
+
+
+        //함수형 객체 선언
+        function Car(model, speed, color){
+            this.model = model;
+            this.speed = speed;
+            this.color = color;
+
+            //함수형 객체 선언
+            //car 객체를 생성하기 위한 설계도
+            this.accel = function(){
+                this.speed += 10;
+            }
+
+            this.break - function(){
+                this.speed -= 10;
+            }
+        }
+
+        // Car 생산
+        let choiCar = new Car("GV80",0,"white");
+        console.log(choiCar.model);
+        console.log(choiCar.speed);
+        console.log(choiCar.color);
+
+        let leeCar = new Car("Benz Sclass", 0 , "black");
+        console.log(leeCar);
+        choiCar.model = "마이바흐";
+        choiCar.accel();
+        console.log(choiCar);
+        
+    </script>
+</body>
+</html>

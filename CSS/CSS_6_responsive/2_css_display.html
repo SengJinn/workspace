@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            display: flex box model
+            태그 요소의 내부 아이템(box 모델)을 원하는 위치에 정렬 및 배치하는 속성
+            여유 공간에 따라 너비나 높이, 위치를 자유롭게 변경
+        */
+
+        *{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper{
+            width: 80%;
+            margin: 0 auto;
+            height: 100%;
+        }
+
+        .box{
+            display: flex;
+            background-color: #ccc;
+            height: 100%;
+            /*
+                flex-direction : 요소를 어떤 축으로 배치할 것인가
+                row, column, row-reverse, column-reverse
+                기본값은 row로 x축을 main axis(촉)으로 정렬
+                메인 축이 x축이면 반대 y축을 cross axis라고 한다.
+            */
+
+            flex-direction: column;
+            flex-direction: column-reverse;
+            flex-direction: row-reverse;
+            flex-direction: row; /*기본값*/
+/*
+    flex-wrap 
+    너비(row)나 높이(column)에 따라 크기를 압축 또는 줄바꿈 여부를 결정하는 속성
+    nowrap(기본값) : 줄바꿈하지 않음
+    wrap: 줄바꿈
+    wrap-reverse: 역순으로 정렬하여 줄바꿈
+    wrapping(wrap)된 요소는 크기를 유지하여 자동으로 줄바꿈.
+*/
+            flex-wrap:wrap;
+            flex-wrap: wrap-reverse;
+/*
+    flex-flow
+    flex-direction, flex-wrap을 같이 사용하는 경우가 많으므로 두 속성의 값을 한 번에 지정할 수 있도록 제공하는 속성
+*/          flex-flow: column wrap;
+            flex-flow: row nowrap;
+
+            /* 수평 정렬 */
+            align-items: center;
+            align-items: stretch; /*기본값*/
+            align-items: flex-start;
+            align-items: flex-end;
+            align-items: baseline;
+
+            /* 수평 정렬 */
+            /* 기본값: 왼쪽으로 정렬(left) */
+            justify-content: flex-start;
+            /* right로 정렬하되 정렬 순서는 유지 */
+            justify-content: flex-end;
+            /* 좌우끝여백을 포함하여 동일한 간격으로 여백을 제공하여 정렬 */
+            justify-content: space-around;
+            /* 동일한 간격으로 여백을 제공하되 좌우 일정하게 배치 */
+            justify-content: space-between;
+            /* 동일한 간격으로 여백(좌우여백 포함)을 제공하되 좌우 일정하게 배치 */
+            justify-content: space-evenly;
+
+            /* 중심축을 y축으로 변경 */
+            flex-direction: column;
+            /*
+                align-items가 수평 정렬
+                justify-content가 수직 정렬로 변경
+            */
+
+            /*기본 값으로 변경*/
+            flex-flow: nowrap;
+        }
+        /*
+            flex-box
+            item 요소에 적용되는 속성
+            order: 순서 지정 (기본값은 0)
+            flex-grow: 남에 있는 여백을 비율에 따라 채우는 속성
+            flex-shlink: 벗어나는 여백을 flex-box에 맞게 제거하는 속성
+            flex-basis: flex-item의 기본 크기 지정
+            flex: flex-grow, flex-shlink, flex-basis 동시 지정
+            align-self: 지정 요소의 정렬 지정
+        */
+
+        .item{
+            width: 80px;
+            height: 80px;
+            background-color: pink;
+        }
+
+        .item01{
+            padding: 30px;
+            background-color: rgb(255, 107, 107);
+            order: 4;
+            align-self: flex-end;
+        }
+
+        
+        .item02{
+            background-color: rgb(255, 244, 146);
+            order: 3;
+            align-self: center;
+        }
+
+        
+        .item03{
+            background-color: rgb(209, 255, 103);
+
+        }
+
+        
+        .item04{
+            background-color: rgb(152, 193, 255);
+
+        }
+
+        
+        .item05{
+            background-color: rgb(182, 250, 255);
+
+        }
+
+        
+        .item06{
+            background-color: rgb(255, 193, 193);
+
+        }
+
+        
+        .item07{
+            background-color: rgb(255, 177, 236);
+
+        }
+
+        
+        .item08{
+            background-color: rgb(221, 186, 241);
+            order: -3;
+        }
+
+        
+        .item09{
+            background-color: rgb(130, 255, 157);
+
+        }
+
+        
+        .item10{
+            background-color: rgb(191, 238, 147);
+            order: -4;
+        }
+    </style>
+</head>
+<body>
+    <!-- div.wrapper>div.box>div.item.item$${$$}*10 -->
+    <div class="wrapper">
+        <div class="box">
+            <div class="item item01">01</div>
+            <div class="item item02">02</div>
+            <div class="item item03">03</div>
+            <div class="item item04">04</div>
+            <div class="item item05">05</div>
+            <div class="item item06">06</div>
+            <div class="item item07">07</div>
+            <div class="item item08">08</div>
+            <div class="item item09">09</div>
+            <div class="item item10">10</div>
+        </div>
+    </div>
+</body>
+</html>

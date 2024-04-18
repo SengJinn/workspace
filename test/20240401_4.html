@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- table>(tr>td*2)*8 드래그 후 컨트롤 스페이스바 -->
+    <form>
+    <table border="1">
+        <tr>
+            <td colspan="2">회원가입</td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td><input type="email" name="email" value="neo.naver.com" autofocus tabindex="1" autocomplete="off" ></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" value="네오" tabindex="2"></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type="password" value="12345" tabindex="3"/></td>
+        </tr>
+        <tr>
+            <td><label for="rePW">비밀번호확인</label></td>
+            <td><input type="password" value="12345" id="rePW"/></td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td>
+                <label><input type="radio" name="gender"/>남성</label> <label><input type="radio" name="gender" checked/>여성</label> 
+            </td>
+
+        </tr>
+        <tr>
+            <td>나이</td>
+            <td>
+                <input type="number" placeholder="숫자를 입력하세요.">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="회원가입"/>
+                <input type="reset" />
+                <input type="button" value="로그인">
+                <button tyoe="button">확인</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

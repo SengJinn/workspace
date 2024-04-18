@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input = prompt("성별을 입력하세요!(남성또는남 ,여성또는여)");
+  
+        /*
+        if(input == "여성"){
+          document.write("여자화장실은 오른쪽입니다.");
+        }else if(input == "여"){
+          document.write("여자화장실은 오른쪽입니다.");
+        }
+        */
+        if(input == "여성" || input == "여"){
+          document.write("여자화장실은 오른쪽입니다.");
+        }else if(input == "남성" || input == "남"){
+          document.write("남자화장실은 왼쪽입니다.");
+        }else{
+          document.write("화장실을 찾을 수 없습니다.");
+        }
+  
+        // switch
+        switch(input){
+            case "여성" :
+                document.write("여자 화장실은 오른쪽입니다.");
+                break; // case가 일치할 때 실행문 수행 후 break문을 만나면 switch문 즉시 종료
+                case "여" : 
+                document.write("여자 화장실은 오른쪽입니다.");
+                break;
+            
+            case "남성" : case "남" :
+                document.write("남자 화장실은 왼쪽입니다.");
+                break;
+            default : document.write("확인할 수 없습니다.");
+        }
+      </script>
+</body>
+</html>

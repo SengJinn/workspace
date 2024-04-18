@@ -1,0 +1,33 @@
+<!-- test_internal.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내부 스타일 시트</title>
+    <link rel="stylesheet" href="test.css"/> 
+    <style>
+        h1{
+             color:skyblue; 
+             background-color: aquamarine;
+        }
+        h3{
+            color: brown;
+            background-color: beige;
+        }
+        span{
+            color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <h1>Internal Style Sheet</h1>
+    <h2>문서 내부에서 스타일 적용</h2>
+    <!-- (h3>(span{internal}{CSS}))*5 중괄호는 내부 컨텐츠를 의미 -->
+    <h3><span>internal</span>CSS</h3>
+    <h3><span>internal</span>CSS</h3>
+    <h3><span>internal</span>CSS</h3>
+    <h3><span>internal</span>CSS</h3>
+    <h3><span>internal</span>CSS</h3>
+</body>
+</html>

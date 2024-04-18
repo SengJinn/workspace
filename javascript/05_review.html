@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review</title>
+    <script>
+        // 한줄 주석
+        
+        /*
+            (다중행)범위 주석
+        */
+
+        /*
+            변수(variable)
+            의미 있는 데이터를 저장하는 하나의 공간.
+
+        변수 선언 키워드
+            (ES5)까지는 var만 사용가능
+        var : script 태그 내부에서 어디서나 사용 가능한 전역변수
+            hoisting 발생(var keyword로 선언된 변수의 선언부는 script 태그의 최상부로 이동되어 정의됨.)
+            (ES6)에 추가된 keyword
+        let : 선언된 위치 또는 선언된 block{} 내부에서 사용가능 
+                local variable(지역변수)
+        const : constant(상수) - 한번 값이 정해지면 초기화된 값을 
+                변경할 수 없음.
+        */
+
+        let declaration; //변수 선언
+        declaration = 10; //초기화
+        declaration = 100; //재할당
+
+        /*
+            특정 변수 또는 함수를 구분하기 위한 이름 - 식별자
+            문법 - 지키지 않으면 문법 오류로 프로그램 종료
+
+            1.예약어(keyword)는 사용불가(var, let, const, true, false 등)
+            2.특수문자(기호)는 $, _ 만 사용가능
+            3.숫자로 시작 불가
+            4.식별자(이름) 사이에 공백은 사용 불가
+            5.동일한 식별자를 중복하여 사용 불가 - 대소문자는 구분됨.
+            
+            표기법(개발자사이의 규칙)
+            1.변수명 함수명은 카멜 표기법(camelCase) 사용
+              (시작은 소문자로 단어와 단어사이의 첫글자는 대문자)
+              ex : studentName, studentStudy().. 등등
+            2.값을 변경할 수 없는 상수 - 대문자 + snake case(SCREAMING_SNAKE_CASE)
+              (식별자를 모두 대문자로 표시하되 이어지는 단어의 구분을 _로 구분)
+              ex : MAX_WIDTH, MIN_SIZE, PI, SPEED_OF_LIGHT
+            3.객체 선언 시 - PascalCase 사용
+                camelCase와 동일하게 작성하되 첫단어의 첫글자를 대문자로 표시
+                ex : Student, Car, Human, Keyword, JavaScript 등등
+        */
+
+        /*
+            javascript data type
+            변수에 저장하고 연산에 활용할 수 있는 데이터의 종류
+            
+            수치형(number) : 정수 or 실수
+            문자열(string) : '', " "
+            논리형(boolean) : true(참) or false(거짓)
+            함수형(function) : function 식별자(){}
+            객체형(object) : {속성:값, 속성:값, 속섬:함수 ...}
+                            javascript에서는 function(함수)도 객체가 될 수 있음.
+            배열(array) : 연속된 공간에 나열된 데이터를 저장
+
+            undefined : 값이 할당되지 않은 상태를 의미
+                        선언만 되어있고 초기화가 되지않은 상태를 의미
+            null : 어떤 값이 의도적으로 비어있음을 표현하는 데이터타입 
+                    (참조하는 데이터가 존재하지 않음을 의미)
+            Infinity : javascript에서 표현할 수 있는 양의 수를 넘는 무한대를 나타냄.
+                        특정한 수를 0으로 나누었을때 나타남.
+            NaN : Not a Number - 수치로 연산할 수 없는 데이터가 포함되어 있음을 의미
+        */
+           
+        /*
+            연산자
+            이항연산자 : 연산에 사용되는 항이 2개인 연산자
+            연산 순서가 우항에서 좌항으로 이동 <-
+            = : 대입 연산자 우변의 data를 좌변으로 대입하는 연산자
+
+            연산순서 : 좌항에서 우항으로 연산 ->
+            산술연산자 - 수치형 데이터를 연산
+            +, -, *, /, %, **
+            (2 * 3 / 10 ** 3)
+            사칙연산과 동일하게 우선순위를 가짐
+            연산 우선 순위
+            0순위()
+            1순위 **
+            2순위 *, /, %
+            3순위 +, -
+        */
+
+        let variable = 10; //number
+        variable = true; // or false   boolean
+        variable = null; //변수에 저장할 의미있는 데이터가 없음을 의미
+        variable = '문자열 의미'; //string
+        variable = "text 문자열데이터"; //string
+
+        /*
+            escape 문자 
+            \t      들여쓰기 하나를 의미
+            \n      줄바꿈(new line)
+            \'      
+            \"      
+            \\
+        */
+        variable = "\"JavaScript\" 학습"; 
+        console.log(variable);
+        variable = "\tJavaScript를 \n 학습합니다.";
+        console.log(variable);
+        // template 문자열
+        variable = `
+        'JavaScript'를 학습합니다.
+        "문자열" 정보를 확인합니다.
+        ${variable}
+        `;
+        console.log(variable);
+        //소괄호 안의 변수가 어떤 데이터 타입의 값을 저장하고 있는지 표현
+        console.log(typeof(variable));
+
+        let num = "10";
+        let answer = num / 2;
+        console.log(answer);
+
+        num="삼";
+        answer = num * 2;
+        console.log(answer);
+
+        // inNaN(x) : x에 저장된 값이 수치형으로 사용할 수 없는 값이면 true, 수치형으로 사용할 수 있는 값이면 false
+        answer = isNaN(num);
+        console.log(answer);
+
+        num="32";
+        let num2 = 42;
+        answer = num - num2;
+        console.log(answer);
+
+        //문자열 데이터와 다른 데이터가 + 연산이 이루어지면 문자열이 이어진 새로운 문자열로 결과 출력 (다른 산술과 다름)
+        answer = num + num2;
+        console.log(answer);
+
+        //문자열에 포함된 데이터가 수치형으로 변환 가능한 데이터이면 number type으로 데이터 타입을 변경하여 출력
+        let num1 = parseInt(num);
+        console.log(num1);
+        console.log(typeof(num1));
+        answer = num1 + num2;
+        console.log(answer);
+    </script>
+</head>
+<body>
+    
+    <script>
+        /*
+            document - html 문서를 의미
+            write(); 괄호 안의 내용을 문서에 출력
+        */
+        document.write("<h1>문서에 출력</h1>");
+
+        //사용자에게 간단한 알림창으로 출력
+        //()안의 문구를 안내문구로 사용
+        alert("안녕하세요! 이제 나가 주실래요?")
+        // 알림창이 종료될 때까지 대기...
+
+        //알림창에 버튼을 추가하여 출력
+        //확인 취소 버튼에 따라 boolean type의 값을 출력
+        //확안 : true, 취소or닫기 : false
+        let accept = confirm("결제하시겠습니까? 999,999,999원");
+        document.write("결제동의 :" + accept + "<br/>");
+
+        // 괄호 안의 안내문구를 출력하고
+        // 사용자에게 간단한 text(문자열)을 입력받아 출력
+        let age = prompt("나이를 입력해 주세요");
+        document.write(`<h2>당신의 나이는 ${age} 입니다.</h2>`);
+    </script>
+</body>
+</html>

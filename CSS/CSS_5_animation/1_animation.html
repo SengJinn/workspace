@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .anim1, .anim2{
+        width:100px;
+        height: 100px;
+        background-color: aquamarine;
+    }
+    /*
+        css3 animation
+        지정된 css속성이 frame에 따라 변경되는 디자인을
+        부드럽게 시간에 따라 보여주는 속성
+    */
+
+    .anim1{
+        /*적용 시킬 애니메이션 frame*/
+        animation-name: changeOpacity;
+        /*애니메이션 효과를 출력할 시간*/
+        animation-duration: 3s;
+        /*반복 횟수*/
+        animation-iteration-count: 3;
+        /*무한히 반복*/
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        /*
+            direction: animation 효과 진행 방향 설정
+            normal: 지정한 프레임 순서대로 진행
+                    from -> to 종료
+                    from -> to 종료
+            reverse: 반대 방향으로 진행
+                    to -> from 종료
+                    to -> from 종료
+            alternate: 정해진 순서로 진행했다가 다시 반대로 진행
+                    from -> to -> from 종료
+                    from -> to -> from 종료
+            alternate-reverse
+                    to -> from -> to 종료
+                    to -> from -> to 종료
+        */
+        animation-direction: reverse;
+        animation-direction: alternate;
+        animation-direction: alternate-reverse;
+    }
+    /*지정된 이름을 KEY(구분)로 구분해서 변경될 디자인의 구조를 정의*/
+    @keyframes changeOpacity{
+        /*시작*/
+        from{
+            opacity: 1.0;
+        }
+        /*끝*/
+        to{
+            opacity: 0;
+        }
+    }
+
+    @keyframes changeStyle{
+        /*시작:from*/
+        0%{
+
+        }
+        
+        50%{
+            width: 300px;
+            background-color: lavenderblush;
+            transform: rotate(360deg);
+        }
+        /*끝:to*/
+        100%{
+            width: 200px;
+            background-color: purple;
+        }
+    }
+
+    .anim2{
+        animation: changeStyle 3s infinite linear alternate;
+    }
+
+    </style>
+</head>
+<body>
+    <!-- div.anim$*2 -->
+    <div class="anim1"></div>
+    <br/>
+    <div class="anim2"></div>
+</body>
+</html>

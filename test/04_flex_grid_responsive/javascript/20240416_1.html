@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 사용자에게 정수를 입력받아서 3의 배수 여부에 따라 결과 출력
+        // 사용자가 입력한 숫자를 input이라는 변수에 저장
+        let input = prompt("숫자를 입력해주세요.");
+
+        // 3의 배수인지 아닌지 여부 조건식으로 확인
+        // x % y == 0,  x는 y로 나누어 떨어진다. == x는 y의 배수
+        if(input % 3 == 0){
+            // input에 저장된 값이 3으로 나누어 떨어지는 3의 배수.
+            document.write(input+"은(는) 3의 배수입니다.");
+        }else{
+            // input % 3 == 0 거짓일 경우 수행.
+            document.write(input+"은(는) 3의 배수가 아닙니다.");
+        }
+
+        // 반복하면서 사용자에게 정수값을 입력받아
+        // 5의 배수인지 아닌지를 출력
+        // 입력한 값이 수치를 비교할 수 없는 값이면 반복문 종료
+
+        while(true){
+            input = prompt("정수를 입력해주세요.");
+            // 탈출 조건
+            // 취소 버튼을 눌리거나, 값을 입력하지 않았거나,
+            // 수치형 데이터로 사용할 수 있는 값을 입력하지 않았을때
+            // 반복문 종료
+            // 취소 || 닫기  : null
+            // 입력창에 값을 작성하지 않고 확인 : "" 
+            // 수치로 사용할 수 없는 데이터인지 확인 : isNaN(input)
+
+            let answer = "사용할 수 없는 값입니다. 종료합니다.";
+            if(input == null || input == "" || isNaN(input)){
+                // answer 안내 출력
+                alert(answer);
+                // break;문 이후를 수행하지 않고
+                // 인접한 반복문을 즉시 탈출
+                break;
+            }
+
+            // 입력받은 값이 5의 배수인지 확인
+            /*
+            if(input % 5 == 0){
+                answer = input+"은(는) 5의 배수";
+            }else{
+                answer = input+"은(는) 5의 배수가 아님";
+            }
+            */
+
+            // 삼항연산자 ?:
+            // 피연산자의 항이 3개인 연산자
+            // 대입될 변수 = (조건식) ? 참 : 거짓 ;
+            answer = input % 5 == 0 ? "5의 배수" :  "5의 배수 아님";
+            alert(answer);
+        }
+    </script>
+</body>
+</html>

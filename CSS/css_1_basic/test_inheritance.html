@@ -1,0 +1,33 @@
+<!-- css/css_1_basic/test_inheritance.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header{
+            color: blueviolet;
+        }
+
+        header>h1{
+            /* color:initial; > 계층 간에 전달되는 디자인 속성을 사용하기 싫으면 이니셜태그*/
+            /* color:inherit; > 계층 간에 전달되는 디자인을 그대로 사용할 때*/
+        }
+        /* 헤더와 맞붙어 있는 태그 요소인 h1에만 해당됨.(내부에 맞붙어 있는 태그 요소=자식요소, 태그 안에 정리된 모든 요소=자손요소) div를 끼고 이어지는 h1에는 해당되지 않음 */
+        /* 꺽새가 들어가면 자식요소를 의미, 없으면 자손요소를 의미 */
+    </style>
+</head>
+<body>
+    <header>
+        TITLE 
+        <h1>Header - 1</h1>
+        <div>
+            HEADER div 
+            <span>Span</span>
+            <h1>Header 안에 div 안에 h1</h1>
+        </div>
+    </header>
+    <h1>OUTER HEADER</h1>
+</body>
+</html>

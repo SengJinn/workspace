@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#wrapper{
+            width: 900px;
+            min-height: 300px;
+            margin: 0 auto;
+            color: white;
+        }
+        header, footer, nav, aside, section{
+            border: 1px solid gray;
+            padding: 10px;
+        }
+
+        header{
+            height: 50px;
+            background-color: skyblue;
+            margin-bottom: 10px;
+        }
+
+        main{
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        nav, aside{
+            background-color: pink;
+            width: 100px;
+        }
+
+        nav{
+            margin-right: 10px;
+        }
+
+        aside{
+            margin-left: 10px;
+        }
+
+        section{
+            /* width: 674px; */
+            width: 680px;
+            background-color: lightgreen;
+        }
+
+        footer{
+            background-color: skyblue;
+            height: 50px;
+        }
+
+        aside, section, nav{
+            float: left;
+            box-sizing: border-box;
+            height: 500px;
+        }
+
+        nav ol{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ol li{
+            width: 100%;
+            text-align: center;
+        }
+
+        nav ol li:hover{
+            color: black;
+            cursor: pointer;
+        }
+
+        article{
+            width: 90%;
+            margin: 20px;
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <p>header</p>
+        </header>
+        <main>
+            <nav>
+                <p>nav</p>
+                <ol>
+                    <li>menu-1</li>
+                    <li>menu-2</li>
+                    <li>menu-3</li>
+                </ol>
+            </nav>
+            <section>
+                <p>section</p>
+                <article>
+                    <p>article</p>
+                    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet perspiciatis iste sint sapiente voluptate doloremque, excepturi, tempore soluta minus libero quos voluptas? Fuga neque, eveniet temporibus deserunt dolor commodi tempore.</span><span>Dignissimos asperiores ratione dolore quia pariatur adipisci necessitatibus, fuga laborum doloremque quas ullam odio ipsam fugiat? Culpa, harum ratione laudantium voluptas aperiam dolorem enim ad vero, nesciunt maxime eligendi natus?</span><span>Fugiat velit provident quas similique nobis? Atque inventore ullam dolor dolores, molestiae cumque doloremque, et eveniet veniam provident culpa nulla. Error corporis vel, dolorem sint ex libero maiores nobis obcaecati.</span><span>Doloremque, nisi, distinctio sequi repellat sint exercitationem assumenda velit saepe non sapiente inventore tempora quod rem unde odio nostrum. Optio reiciendis sed ullam necessitatibus harum deserunt provident corporis quos ipsa!</span><span>Recusandae ipsa laboriosam quasi? Repudiandae iure, cumque eum dignissimos porro et magnam? Veniam sapiente blanditiis repellat necessitatibus officia laudantium dolorem nemo error alias tempora? Pariatur possimus nostrum quae repellat odio!</span></p>
+                </article>
+            </section>
+            <aside> <p>aside</p> </aside>
+        </main>
+        <footer>
+            <p>footer</p>
+        </footer>
+    </div>
+</body>
+</html>

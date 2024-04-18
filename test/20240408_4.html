@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 기본 프로젝트</title>
+    <style>
+        /*전체 요소의 기본 css 속성 초기화*/
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        body{
+            width: 960px;
+            background-color: #e6e6e6;
+            margin: 0 auto;
+        }
+
+        #page-wrapper{
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 40px 0;
+            /*        x-position y-position blur-radiud color*/
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+        }
+
+        .pull-left{
+            float: left;
+        }
+
+        .pull-right{
+            float: right;
+        }
+
+        /*header*/
+        header#main-header{
+            padding: 40px 50px;
+        }
+
+        .master-title{
+            font-size: 30px;
+            color: #181818;
+        }
+
+        .master-description{
+            font-size: 15px;
+            color: #383838;
+            font-weight: normal;
+        }
+
+        /*navigation*/
+        nav#main-navigation{
+            height: 40px;
+            /* 위아래 외곽선 */
+            border-top: 1px solid #c8c8c8;
+            border-bottom: 1px solid #c8c8c8 ;
+        }
+
+        .outer-menu-item{
+            float: left;
+            position: relative;
+        }
+
+        .inner-menu{
+            display: none;
+            position: absolute;
+            height:fit-content;
+            width:fit-content;
+            background-color: rgb(255, 255, 255, 0.9);
+            text-align: center;
+            color: #181818;
+        }
+            
+
+        .outer-menu-item:hover .inner-menu{
+            display: block;
+        }
+
+        .menu-title{
+            display: block;
+            height: 30px;
+            padding: 5px 20px;
+            line-height: 30px;
+            text-align: center;
+        }
+        /*search bar*/
+        .search-bar{
+            padding: 7px;
+            height: 26px;
+        }
+
+        .input-search, input-search-submit{
+            display: block;
+            float: left;
+            
+        }
+
+        .input-search{
+        border: 1px solid #ccc;
+        height:24px;
+        width: 120px;
+        /*           상좌 상우 하우 하좌*/
+        /* 모서리 호 */
+        border-radius: 15px 0 0 15px; 
+        } 
+
+        .input-search-submit{
+            border: 1px solid #ccc;
+            border-radius: 0 15px 15px 0;
+            width: 50px;
+            height: 26px;
+            border-left: none;
+        }
+
+        /* 주요 컨텐츠 부분 */
+        /* 
+            전체 크기 960px 
+            #page-wrapper - padding: 10px 20px;
+        */
+
+        #content{
+            overflow: hidden;
+        }
+
+        #main-section{
+            float:left;
+            width:710px;
+        }
+
+        #main-aside{
+            float:right;
+            width:200px;
+        }
+
+        /*좌측 메인 컨텐츠*/
+         article{
+            padding: 0 10px 20px 10px;
+            border-bottom: 1px solid #c8c8c8;
+         }
+
+         .article-header{
+            padding: 20px 0;
+         }
+
+         .article-title{
+            font-size: 25px;
+            font-weight: normal;
+            padding-bottom: 10px;
+         }
+
+         .article-date{
+            font-size: 13px;
+         }
+
+         .article-body{
+            font-size: 14px;
+         }
+
+         /*우측 aside 컨텐츠*/
+         .aside-list{
+            padding: 10px 0 30px 0;
+         }
+
+         .aside-list>h3{
+            font-size: 16px;
+         }
+
+         .aside-list ul li a{
+            font-size: 13px;
+            color: #c4c4c4;
+            margin-left: 8px;
+         }
+
+    </style>
+</head>
+<body>
+    <div id="page-wrapper">
+		<header id="main-header">
+            <hgroup>
+                <h1 class="master-title">HTML5 Example Preview</h1>
+                <h2 class="master-description">한국기술교육직업전문학교</h2>
+            </hgroup>
+        </header>
+        <nav id="main-navigation">
+            <div class="pull-left">
+                <ul class="outer-menu">
+                    <li class="outer-menu-item">
+                        <span class="menu-title">HTML5</span>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        </ul>
+                    </li>
+                    <li class="outer-menu-item">
+                        <span class="menu-title">CSS3</span>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        </ul>
+                    </li>
+                    <li class="outer-menu-item">
+                        <span class="menu-title">JavaScript</span>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                            <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="pull-right">
+                <div class="search-bar">
+                    <form>
+                        <input type="text" class="input-search" />
+                        <input type="submit" class="input-search-submit" value="검색" />
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div id="content">
+            <section id="main-section">
+                <article>
+                    <div class="article-header">
+                        <h1 class="article-title">HTML5 개요와 활용</h1>
+                        <p class="article-date">2018년 08월 21일</p>
+                    </div>
+                    <div class="article-body">
+                        <img src="http://placehold.it/430x280" />
+                        <br />
+                        <br />
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo justo ac lorem pretium vitae rhoncus lectus ullamcorper. Aliquam facilisis euismod diam sollicitudin commodo. Nunc sagittis sapien venenatis lorem vestibulum cursus pellentesque mi sodales. Donec pellentesque hendrerit turpis, vitae tempor nibh ultricies at. Aliquam consequat rutrum erat, vel sodales tellus sagittis at. Proin sollicitudin augue eu augue vehicula vitae bibendum odio porta. Aliquam elit arcu, venenatis in imperdiet ut, scelerisque non dolor. Donec in vulputate tortor. Fusce egestas rutrum mi quis ultricies. Vivamus blandit augue ac felis ullamcorper consectetur. Curabitur pretium fringilla neque, vitae cursus massa auctor vitae. Integer non massa sit amet lacus accumsan blandit. Vivamus fermentum tellus at justo iaculis eu tempus lorem venenatis. Suspendisse quis eros consectetur tellus posuere commodo. In hac habitasse platea dictumst.</p>
+                        <br />
+                        <p>Praesent orci quam, ornare sed scelerisque ac, porta a justo. Pellentesque quis magna sed magna vehicula semper ac ut enim. Duis ut mattis ligula. Mauris at sem elit. Vestibulum justo tortor, malesuada non tincidunt quis, feugiat ut metus. Maecenas varius neque ut diam ultrices scelerisque. Praesent lectus massa, tincidunt vel adipiscing non, vehicula ut magna. Cras quis lacinia ipsum. Sed consequat consectetur volutpat. Integer sed tortor risus. Donec accumsan ante vel justo porttitor volutpat.</p>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-header">
+                        <h1 class="article-title">HTML5 응용과 실습</h1>
+                        <p class="article-date">2018년 08월 20일</p>
+                    </div>
+                    <div class="article-body">
+                        <img src="http://placehold.it/430x280" />
+                        <br />
+                        <br />
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo justo ac lorem pretium vitae rhoncus lectus ullamcorper. Aliquam facilisis euismod diam sollicitudin commodo. Nunc sagittis sapien venenatis lorem vestibulum cursus pellentesque mi sodales. Donec pellentesque hendrerit turpis, vitae tempor nibh ultricies at. Aliquam consequat rutrum erat, vel sodales tellus sagittis at. Proin sollicitudin augue eu augue vehicula vitae bibendum odio porta. Aliquam elit arcu, venenatis in imperdiet ut, scelerisque non dolor. Donec in vulputate tortor. Fusce egestas rutrum mi quis ultricies. Vivamus blandit augue ac felis ullamcorper consectetur. Curabitur pretium fringilla neque, vitae cursus massa auctor vitae. Integer non massa sit amet lacus accumsan blandit. Vivamus fermentum tellus at justo iaculis eu tempus lorem venenatis. Suspendisse quis eros consectetur tellus posuere commodo. In hac habitasse platea dictumst.</p>
+                        <br />
+                        <p>Proin ut fringilla sapien.</p>
+                    </div>
+                </article>
+            </section>
+            <aside id="main-aside">
+                <div class="aside-list">
+                    <h3>카테고리</h3>
+                    <ul>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                    </ul>
+                </div>
+                <div class="aside-list">
+                    <h3>최근 글</h3>
+                    <ul>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <footer id="main-footer">
+            <a href="#">Created By Team-koreate</a>
+        </footer>
+    </div>
+</body>
+</html>

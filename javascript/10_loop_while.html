@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            whule(조건식){
+                반복적으로 수행될 실행문s...
+            }
+            조건식이 false(거짓)가 되거나
+            반복문을 즉시 탈출하는 break문을 만나면 반복 종료
+
+            do{
+                반복적으로 수행될 실행문s...
+            }while(조건식);
+            do{}을 실행 후 while문의 조건식을 검사
+            조건식이 거짓이더라도 최초의 한번은 실행 보정
+        */
+
+        let i = 0;
+        while(i < 10){
+            // i < 10이 참일 때 실행될 실행문들...
+            document.write(i+" ");
+            // i 값 출력
+            i++;
+        }
+        document.write("<br/>");
+
+        //i 변수의 값을 0으로 재할당
+        i = 0;
+
+        while(true){
+            document.write("while문을 이용한 반복문 연습" + i + "<br/>");
+            // 반복될 때마다 i값을 1증가
+            i = i + 1;
+            if(i == 10){
+                break;
+            }
+        }
+        /*
+            while - 반복횟수가 정해져 있지 않을 때 주로 사용
+            실습 가정 - 임의로 지정된 아이디와 패스워드로 로그인 요청 처리
+        */
+        // 저장된 아이디와 패스워드를 가정
+        let userId = 'id001';
+        let userPw = 'pw001';
+
+        //반복문 탈출을 위한 flag
+        let isRun = true;
+        do{
+            let id = prompt("아이디를 입력해주세요.");
+            let pass = prompt("비밀번호를 입력해주세요.")
+
+            let message = "로그인 실패. 다시 시도해주세요.";
+            if(userId == id && userPw == pass){
+                message = "로그인 성공!";
+                // break;
+                isRun = false;
+            }
+            alert(message);
+        }while(isRun);
+
+    </script>
+</body>
+</html>

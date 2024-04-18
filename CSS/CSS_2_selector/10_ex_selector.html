@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     /* :root 가상의 최상위 요소 선택자 */
+        :root{
+            --text-content-color:skyblue;
+            --text-content-size: 30px;
+            --befre-color: red;
+            --after-color: blue; 
+        }
+        .before{
+            color: red;
+        }
+        p.before{
+            color: var(--text-content-color);
+        }
+        /*
+        가상선택자
+        선택자::가상요소
+        */
+
+        p.before::before{
+            content : "before는 앞에 추가됩니다.";
+            color: var(--before-color);
+        }
+
+        .after::after{
+            content: "after는 뒤에 추가됩니다.";
+            color: blue;
+        }
+
+        .line{
+            color:var(--test-content-color, blue);
+            font-size: var(--text-content-size);
+            background-color: var(--text-content-color);
+        }
+
+        .line::first-line{
+             color: red;
+        }
+        .line::first-letter{
+            color: aliceblue;
+        }
+
+        p::selection{
+            background-color: pink;
+            color: blue;
+        }
+
+        input[type=text]{
+            color: aqua;
+            letter-spacing: 3px;
+        }
+
+        input[type=text]::placeholder{
+            color: pink;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- p.before{before 예시} -->
+    <p class="before">before 예시</p>
+    <!-- div.before{div before}-->
+    <div class="before">div before</div>
+    <!-- p.after(after예시)-->
+    <P class="after">after예시</P>
+
+    <p class="before after">before after 예시</p>
+
+    <!-- p.line -->
+    <p class="line">
+        <!-- lorem-->
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus temporibus earum voluptas ad recusandae error nobis animi perferendis saepe ullam repudiandae adipisci quasi illo doloribus sapiente, aperiam repellat, cum illum.
+    </p>
+
+    <input type="text" placeholder="테스트용 문구 작성"/>
+</body>
+</html>

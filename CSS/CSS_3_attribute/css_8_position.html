@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* position 속성 
+           요조가 배치되는 방식을 결정 - 기본값은 static
+           static relative absolute fixed 
+        */
+
+        .box1{
+            position: static;
+            width: 500px;
+            height: 500px;
+            background-color: blanchedalmond;
+            margin-bottom: 50px; 
+        }
+
+        .absolute_parent{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin-top: 100px;
+            background-color: blue;
+        }
+
+        .absolute_child{
+            position: absolute; /*절대 위치를 기준으로 위치 이동이 가능해짐 static상태는 이동 불가 다른 요소에 겹쳐서 이동시킬 수 있게 됨
+            부모가 3차원 성질(relative)일 경우엔 부모를 기준으로 이동*/
+            top:100px;
+            left:100px;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+
+        .fixed{
+            position: fixed;
+            top: 50px;
+            right:50px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="absolute_parent">
+        <div class="absolute_child"></div>
+    </div>
+    <div class="fixed"></div>
+</body>
+</html>

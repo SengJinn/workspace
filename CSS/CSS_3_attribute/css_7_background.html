@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 1700px;
+            background-image: url(../../img/rice.png);
+            background-repeat: repeat;
+            background-repeat: repeat-x;
+            background-repeat: repeat-y;
+            background-repeat: no-repeat;
+            /*top bottom left right center*/
+            background-position: center;
+            background-position: top 10px right 50px;
+            /*
+                attachement : 부착
+                scroll : 스크롤과 같이 이동
+                fixed : 브라우저에 고정
+            */
+            background-attachment: fixed;
+            background-size: 200px 100px;
+            background: url(../../img/rice.png);
+        }
+
+        .bg{
+            /*알파는 투명도 0투명 ~ 1불투명 */
+            background-color: rgba(100,30,50,0.7);
+            width: 300px;
+            height: 300px;
+            /*태그요소에 투명도 지정 0투명 1불투명*/
+            /*opacity: 0.5;*/
+        }
+
+        .img{
+            width: 30%;
+            background-image: url(../../img/intro/lion.png);
+            background-repeat: no-repeat;
+            background-size: 300px;
+            /* 너비 높이 중 큰 쪽이 꽉 차는 만큼 이미지 크기 표현*/
+            background-size: contain;
+            /*배경 이미지로 전체를 채움*/
+            background-size: cover;
+
+            background: rgba(255,70,100,0.5) url(../../img/intro/lion.png) no-repeat
+            top 50% left 50% / cover; 
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <img src="../../img/bonobono.jpg" width="200" height="200"
+        alt="보노보노 이미지"/>
+    </div>
+
+    <div class="img bg">
+        <h1>content space</h1>
+    </div>
+</body>
+</html>

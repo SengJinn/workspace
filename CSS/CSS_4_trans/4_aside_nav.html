@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            /*border: 1px solid black;*/
+            margin:0;
+            padding: 0;
+        }
+        .wrap{
+            /*border: 1px solid black;*/
+            width: 1100px;
+            margin: 0 auto;
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a{
+            text-decoration: underline; /*밑줄*/
+            text-decoration: overline; /*윗줄*/
+            text-decoration: line-through; /*취소선*/
+            text-decoration: none; /*선으로 꾸미지 않음*/
+            color: white; 
+
+        }
+        
+        aside{
+            width: ;
+        }
+
+        aside nav ul li{
+            width: 200px;
+            background-color: pink;
+            text-align: center;
+            border-top: 3px solid #dfdfdf;
+            padding: 20px;
+            transition: all 0.5s; 
+        }
+
+        aside nav ul li:hover{
+            background-color: skyblue;
+            cursor: pointer;
+            transform: translateX(20px);
+            color:red; 
+        }
+
+        aside nav li a:hover a{color: red;}
+    
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- aside>nav>ul>(li>a)*4 -->
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="#">맛집</a></li>
+                    <li><a href="#">인기</a></li>
+                    <li><a href="#">별점</a></li>
+                    <li><a href="#">조회</a></li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</body>
+</html>

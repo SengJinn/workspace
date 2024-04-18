@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 전체선택자 - 모든 태그요소 */
+        *{
+            color: blue;
+        }
+        /* 클래스 속성에 부여된 값으로 태그요소 선택 
+        .select = (class="select") */
+        .select{
+            color: lavender;
+            background-color: lavenderblush;
+        }
+
+        .size{
+            /* 부모가 가진 글자 크기에서 1.5배의 크기로 출력 */
+            font-size: 1.5em;
+        }
+        li{
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+    <!-- ul>li*4 -->
+    <ul>
+        <li>사과</li>
+        <li class="size">바나나</li>
+        <li class="select">오렌지</li>
+        <li class="size select">밀감</li>
+    </ul>
+</body>
+</html>

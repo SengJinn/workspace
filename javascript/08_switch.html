@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2.switch 문
+        /*
+            switch문의 형식
+            switch(비교할 값이 저장된 변수){
+                case 값1:
+                    switch에 지정된 변수의 값과 case의 값1이 일치할 경우 실행
+                    break; // 작업 수행을 완료 후 switch 종료
+                case 값2:
+                    switch에 지정된 변수의 값과 case의 값2가 일치할 경우 실행
+                    break; //작업 수행을 완료 후 switch 종료
+                default :
+                    case에서 일치하는 값을 찾지 못 했을 경우 실행
+            }
+        */
+
+        let grade = prompt("성적을 입력해 주세요.", "A ~ F 사이의 한 개 문자");
+        let message = null;            
+        switch(grade){
+            case 'A':
+                message = "참 잘했어요!";
+                break;
+            case 'B':
+                message = "좋은 점수군요";
+                break;
+            case 'C':
+                message = "노력해야겠어요";
+                break;
+            case 'D':
+                message = "많이 노력해야겠어요!";
+                break;
+            case 'F': 
+                message = "나가";
+                break;
+            // case에서 지정된 값과 일치하는 값을 찾지 못 했을 때 수행될 명령문 정의
+            default : message = "알 수 없는 학점입니다.";
+        } //end switch
+
+        document.write("<h1>" + message + "</h1>");
+
+        if(grade == 'A'){
+            message="A학점이군요";
+        }else if(grade == 'C'){
+            message= "노력하세요";
+        }else if(grade == 'B'){
+            message = "괜찮네요.";
+        }else{
+            message = "일치하는 학점을 찾지 못 했습니다.";
+        }
+        console.log(message);
+
+        let year = 2024;
+        let days;
+        let month = prompt("일수를 확인할 월을 입력해주세요. 1~12 정수로.")
+
+        switch(month){
+            case'1': case'3': case'5': case'7': case'8': 
+            case'10': case'12': 
+                days = 31;
+                break;
+            case'4': case'6': case'9': case'11': 
+                days = 30;
+                break;
+            case'2':
+                //연수가 4로 나누어 떨어지는 해는 윤년
+                // year(2024) (year % 4 == 0)
+                // 4로 나누어 떨어지더라도 100으로 나누어 떨어지면 평년
+                //            (year % 100 != 0)
+                // (year % 4 == 0) && (year % 100 != 0)
+                // 400으로 나누어 떨어지면 윤년이다.
+                // ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)
+                if(((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)){
+                days=29;
+                }else{
+                days=28;}
+                break;
+                default : days=0;
+        }
+        document.write(`선택하신 ${month}월은 ${days}입니다.`); //template 문자열``
+    </script>
+</body>
+</html>

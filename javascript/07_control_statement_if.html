@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+        제어문 (Control Statement)
+        조건문             |           반복문
+        if                |  for문
+        if else,          |  반복횟수가 정해져 있을 경우 사용
+        if else if,       |
+        if else if else   |
+        -------------------------------------
+        지정한 값이 일치함   |  while
+        경우 실행될 분기를   |
+        나누는 조건문       |  do while
+        switch             |  반복횟수가 정해져 있지 않은 경우 사용
+        case break         |
+    */
+    
+    /*
+        1. if문
+        조건식에는 true 또는 false의 결과를 반환하는 연산식이 들어감.
+        if(조건(표현)식){
+            조건식이 참일 경우 수행되는 실행문;
+            조건식이 참일 경우 수행되는 실행문;
+            조건식이 참일 경우 수행되는 실행문;
+        }
+    */
+    let a = 3;
+    let b = 5;
+    // a와 b의 값이 동일하면 줄괄호(블럭)안의 실행문이 수행됨.
+    if(a == b){
+        //조건이 만족하지 않으면 수행되지 않음.
+        alert("a와 b의 값이 일치합니다.");
+    }
+    //a와 b의 값이 일치하지 않을 경우 수행
+    //조건에 만족할 때 수행되어야 할 실행문이 하나라면
+    //block{}을 생략해도 되나 가독성이 떨어지므로 권장하지 않음.
+    if(a != b){
+        alert('a와 b는 일치하지 않음.');
+    }
+
+    let confirm_test = confirm("30,000,000원을 결제하시겠습니까?")
+    if(confirm_test){
+        // true일 경우 실행
+        document.write("결제완료 <br/>");
+    }else{
+        //false 경우 실행
+        // - 조건에 만족인 연산을 만나지 못 했을 경우
+        document.write("결제가 취소되었습니다. <br/>");
+    }
+
+    /*
+        else if문
+        여러 조건을 비교해서 작업을 수행해야 할 때 사용
+        if(조건식1){
+            조건식1이 참일 때 수행되고 else if문 종료
+        }else if(조건식2){
+            조건식 1이 만족하지 않고
+            조건식 2가 만족할 때 수행되고 else if문 종료
+        }else if(조건식3){
+            조건식1, 조건식2가 만족하지 않고
+            조건식3이 만족할때 수행되고 else if문 종료
+        }else{
+            else if문의 모든 조건이 만족하지 않을 경우 수행
+        }
+    */
+        if(a > b){
+            alert("a가 b보다 큽니다.");
+        }else if(a == b){
+            alert("a와 b의 값이 일치합니다.");
+        //}else if(a < b){
+        }else{    alert("a보다 b의 값이 큽니다.");
+        }
+
+        let x, y;
+        x = prompt("첫번째 정수를 입력해주세요.");
+        y = prompt("두번째 정수를 입력해주세요.");
+        // 입력 두 수의 합을 사용자에게 출력
+        // web에서는 사용자에게 입력 받은 모든 값은 문자열 type
+        console.log("x의 타입 :", typeof(x)); //string
+        console.log("y의 타입 :", typeof(y)); //string
+        //x와 y에 저장된 데이터가 수치형으로 변환가능한 데이터인지 확인
+        // || 좌항과 우항의 값이 모두 거짓이면 false 좌항과 우항의 논리값이 하나라도 참이면 true
+        if(isNaN(x) || isNaN(y)){
+            alert("수치형으로 변환할 수 없는 값이 포함되어 있습니다.")
+        }
+        //  false || false 일 때 수행
+        // x에 저장된 data가 수치형으로 변환될 수 있는 형식의 값이라고 하면 number type으로 변환.
+        x = parseInt(x);
+        y = parseInt(y);
+        let result = x + y;
+        document.write("두 수의 합은 : "+result+"입니다. <br/>");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   /*
+            input : 5 - 최대 별의 개수가 그려질 라인 번호
+            max - 한행에 출력되는 최대 별의 개수
+            input 2 : max 3     2 * 2 - 1 : 3
+            input 3 : max 5     3 * 2 - 1 : 5
+            input 4 : max 7     ...
+            input 5 : max 9
+            input 6 : max 11    6 * 2 - 1 : 11
+            max : input * 2 - 1 
+            [ ][ ][ ][ ][*]                 공백 4 : 별 1
+            [ ][ ][ ][*][*][*]              공백 3 : 별 3
+            [ ][ ][*][*][*][*][*]           공백 2 : 별 5
+            [ ][*][*][*][*][*][*][*]        공백 1 : 별 7
+            [*][*][*][*][*][*][*][*][*]     공백 0 : 별 9
+            --------------------------------
+            [ ][*][*][*][*][*][*][*]        공백 1 : 별 7
+            [ ][ ][*][*][*][*][*]           공백 2 : 별 5
+            [ ][ ][ ][*][*][*]              공백 3 : 별 3
+            [ ][ ][ ][ ][*]                 공백 4 : 별 1
+       */
+        // 사용자에게 최대 라인 수를 입력받음
+        let input = prompt("라인개수를 입력해주세요.");
+        document.write("1<hr/>");
+
+        // 삼각형 - 피라미드
+        for(let i = 1; i <= input; i++){
+            //   i  : 1 2 3 4 5
+            // 공백 : 4 3 2 1 0
+            // 한라인에 공백 출력
+            for(let j = input; j > i; j--){
+                document.write("[ ]");
+            }
+            // 한라인에 * 출력
+            // i :  1 2 3 4 5
+            // 별 : 1 3 5 7 9
+            for(let j = 1; j <= i * 2 - 1; j++){
+                document.write("[*]");
+            }
+            document.write("<br/>");
+        } // end 삼각형 for 문
+
+        // ----------------------------------------
+        // 역삼각형
+        // 별의 개수 : 7 5 3 1
+        // 공백 개수 : 1 2 3 4
+        for(let i = input-1; i > 0; i--){
+            // i  : 4  3  2  1
+            //공백: 1  2  3  4
+            for(let j = input - i; j > 0; j--){
+                // i가 4일때 j의 초기값 : 1
+                // i가 3일때 j의 초기값 : 2
+                // i가 2일때 j의 초기값 : 3
+                // i가 1일때 j의 초기값 : 4
+                document.write("[ ]");
+            }
+            // i  : 4 3 2 1
+            // *  : 7 5 3 1
+            for(let j = 0; j < i * 2 - 1; j++){
+                document.write("[*]");
+            }
+            document.write("<br/>");
+        } // end 역삼각형 for문
+
+        //출력할 전체 행, 최대 별의 개수
+        let max = input * 2 - 1;
+        document.write("2<hr/>");
+        // input : 5, max : 9
+        // i : 1 ~ 9
+        // 9번 반복
+        // let i = 1, cocunt = 0;
+        // count를 활용하여 출력할 별의 개수 계산
+        for(let i =1, count=0; i<=max; i++){
+            if(i<=input){
+                // i : 1 2 3 4 5
+                //별의 개수 증가
+                ++count;
+                // count : 1 2 3 4 5
+            }else{
+                // i : 6 7 8 9
+                // 별의 개수 감소
+                --count;
+                // cocunt : 4 3 2 1
+            }
+            // input : 5;
+            // cocunt : 1 2 3 4 5 4 3 2 1
+            for(let j = 1; j <= input - count; j++){
+                // 반복횟수 만큼 공백 출력
+                document.write("&nbsp;");
+            }
+
+            //count : 1 2 3 4 5 4 3 2 1
+            for(let j = 1; j <= count * 2 - 1; j++){
+                document.write("*");
+            }
+            document.write("<br/>");
+        }
+    </script>
+</body>
+</html>

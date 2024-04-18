@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let count = 0;
+
+        while(true){
+            let number = prompt("1~100 사이의 정수를 입력해주세요.");
+
+            count++;
+
+            if(number == 6){
+             alert("정답입니다.");
+             break;
+            }
+
+            if(number > 6){ alert("높습니다."+"추측횟수:"+count); }
+            if(number < 6 ){ alert("낮습니다."+"추측횟수:"+count); }
+        }
+
+
+    </script>
+</body>
+</html>

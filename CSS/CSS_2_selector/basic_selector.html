@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 별표는 문서 안에 있는 모든 태그 요소를 의미 */
+        *{
+            color: darkseagreen;
+        }
+        h1{
+            color:crimson;
+        }
+        /* id 속성= #아이디값
+        class 속성 = class 속성값 */
+        #bg{
+            background-color: lightskyblue;
+        }
+        #color{
+            color: aqua;
+        }
+        .size{
+            /* 글자 크기를 50으로 지정 */ 
+            font-size: 50px;
+        }
+        
+        .color{
+            color: deeppink;
+        }
+
+        /* 동일 선택지라고 하면 아래쪽에 정의된 디자인 속성이 적용
+        선택지가 상이 하다고 하면
+        인라인 방식 > 아이디 선택지 > 클래스 선택지 > 태그(타입) 선택지 순서 */
+    </style>
+</head>
+<body>
+    <h1>Type(태그) 선택자</h1>
+    <!-- h2{선택자 적용}*4 -->
+    <h2 id="bg">선택자 적용</h2>
+    <h2 id="color">선택자 적용</h2>
+    <h2 class="color">선택자 적용</h2>
+    <h2 class="size color">선택자 적용</h2>
+    <!-- id 태그는 하나만 부여 가능, class는 공백을 기준으로 여러개 부여 가능, name은 데이터 성질을 의미  -->
+    <h2 style="color: black;" id="color" class="size color">선택자 적용</h2>
+    <!-- class로 지정된 속성보다 id로 지정된 속성이 우선 순위가 높음
+    인라인 방식으로 적용된 스타일은 자바스크립트 외에는 변경 불가 -->
+</body>
+</html>

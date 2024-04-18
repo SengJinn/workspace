@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //한라인에 출력될 최대 *의 개수
+        let size = prompt("가로길이를 입력해주세요.");
+
+        /*
+            size  : 5
+            [1]
+            [1][2]
+            [1][2][3]
+            [1][2][3][4]
+            [1][2][3][4][5]
+            --------------------
+            [1][2][3][4]
+            [1][2][3]
+            [1][2]
+            [1]
+        */
+       // i : 1 ~ size
+       for(let i = 1; i <= size; i++){
+            for(let j = 0; j < i; j++){
+                document.write("*");
+            }
+            document.write("<br/>");
+       }
+       document.write("----------------------------<br/>");
+       // i : 1 ~ (size - 1)
+       // size : 5
+       // i : 1 ~ 4
+       for(let i = 1; i < size; i++){
+            // * : i = 1   == 4 ****
+            // * : i = 2   == 3 ***
+            // * : i = 3   == 2 **
+            // * : i = 4   == 1 *
+            // size : 5; 
+            for(let j = size; j > i; j--){
+                // i가 1일 경우
+                // 5 > 1; 4 > 1; 3 > 1; 2 > 1; 
+                // 1 > 1;(탈출)
+                // i가 2일 경우
+                // 5 > 2; 4 > 2; 3 > 2; 
+                // 2 > 2;  탈출
+                // ...
+                document.write("*");
+            }
+            document.write("<br/>");
+       }
+
+       // 전체 라인 수
+       let max = size * 2 - 1;
+       // size : 5 , max : 9
+       // size : 3 , max : 5
+       /*
+                *
+                **
+                ***
+                **
+                *
+       */
+       // size :5 , max :9
+       for(let i = 1; i <= max; i++){
+            // i : 1 ~ 9
+            if(i <= size){
+                // 별의 개수 증가
+                // i : 1 ~ 5
+                for(let j = 1; j <= i; j++){
+                    document.write("*");
+                }
+            }else{
+                // 별의 개수 감소
+                // i : 6 ~ 9
+                // max - i
+                // 9 - 6 == 3,
+                // 9 - 7 == 2,
+                // 9 - 8 == 1,
+                // 9 - 9 == 0
+                for(let j = 0; j <= (max-i); j++){
+                    document.write("*");
+                }
+            }
+            document.write("<br/>");
+       }
+
+    </script>
+</body>
+</html>
