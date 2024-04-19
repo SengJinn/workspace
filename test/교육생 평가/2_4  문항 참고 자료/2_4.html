@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>태그 요소 배치</title>
+    <link rel="stylesheet" href="1.css">
+    <style>
+        body{
+            margin: 0;
+            min-height: 500px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        header{
+            width: 1100px;
+            height: 100px;
+            background-color: skyblue;
+            text-align: center;
+            position: relative;
+        }
+
+        header>nav{
+          width: 1100px;
+          height: 20px;
+          background-color: aquamarine;
+          top: 80px;
+          line-height: 10px;
+          text-align: center;
+        }
+
+        main{
+            width: 1100px;
+            overflow: hidden;
+            background-color: lightgrey;
+            text-align: center;
+        }
+
+       aside>nav{
+            background-color: skyblue;
+            margin: 10px;
+        }
+
+        aside{
+            background-color: lightpink;
+            width: 275px;
+        }
+
+        aside, section{
+            float: left;
+            box-sizing: border-box;
+            height: 500px;
+        }
+
+        section{
+            width: 550px;
+            background-color: lightgreen;
+        }
+
+        article{
+            width: 90%;
+            height: 70%;
+            background-color: #999;
+            margin-top: 10px;
+            margin-left: 27px;
+        }
+
+        footer{
+            width: 1100px;
+            background-color: skyblue;
+            height: 70px;
+            float: left;
+            text-align: center;
+            line-height: 0px;
+        }
+    </style>
+
+  </head>
+  <body>
+      <div class="wrap">
+          <header>
+              <h1>HEADER</h1>
+              <nav>
+                <h2>nav</h2>
+              </nav>
+          </header>
+          <main>
+              <h1>MAIN</h1>
+              <aside>
+                  <h2>ASIDE</h2>
+                  <nav>
+                    <h2>nav</h2>
+                  </nav>
+              </aside>
+              <section>
+                <h2>SECTION</h2>
+                <article>
+                    <h2>ARTICLE</h2>
+                </article>
+              </section>
+              <aside>
+                  <h2>ASIDE</h2>
+              </aside>
+          </main>
+          <footer>
+              <h1>FOOTER</h1>
+          </footer>
+      </div>
+  </body>
+</html>
