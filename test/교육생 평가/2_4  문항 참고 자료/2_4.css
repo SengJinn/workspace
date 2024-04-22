@@ -1,4 +1,47 @@
 /*
-	2_4.html ÀÇ css ÀÛ¼º
+	2_4.html ï¿½ï¿½ css ï¿½Û¼ï¿½
 */
 
+.wrap{
+	padding: 0;
+	width: 1110px;
+	background-color: lightgray;
+	margin: 0 auto;
+}
+
+header, footer{
+	background-color: lightsalmon;
+	overflow: hidden;
+	text-align: center;
+}
+
+nav{
+	background-color: lightgreen;
+	text-align: center;
+}
+
+aside{
+	background-color: lightblue;
+	width: 23%;
+}
+
+section{
+	width: 48%;
+	background-color: mistyrose;
+}
+
+article{
+	background-color: lightsalmon;
+	height: 500px;
+}
+
+aside, section{
+	float: left;
+	height: 700px;
+	padding: 1%;
+}
+
+footer{
+	/* left, right, both*/
+	clear: left;
+}
