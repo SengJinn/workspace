@@ -11,7 +11,15 @@ public class VariableTest {
 		// 변수 선언부
 		// byte는 키워드로 사용되므로 식별자로 사용불가
 		// byte byte;
+		
 		// 1byte 크기의 정수를 저장할 공간을 마련하고
+		
+		// bit : 0 과 1 두 개의 수로 데이터를 표현할 수 있는 메모리 공간
+		
+		// byte : 8개의 bit로 수를 표현 하는 메모리 공간
+				
+	// 자바에서 데이터를 메모리에 표현할 때 최소단위를 byte로 표현
+		
 		// num이라는 식별자로 접근할 수 있도록 선언
 		byte num;
 		
@@ -78,12 +86,19 @@ public class VariableTest {
 			// 정수형 리터럴은 기본적으로 int type
 			// 21억 어쩌고~ -21억어쩌고 까지 저장
 			int i = 1000001;
+			// int i = 1000001; 명령문에서
+			// 변수에 값을 대입하기 위해 소스코드에 명시되는 데이터를 "리터럴"이라고 함.
+			// 소수점이 없는 정수의 기본 리터럴 타입은 int 타입으로 4byte 저장공간을 가짐
+			// i = 2222222222;
 			//i = 2222222222; 
 			i = 10;
 			System.out.println(Integer.MAX_VALUE);
 			System.out.println(Integer.MIN_VALUE);
 			
 			// long 8byte의 정수 저장
+			// 22억은 기본 리터럴인 4byte의 저장공간에 저장될 수 없으므로
+			// 8byte의 저장공간을 가지고 저장해야한다고 명시 해야함.
+			// 8byte의 정수 리터럴 공간임을 명시하는 키워드 L(대문자), l(소문자)
 			long l = 22222222222L;
 			l = 10;
 			//실수
