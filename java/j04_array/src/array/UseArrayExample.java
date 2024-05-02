@@ -78,5 +78,5 @@ public class UseArrayExample {
 			// i를 이용하여 배열 인덱스로 항목에 접근
 			System.out.println(array5[i]);
 		}
-	}// end maib
+	}// end main
 }// end class

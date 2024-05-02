@@ -224,35 +224,35 @@ public class JavaTest {
 		}//end while
 		
 		//siwtch 활용
-		switch (selectNo) {
-		case 1:
-			System.out.println("입금하실 금액을 입력하세요.");
-			int deposit = sc.nextInt();
-			money += deposit;
-			System.out.println(deposit + "원이 입금되었습니다.");
-			break;
-		case 2:
-			System.out.println("출금하실 금액을 입력하세요.");
-			int minus = sc.nextInt();
-			if(minus>money) {
-				System.out.println("출금할 수 없는 금액");
-			}else {
-				// minus <= money
-				money -= minus;
-				System.out.println(minus+"원이 출금");
-			}
-			break;
-		case 3:
-			System.out.println("잔액은:"+money);
-			break;
-		case 4:
-			System.out.println("종료합니다.");
-			isRun = false;
-			break;
-		default:
-			System.out.println("선택할 수 없는 메뉴 번호");
-			break;
-		} //end switch
+//		switch (selectNo) {
+//		case 1:
+//			System.out.println("입금하실 금액을 입력하세요.");
+//			int deposit = sc.nextInt();
+//			money += deposit;
+//			System.out.println(deposit + "원이 입금되었습니다.");
+//			break;
+//		case 2:
+//			System.out.println("출금하실 금액을 입력하세요.");
+//			int minus = sc.nextInt();
+//			if(minus>money) {
+//				System.out.println("출금할 수 없는 금액");
+//			}else {
+//				// minus <= money
+//				money -= minus;
+//				System.out.println(minus+"원이 출금");
+//			}
+//			break;
+//		case 3:
+//			System.out.println("잔액은:"+money);
+//			break;
+//		case 4:
+//			System.out.println("종료합니다.");
+//			isRun = false;
+//			break;
+//		default:
+//			System.out.println("선택할 수 없는 메뉴 번호");
+//			break;
+//		} //end switch
 		
 		
 		
