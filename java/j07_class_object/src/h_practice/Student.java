@@ -18,7 +18,7 @@ public class Student {
 	
 	// 학생이 가진 필드의 정보를 하나의 문자열로 변환
 	String getInfo() {
-		return "number:" + number + ", name :" + name + ", score" + score;
+		return "number :" + number + ", name :" + name + ", score" + score;
 	}
 	
 }
