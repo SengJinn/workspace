@@ -1,6 +1,7 @@
 package static_test;
 
 public class StaticTest {
+
 	public static void main(String[] args) {
 		
 		Student.school = "부산IT교육센터";
@@ -21,5 +22,23 @@ public class StaticTest {
 		
 		choi.school = "부산IT아카데미";
 		
+		System.out.println(Student.school);
+		
+		Student.study("프로그래밍 언어 응용");
+		
+		// Student.studentInfo();
+		String choiInfo = choi.studentInfo();
+		System.out.println(choiInfo);
+		
+		String leeInfo = lee.studentInfo();
+		System.out.println(leeInfo);
+		
 	}
+
 }
+
+
+
+
+
+
