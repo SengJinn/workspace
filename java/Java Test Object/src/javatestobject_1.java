@@ -29,7 +29,7 @@ public class javatestobject_1 {
 //		System.out.println(strs[0].equals(strs[1]));
 		
 //		int score = 95;
-//		char grade'
+//		char grade
 //   	grade = (score > 90) ? 'A' : 'B' ;
 //   	System.out.println(grade);
 		
