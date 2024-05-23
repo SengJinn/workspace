@@ -4,16 +4,17 @@ import java.util.Scanner;
 
 public class MemberManagement{
 	
-	// 사용자에게 정보를 입력받을 필드
+
+	// 사용자 입력
 	private Scanner sc = new Scanner(System.in);
 	
-	// 회원목록 정보를 저장할 필드
+	// 회원정보 저장
 	private Member[] members = new Member[100];
 	
 	// 관리자 계정
 	private Member master = new Member(100,"master","root","root");
 	
-	// 로그인된 회원정보를 저장하고 유지할 필드
+	// 로그인한 회원
 	private Member loginMember = null;
 	
 	// 프로그램 flag (true : 진행 , false : 종료) 
@@ -21,14 +22,12 @@ public class MemberManagement{
 	
 	// 프로그램 실행용 생성자
 	public MemberManagement() {
-		// 관리자 계정을 마지막[99]인덱스에 저장
 		members[members.length-1] = master;
 	}
 
+
 	public void isRun() {
-		
 		System.out.println("프로그램 시작!");
-		
 		while (isRun) {
 			System.out.println("===========================================================");
 			System.out.println("1.회원가입 |2.로그인 |3.회원목록|4.회원정보수정|5.회원탈퇴|6.프로그램종료");
@@ -70,9 +69,9 @@ public class MemberManagement{
 					break;
 				default:
 					System.out.println("선택할 수 없는 번호입니다.");
-			} // end switch
-		} // end while
-	} // end isRun method
+			}
+		}
+	}
 
 	
 	private void terminate() {
@@ -80,16 +79,27 @@ public class MemberManagement{
 	}
 
 	private void join() {
-		
 		System.out.println("아이디를 입력해주세요");
 		String mId = sc.next();
 		System.out.println("비밀번호를 입력해주세요");
 		String mPw = sc.next();
 		System.out.println("비밀번호를 한번 더 입력해주세요");
 		String rePw = sc.next();
+
+		if (!memberIdCheck(mId) || !mPw.equals(rePw)) {
+			System.err.println("사용 할 수없는 아이디 이거나 비밀번호가 일치하지 않습니다.");
+			return;
+		}
+
 		System.out.println("이름을 입력해주세요");
 		String mName = sc.next();
-		
+		for (int i = 0; i < members.length; i++) {
+			if (members[i] == null) {
+				members[i] = new Member(i + 1, mName, mId, mPw);
+				System.err.println("회원가입 완료");
+				break;
+			}
+		}
 	}
 
 	private void login() {
@@ -98,16 +108,35 @@ public class MemberManagement{
 		System.out.println("비밀번호를 입력해주세요 >");
 		String mPw = sc.next();
 
+		Member m = findMember(new Member(mId, mPw));
+
+		if (m != null) {
+			loginMember = m;
+			System.out.println("정상적으로 로그인 되었습니다.");
+			System.out.println(m.toString());
+			if(m.getmName().equals("master")) {
+				System.out.println("관리자 계정입니다.");
+			}
+			return;
+		}
+		System.err.println("일치하는 회원 정보가 없습니다.");
 	}
 
-	// 회원 목록은 관리자만 출력
 	private void select() {
-		
+		if (loginMember != null && loginMember.equals(master)) {
+			for (Member m : members) {
+				if (m != null)
+					System.out.println(m);
+			}
+		} else {
+			System.err.println("관리자만 확인 가능한 메뉴입니다.");
+		}
 	}
-	
+
 	private void update() {
 		// 개인회원 - 자기정보(이름) 만 수정 가능
 		// 관리자 - 전체 회원 정보(이름) 수정 가능
+
 		if (loginMember == null) {
 			System.err.println("로그인 후 사용가능 한 메뉴입니다.");
 			return;
@@ -119,28 +148,83 @@ public class MemberManagement{
 			select();
 			System.out.println("수정할 회원 번호를 입력해 주세요.");
 			int mNum = sc.nextInt();
-		}else {
-			// 일반회원
+
+			for (int i = 0; i < members.length; i++) {
+				if (members[i] != null && members[i].getmNum() == mNum) {
+					System.out.println("수정할 회원의 이름을 입력해 주세요 > ");
+					String name = sc.next();
+					members[i].setmName(name);
+					System.err.println("수정완료");
+					return;
+				}
+			}
+		} else {
+			// 일반 회원
+			System.out.println("= 내 정보 수정 =");
+			System.out.println("비밀번호를 한번더 입력해 주세요.");
+			String pw = sc.next();
+			if (loginMember.getmPw().equals(pw)) {
+				System.out.println("수정할 이름을 입력해주세요 > ");
+				String name = sc.next();
+				loginMember.setmName(name);
+				System.err.println("수정이 완료되었습니다.");
+				System.err.println(loginMember);
+				return;
+			}
+			System.err.println("비밀번호가 일치하지 않습니다.");
 		}
 	}
 
-	// 일반 회원만 탈퇴 요청 시 처리 - 배열항목에서 로그인된 회원 정보 삭제
 	private void delete() {
-		
+		if (loginMember == null) {
+			System.out.println("로그인 이후 사용할 수 있는 기능입니다.");
+			return;
+		}else if(loginMember.equals(master)) {
+			System.err.println("관리자 정보는 삭제할 수 없습니다.");
+			return;
+		}
+
+		System.err.println("정말로 삭제 하시겠습니까? y/n");
+		char str = sc.next().charAt(0);
+		switch (str) {
+		case 'Y': case 'y': case 'ㅛ':
+			deleteMember();
+			break;
+		default:
+			System.err.println("삭제가 취소되었습니다.");
+			return;
+		}
+	}
+	
+	// 회원 정보 삭제
+	private void deleteMember() {
+		for(int i=0; i<members.length; i++) {
+			if(loginMember != null && loginMember.equals(members[i])) {
+				members[i] = null;
+				loginMember = null;
+				System.out.println("회원탈퇴 완료");
+				return;
+			}
+		}
 	}
 	
 	// 사용자 아이디 중복 체크
-	// members 배열의 각항목에 존재하는 Member를 확인하여
-	// 동일한 mId를 사용중인 사용자가 존재하면 false, 존재하지 않으면 true 반환
 	private boolean memberIdCheck(String mId) {
+		for(Member m : members) {
+			if(m != null && m.getmId().equals(mId)) {
+				return false;
+			}
+		}		
 		return true;
 	}
 	
 	// 회원 아이디와 비밀번호로 회원 찾기
-	// members 배열의 각항목에 존재하는 Member를 확인하여
-	// 매개변수로 전달된 회원의 mId, mPw가 둘다 일치하는 회원정보를 반환
-	// null 값을 반환하면 존재하지 않는 회원
 	private Member findMember(Member m) {
+		for(Member member : members) {
+			if(member != null && member.equals(m)) {
+				return member;
+			}
+		}
 		return null;
 	}
 }

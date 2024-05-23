@@ -10,7 +10,6 @@ class Vehicle{
 }
 
 class Taxi extends Vehicle{
-	
 	@Override
 	public void run() {
 		System.out.println("택시가 승객을 모시고 달립니다.");
@@ -19,7 +18,6 @@ class Taxi extends Vehicle{
 }
 
 class MotorCycle extends Vehicle{
-	
 	public void run() {
 		System.out.println("오토바이가 두바퀴로 달립니다.");
 	}
@@ -28,7 +26,6 @@ class MotorCycle extends Vehicle{
 
 
 class Bus extends Vehicle{
-	
 	public void run() {
 		System.out.println("버스가 다수의 승객을 태우고 달립니다.");
 	}
