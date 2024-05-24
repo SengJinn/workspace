@@ -9,7 +9,7 @@ public class CarExample {
 		mycar.color = "red";
 		mycar.speed = 0;
 		mycar.changeGear(1);
-		mycar.speedUP();
+		mycar.speedUp();
 		
 		System.out.println(mycar);
 		mycar.speedDown();

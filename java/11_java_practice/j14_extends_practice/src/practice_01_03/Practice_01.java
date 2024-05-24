@@ -10,12 +10,32 @@ public class Practice_01 {
 		
 		// sample id
 		String myId = "id001";
+		System.out.println(myId.toString());
+		System.out.println(myId);
+		// 객체가 저장되어 있는 메모리 주소를 10진법의 int type의 정수로 반환
+		// null 은 0을 반환
+		int address = System.identityHashCode(myId);
+		System.out.println("myId address : " + address);
+		
+		String tempId = "id001";
+		address = System.identityHashCode(tempId);
+		System.out.println("tempId address : " + address);
+		
+		System.out.println(myId == tempId);
+		
+		String userId = new String("id001");
+		address = System.identityHashCode(userId);
+		System.out.println("userId address : " + address);
+		
+		System.out.println(userId == myId);
 		
 		System.out.print("아이디 입력>");
-		String id = sc.next();
 		
-		// 문자열의 내용을 비교하기 위해 == 대신 equals 사용
+		String id = sc.next();
+		address = System.identityHashCode(id);
+		System.out.println("id address : " + address);
 		if(myId.equals(id)) {
+		// if(myId == id) {
 			System.out.println("아이디가 일치합니다.");
 		}else {
 			System.out.println("아이디가 일치하지 않습니다.");
@@ -23,3 +43,7 @@ public class Practice_01 {
 		sc.close();
 	}
 }
+
+
+
+
