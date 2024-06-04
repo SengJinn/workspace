@@ -53,6 +53,12 @@ public class LinkedListExample {
 		endTime = System.nanoTime();
 		System.out.println("list 검색 시간 : " + (endTime - startTime) + "ns");
 		
+		startTime = System.nanoTime();
+		for(int i = 0; i < size; i++) {
+			linkedList.get(i);
+		}
+		endTime = System.nanoTime();
+		System.out.println("linked 검색 시간 : " +(endTime - startTime)+"ns");
 		
 		
 	} // end main
