@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>login</title>
+    <style>
+        table{
+            width: 400px;
+            height: 450px;
+            border: 3px solid black;
+        }
+        .txt{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <table border="1">
+
+        <thead>
+            <tr><th colspan="3" > <h1>회원가입</h1> </th></tr>
+        </thead>
+    
+        <tbody>
+            <tr>
+                <td style="text-align: right;" >아이디</td>
+                <td colspan="2"> <input type = "text" class="txt" id="id"> </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: right;">비밀번호</td>
+                <td colspan="2"> <input type = "text" class="txt" id="password"> </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: right;">비밀번호확인</td>
+                <td colspan="2"> <input type = "text" class="txt" id = "passwordCheck"> </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: right;">생년월일</td>
+                <td colspan="2"> <input type = "text" class="txt" id ="birth"> </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: right;">이름</td>
+                <td colspan="2"> <input type = "text" class="txt" id="name"> </td>
+            </tr>
+
+            <tr>
+                <td style="text-align: right;">전화번호</td>
+                <td colspan="2"> <input type = "text" class="txt" id="callNumber"> </td>
+            </tr>
+
+            <tr>
+                <th colspan="3"> <input type = "button" value="회원가입"> 
+                <input type = "button" value="회원정보수정"> </th>
+            </tr>
+        </tbody>
+        </table>
+
+    <script>
+    let ID = document.getElementById("id");
+	let PW = document.getElementById("password");
+	let PWCK = document.getElementById("passwordCheck");
+    let BTH = document.getElementById("birth");
+    let NAME = document.getElementById("name");
+    let CNO = document.getElementById("callNumber");
+    let GAIP = document.querySelector("input[type='button']");
+
+		GAIP.onclick = function(){
+			if(ID.value == ""){
+            alert('아이디 값이 비어있습니다.');
+           }
+           if(PW.value == ""){
+            alert('비밀번호 값이 비어있습니다.');
+           }
+           if(BTH.value == ""){
+            alert('생년월일이 비어있습니다.');
+           }
+           if(NAME.value == ""){
+            alert('이름란이 비어있습니다.');
+           }
+           if(CNO.value == ""){
+            alert('전화번호가 비어있습니다.');
+           }
+           if(PW.value != PWCK.value){
+            alert('비밀번호가 일치하지 않습니다.');
+           }
+		};
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js_dom/02_calc.html</title>
+</head>
+<body>
+	<input type = "number" id="first" autofocus tabindex ="1"/> +
+	<input type = "number" id="second" autofocus tabindex ="2"/> =
+	<input type = "text" id="result" readonly/>
+	<input type = "button" value = "결과확인" tabindex="3"/>
+	
+	<script>
+		/*
+			button이 클릭되었을 때
+			first tag 요소의 value 값과
+			second tag요소의 value 값을 더한 결과를
+			button이 클릭되었을 때 result 태그요소의 value에 출력
+		*/
+	
+		let one = document.getElementById("first");
+		let two = document.getElementById("second");
+		let three = document.getElementById("result");
+		let resultButton = document.querySelector("input[type='button']");
+		
+		resultButton.onclick = function(){
+			
+			three.value = parseInt(one.value) + parseInt(two.value);
+			
+		};
+		
+		let btn = document.querySelector("input[type=button]");
+		btn.onclick = function(){
+			// alert("click!!!");
+			let first = document.getElementById("first");
+			let second = document.getElementById("second");
+			// 숫자(Number)타입으로 변경 후 연산
+			let result = parseInt(first.value) + parseInt(second.value); 
+			
+			document.getElementById("result").value = result;
+		};
+		
+		let a = prompt("숫자입력");
+		console.log(a);
+		let bool = confirm("쉬시겠습니까?");
+		console.log(bool);
+		
+		
+	</script>
+	
+	
+</body>
+</html>
