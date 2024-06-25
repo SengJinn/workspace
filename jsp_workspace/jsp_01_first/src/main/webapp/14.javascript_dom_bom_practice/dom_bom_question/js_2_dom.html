@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>초급 문제</title>
+</head>
+<body>
+    <p>Counter: <span id="counter">0</span></p>
+    <button id="increaseButton">Increase</button>
+    <button id="decreaseButton">Decrease</button>
+
+    <script>
+      
+    let counter = document.getElementById("counter");
+    let increaseButton = document.getElementById("increaseButton");
+    let decreaseButton = document.getElementById("decreaseButton");
+    
+    increaseButton.onclick = function(){
+    	counter.textContent = parseInt(counter.textContent) + 1;
+    };
+    
+    decreaseButton.onclick = function(){
+    	counter.textContent = parseInt(counter.textContent) - 1;
+    };
+    
+    </script>
+</body>
+</html>
