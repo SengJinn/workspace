@@ -27,11 +27,46 @@
   		let a = document.createElement("p")
   		let textValue = text.value;
   		
-		i.innerText = textValue;
+		a.innerText = textValue;
 
   		textContainer.append( a );  
 		
   	  };
+  	  
+  	  
+  	  /*
+  	  
+  	      <input type="text" id="textInput" placeholder="Enter some text">
+    <button id="addTextButton">Add Text</button> 
+    <br/>
+    <br/>
+    <div id="textContainer"></div>
+
+    <script>
+       // 여기에 JavaScript 코드를 작성
+       document.getElementById("addTextButton").onclick = function(){
+    	   let textInput = document.querySelector("#textInput");
+    	   let text = textInput.value;
+    	   
+    	   if(text.length == 0){ // text 변수에 저장된 문자열 크기 length
+				alert("작성된 내용이 없습니다.");
+				textInput.focus();
+				return false;
+    	   }
+    	   
+    	   // 작성된 내용이 존재
+    	   let newParagraph = document.createElement("p");
+    	   newParagraph.innerText = text;
+    	   
+    	   let container = document.getElementById("textContainer");
+    	   // 태그 요소에 내부 요소 추가 - appnedChild, append
+    	   container.append(newParagraph);
+    	   textInput.value = "";
+    	   textInput.focus();
+  	  
+  	  */
+  	  
+  	  
     </script>
 </body>
 </html>

@@ -10,6 +10,31 @@
 
     <script>
         // 여기에 JavaScript 코드를 작성
+               document.getElementById("startTimerButton").onclick = function(){
+			let isMove = window.confirm("네이버로 이동하시겠습니까? \n확인하시면 5초뒤 이동합니다.");
+			
+			if(isMove){
+				
+				let timeLeft = 5;  // 남은 시간
+				
+				let timeDisplay = document.getElementById("timeDisplay");
+				
+				let timer = window.setInterval(function(){ 
+					timeLeft--; 
+					timerDisplay.innerText = timeLeft;
+					
+					if(timeLeft <= 0){
+						window.clearInterval(timer);
+						// window.location.href = 'http://www.naver.com';
+						location.replace('http://www.naver.com');
+					}
+				}, 1000);
+				
+				
+			}else{
+				alert('취소되었습니다.');
+			}
+        };
     </script>
 </body>
 </html>
