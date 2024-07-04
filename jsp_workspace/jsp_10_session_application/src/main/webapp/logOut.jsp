@@ -3,6 +3,14 @@
 <%
 	session.removeAttribute("loginMember");
 	// session.invalidate();
+	
+	// 로그아웃 요청 시 pc브라우저에 저장된
+	// 자동로그인 쿠키 정보 제거
+	Cookie cookie = new Cookie("uid", "김동하");
+	cookie.setPath("/");
+	cookie.setMaxAge(0);
+	response.addCookie(cookie);
+	
 %>
 
 <script>
