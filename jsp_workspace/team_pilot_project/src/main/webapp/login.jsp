@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ include file="header.jsp"%>
-<!--  contentType에 charset=UTF-8 이 지정되어있으면  
-		pageEncoding="UTF-8" 은 필요없다.-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,16 +9,24 @@
 <title>로그인2</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-
+		@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+		
         * {
             font-family: 'Noto Sans KR', sans-serif;
         }
-
-        body {
+        
+        .loginTitle{
+        	font-family: "Jua", sans-serif;
+        	text-align: center;
+        	font-size: 50px;
+        	color: black;
+        }
+        
+        .body {
             background-color: rgb(255,246,189);
         }
 
-        div {
+        .div {
             margin: auto;
             width: 300px;
             background-color: white;
@@ -63,11 +69,12 @@
     </style>
 </head>
 
-<body>
+<body class="body">
 	<br/>
 	<br/>
+	<h1 class="loginTitle">♥LOGIN♥</h1>
 	<br/>
-    <div>
+    <div class="div">
         <form action="">
             <input type="text" placeholder="아이디" class="in">
             <input type="password" placeholder="비밀번호" class="in">

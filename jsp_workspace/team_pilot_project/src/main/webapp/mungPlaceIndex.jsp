@@ -12,31 +12,46 @@
 
  --%>
  
-<%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<%@ include file="header.jsp" %>
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="UTF-8">
     <title>Map Test</title>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63c1486007c82b2a0e837b0f9be50e9e"></script>
+    <script type="text/javascript" style="text-align:center" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=63c1486007c82b2a0e837b0f9be50e9e"></script>
+    
     <style>
-        #map {width: 500px; height: 400px;}
+    	
+    	
+    	#map-page {text-align:center;}
+    	
+    	div>h1{
+    		border:2px, solid, rgb(255,246,189);
+    		border-radius:40px;
+    		padding:auto 5px:
+    	}
+    	
+        #map {width: 500px; height: 400px; border:1px solid gray; margin:auto; }
+        
         #menu {margin-bottom: 10px;}
+        
+       
     </style>
+    
 </head>
 <body>
-    <h1>TEST</h1>
+  <div id="map-page">
+    <h1>멍플레이스</h1>
     <div id="menu">
         <select id="placeType" onchange="searchPlaces()">
-        	<option value="전체">전체</option>
-            <option value="애견카페">애견카페</option>
-            <option value="동물병원">동물병원</option>
-            <option value="애견동반음식점">애견동반음식점</option>
+        	<option name="map-element" class="all" value="전체">전체</option>
+            <option name="map-element" class="cafe" value="애견동반카페">애견동반카페</option>
+            <option name="map-element" class="hospital"  value="동물병원">동물병원</option>
+            <option name="map-element" class="food"  value="애견동반음식점">애견동반음식점</option>
         </select>
     </div>
     <div id="map"></div>
+  </div>
     
     <script>
         var mapContainer = document.getElementById('map'),
@@ -59,7 +74,7 @@
         }
 
         function searchAllPlaces() {
-            var placeTypes = ['애견카페', '동물병원', '애견동반음식점'];
+            var placeTypes = ['애견동반카페', '동물병원', '애견동반음식점'];
             var bounds = new kakao.maps.LatLngBounds();
             placeTypes.forEach(function(type) {
                 ps.keywordSearch(type, function(data, status, pagination) {

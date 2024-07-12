@@ -109,7 +109,7 @@ input[type="submit"] {
 		<tr>
 			<td class="header">내용</td>
 			<td class="message">
-				<%=free.getMessage()%>
+				<pre><%=free.getMessage()%></pre>
 			</td>
 		</tr>
 	</table>
