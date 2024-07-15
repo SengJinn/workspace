@@ -2,25 +2,30 @@
 
 
 	<style>
+	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+	
 		footer{
-			background-color:rgb(255,246,189); 
+			background-color:white; 
 			color:gray;
+			font-family: "Noto Sans KR", sans-serif;
+			border-top: 1px lightgray solid;
 		}
 		
 		.text1{
 			text-align:left;
-			margin-left:15px;
+			float: left;
+			margin-left: 40px;
 		}
 		
 		.text2{
 			text-align:right;
-			margin-right:15px;
+			float: right;
+			margin-right: 40px;
 		}
 		
 	</style>
 	
 	<footer>
-	   <hr />
 	
 		<div class="text1">
 			COMPANY : 개편한부산

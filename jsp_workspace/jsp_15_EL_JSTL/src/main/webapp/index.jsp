@@ -10,5 +10,9 @@
 	<a href="elTestForm.jsp">EL TEST</a>
 	<a href="jstlCore.jsp">JSTL core</a>
 	<a href="jstlCoreControl.jsp">JSTL Control core</a> <br/>
+	<a href="jstlFmtForm.jsp">JSTL formatter</a> <br/>
+	<a href="jstlSQL.jsp">jstlSQR</a> <br/>
+	<a href="sqlQuery.jsp">jstlSQR</a> <br/>
+	<a href="newFile.html">newfile</a> <br/>
 </body>
 </html>

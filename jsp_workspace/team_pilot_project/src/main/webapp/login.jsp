@@ -57,6 +57,13 @@
             background-color: rgb(245,212,46);
             margin-bottom: 15px;
             color: white;
+            cursor: pointer;
+        }
+        
+        #btn:active {
+		    transform: scale(0.95);
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		    background-color: FFCC00;
         }
 
         .text {
@@ -65,7 +72,13 @@
             font-size: 12px;
         }
         
+        .text:hover{
+        	text-decoration: underline;
+        }
 
+		label:hover{
+			cursor: pointer;
+		}
     </style>
 </head>
 

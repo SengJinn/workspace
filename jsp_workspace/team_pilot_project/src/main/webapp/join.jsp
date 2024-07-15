@@ -65,6 +65,13 @@
         #btn {
             background-color: rgb(245,212,46);
             color: white;
+            cursor: pointer;
+        }
+        
+        #btn:active {
+        	transform: scale(0.95);
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		    background-color: FFCC00;
         }
         
         #submitButton{
@@ -73,6 +80,13 @@
             color: white;
             border-radius: 5px;
             border: none;
+            cursor: pointer;
+        }
+        
+       #submitButton:active {
+        	transform: scale(0.95);
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		    background-color: FFCC00;
         }
         
         .text {
@@ -80,6 +94,10 @@
             color: #9B9B9B;
             font-size: 12px;
         }   
+        
+        .text:hover{
+        	text-decoration: underline;
+        }
 
     </style>
 </head>
