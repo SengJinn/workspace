@@ -9,6 +9,19 @@ CREATE TABLE test_member(
 );
 
 INSERT INTO test_member 
-VALUES(null, 'admin', 'admin', '부산', '01011111111', '남성', '26');
+VALUES(null,'admin','admin','부산','01011111111','남성',26);
 
 SELECT * FROM test_member;
+
+
+
+
+
+
+
+
+
+
+
+
+

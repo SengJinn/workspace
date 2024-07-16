@@ -19,7 +19,7 @@
         	font-family: "Jua", sans-serif;
         	text-align: center;
         	font-size: 50px;
-        	color: black;
+        	color: 3A2400;
         }
         
         .body {

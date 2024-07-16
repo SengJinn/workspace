@@ -10,7 +10,7 @@
 	<form action="jstlFMT.jsp" method="POST">
 		<input type="date" name="selectDate" min="2024-07-15" max="2024-08-14" required/><br/>
 		<input type="number" name="price" min="0" max="1000000" step="1000"/> <br/>
-		<input type="text" name="addr" required />
+		<input type="text" name="addr" />
 		<select name="encode">
 			<option value="ko_KR">한국어</option>
 			<option value="en_US">English</option>
@@ -20,3 +20,16 @@
 	</form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,10 +7,14 @@
 		text-decoration-line:none;
 	}
 	
+	a:active{
+		color:#FF8000;
+	}
+	
 	li {
 		list-style:none;
 		padding-left: 0;
-	}
+	}	
 	
 	.header{
 		height: 50px;
@@ -45,8 +49,17 @@
             width: 100%;
             text-align:left;
             border:1px solid gray;
-            border-radius:40px
+            border-radius:20px
         }
+        
+		.inner-menu-item1{
+			margin-top: 15px;
+		}
+
+
+		.inner-menu-item2{
+			margin-bottom: 15px;
+		}
 
         .outer-menu-item:hover .inner-menu{
             display: block;
@@ -109,8 +122,8 @@
                     <li class="outer-menu-item">
                         <span class="menu-title">멍터테인먼트</span>
                         	<ul class="inner-menu">
-                           		<li class="inner-menu-item"><a href="WorldCup/WorldCup.jsp">개상형 월드컵</a></li><br/>
-                           		 <li class="inner-menu-item"><a href="MBTI.jsp">멍BTI</a></li>
+                           		<li class="inner-menu-item1"><a href="WorldCup.jsp">멍상형 월드컵</a></li><br/>
+                           		 <li class="inner-menu-item2"><a href="mungQuiz.jsp">멍멍 퀴즈존</a></li>
                             </ul>
                     </li>
                 </ul>

@@ -19,7 +19,7 @@
         	font-family: "Jua", sans-serif;
         	text-align: center;
         	font-size: 40px;
-        	color: black;
+        	color: 3A2400;
         }
 
         .body {
@@ -108,12 +108,12 @@
 	<h1 class="joinTitle">♥JOIN US♥</h1>
 	<br/>
     <div class="div">
-        <form action="">
-            <input type="text" placeholder="아이디" class="in">
-            <input type="password" placeholder="비밀번호" class="in">
-            <input type="password" placeholder="비밀번호 확인" class="in">
-            <input type="text" placeholder="이름" class="in">
-            <input type="email" placeholder="이메일" class="in">
+        <form action="mungMember.jsp">
+            <input type="text" placeholder="아이디" class="in" name="id">
+            <input type="password" placeholder="비밀번호" class="in" name="pass">
+            <input type="password" placeholder="비밀번호 확인" class="in" name="passA">
+            <input type="text" placeholder="이름" class="in" name="name">
+            <input type="email" placeholder="이메일" class="in" name="email">
             <input type="button" id="submitButton" value="확인 코드 전송">
             <input type="text" placeholder="확인 코드 입력" class="in">
             <br/>

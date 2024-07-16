@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<!-- jstlSQL.jsp -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +18,32 @@
 		<label>
 			<input type="radio" name="gender" value="여성" checked/> 여성
 		</label>
+		<br/>
 		age : <input type="number" name="age" min="1"/> <br/>
 		<button>확인</button>
 	</form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

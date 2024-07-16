@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+		<!-- DataSource = Connection Pool, 커넥션 관리 객체 -->
+		<!-- 필수 정보 4가지 : driverClassName, url, username, password -->
+	<Resource 
+		name="java/MySQLDB"
+		type="javax.sql.DataSource"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/digital_jsp"
+		username="digital"
+		password="1234"
+	 />
+	 	<!-- 
+	 		minIdle : 최소한으로 유지될 Connection 객체의 수 (동작하지 않는) - 기본값 0
+	 		maxWait : 사용할 수 있는 커넥션 객체가 없을 때 사용자의 대기 시간 설정(1/1000)
+	 		maxActive : 동시에 제공할 수 있는 최대 연결 개수 - 기본값 : 8
+	 		initialSize : dataSource 객체 생성 후 최초에 getConnection()이 호출 되었을 때 
+	 		커넥션 풀에 생성 해둘 커넥션 객체 개수 - 기본값 0
+	 	-->
+	
+</Context>

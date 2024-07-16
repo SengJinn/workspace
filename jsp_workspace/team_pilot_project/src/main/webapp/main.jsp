@@ -21,7 +21,7 @@
  		font-weight: 400;
   		font-style: normal;
   		font-size: 5em;
-  		color: black;
+  		color: 140500;
   		text-align: left;
   		margin: 50px 0px 0px 0px;
 	}
@@ -45,6 +45,7 @@
   		float:left;
   		font-size: 1em;
   		transition: transform 0.2s ease, box-shadow 0.2s ease;
+  		cursor: pointer;
 	}
 	
 	.insta{
@@ -62,7 +63,7 @@
   		transition: transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	.introduce + .insta{
+	.introduce+.insta{
 		margin-left: 40px;
 		cursor: pointer;
 	}
@@ -93,6 +94,7 @@
 	
 	h2:hover{
 		text-decoration: underline;
+		cursor: pointer;
 	}
 </style>
 
