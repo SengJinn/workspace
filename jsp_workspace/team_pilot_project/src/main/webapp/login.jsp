@@ -88,9 +88,9 @@
 	<h1 class="loginTitle">♥LOGIN♥</h1>
 	<br/>
     <div class="div">
-        <form action="">
-            <input type="text" placeholder="아이디" class="in">
-            <input type="password" placeholder="비밀번호" class="in">
+        <form action="loginCheck.jsp">
+            <input type="text" placeholder="아이디" class="in" name="id">
+            <input type="password" placeholder="비밀번호" class="in" name="pass">
             <input type="submit" id="btn" value="로그인"><br>
         </form>
         <label>

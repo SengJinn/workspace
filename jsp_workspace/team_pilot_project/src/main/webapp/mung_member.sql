@@ -2,7 +2,7 @@
 USE digital_jsp;
 
 -- mung_member 테이블 삭제
--- DROP TABLE IF EXISTS mung_member;
+DROP TABLE IF EXISTS mung_member;
 
 -- mung_member 테이블 생성 : 와일드카드로  값을 받을때는 입력 받을것만 파라미터로 전달 받으면 된다. ( 회원번호 : 자동증가, 날짜 : now()는 안해도됨)
 CREATE TABLE  IF NOT EXISTS mung_member(

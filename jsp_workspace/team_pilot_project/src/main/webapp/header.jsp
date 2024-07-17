@@ -1,4 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.util.*" %>
+<%@ page import="vo.MungMemberVO" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+
+<%
+    MungMemberVO member = (MungMemberVO) session.getAttribute("member");
+%>
+
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
@@ -99,13 +107,21 @@
           		<ul class="outer-menu2">
           			<li class="outer-menu-item2">
 						<span class="menu-title2"><a href="main.jsp">HOME</a></span>
-					</li>
-          			<li class="outer-menu-item2">
-						<span class="menu-title2"><a href="join.jsp">JOIN</a></span>
-					</li>
-					<li class="outer-menu-item2">
-						<span class="menu-title2"><a href="login.jsp">LOGIN</a></span>
-					</li>
+                    <% if (member == null) { %>
+                    <li class="outer-menu-item2">
+                        <span class="menu-title2"><a href="login.jsp">LOGIN</a></span>
+                    </li>
+                    <% } else { %>
+                    <li class="outer-menu-item2">
+                        <span class="menu-title2"><%= member.getName() %>님, 반갑습니다.</span>
+                    </li>
+                    <li class="outer-menu-item2">
+                        <span class="menu-title2"><a href="logOut.jsp">LOGOUT</a></span>
+                    </li>
+                    <% } %>
+                     <li class="outer-menu-item2">
+                        <span class="menu-title2"><a href="join.jsp">JOIN</a></span>
+                    </li>
 	
 				</ul>
           	</div>

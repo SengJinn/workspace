@@ -7,6 +7,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>회원가입</title>
+
+<script>
+    function checkId() {
+        var id = document.getElementById("id").value;
+        if (id === "") {
+            alert("아이디를 입력해주세요.");
+            return;
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "checkId.jsp", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                alert(xhr.responseText);
+            }
+        };
+        xhr.send("id=" + encodeURIComponent(id));
+    }
+
+    function validateForm() {
+        var pass = document.getElementsByName("pass")[0].value;
+        var passA = document.getElementsByName("passA")[0].value;
+        if (pass !== passA) {
+            alert("비밀번호가 일치하지 않습니다. 다시 입력해 주세요.");
+            document.getElementsByName("passA")[0].focus();
+            return false;
+        }
+        return true;
+    }
+    
+    
+    let msg = '${msg}';
+    if(msg != ''){
+    	alert(msg);
+    }
+</script>
+
+
+
 <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
@@ -100,6 +139,9 @@
         }
 
     </style>
+    
+    
+    
 </head>
 
  <body class="body">
@@ -108,14 +150,15 @@
 	<h1 class="joinTitle">♥JOIN US♥</h1>
 	<br/>
     <div class="div">
-        <form action="mungMember.jsp">
+        <form action="joinSubmit.jsp">
             <input type="text" placeholder="아이디" class="in" name="id">
+            <input type="button" name="uidCheck" id="idCheckButton" value="아이디중복체크" onclick="checkId()">
             <input type="password" placeholder="비밀번호" class="in" name="pass">
             <input type="password" placeholder="비밀번호 확인" class="in" name="passA">
             <input type="text" placeholder="이름" class="in" name="name">
             <input type="email" placeholder="이메일" class="in" name="email">
             <input type="button" id="submitButton" value="확인 코드 전송">
-            <input type="text" placeholder="확인 코드 입력" class="in">
+            <input type="text" placeholder="확인 코드 입력" class="in" name="verification_code">
             <br/>
             <input type="submit" id="btn" value="회원가입">
         </form>

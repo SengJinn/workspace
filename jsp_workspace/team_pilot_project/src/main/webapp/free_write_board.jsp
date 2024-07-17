@@ -39,10 +39,9 @@
 			int result = pstmt.executeUpdate();
 			
 		
-			
 			out.println("<script>");
 			out.println("alert('게시글 등록이 완료되었습니다.')");
-			out.println("history.go(-2);");
+			out.println("location.href='free.jsp';");
 			out.println("</script>");
 			
 		}catch(ClassNotFoundException e){

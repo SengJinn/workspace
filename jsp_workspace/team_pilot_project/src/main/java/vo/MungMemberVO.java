@@ -25,6 +25,14 @@ public class MungMemberVO {
 	}
 
 
+	public MungMemberVO( String id, String pass, String name, String email) {
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.email = email;
+
+	}
+	
 	public int getNum() {
 		return num;
 	}
