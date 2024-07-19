@@ -1,69 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<!-- loginCheck.jsp -->
-<%@ include file="connection.jsp" %>
-<%
-	String id = request.getParameter("id");
-	String pass = request.getParameter("pass");
-	// 사용할 쿼리 질의 객체 선택
-	String statement = request.getParameter("stmt");
-	// stmt, pstmt, cstmt
-	
-	Statement stmt = null;
-	PreparedStatement pstmt = null;
-	CallableStatement cstmt = null;
-	ResultSet rs = null;
+<!-- sqlQuery.jsp -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
+<%@ page import="java.util.*, vo.MungMemberVO" %>
+<jsp:useBean id="member" class="vo.MungMemberVO" scope="session" />
+<jsp:setProperty property="*" name="member"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 
-	// SELECT * FROM member WHERE id = 'id001' AND pass = 'pw001';
-	
-	if(statement.equals("stmt")){
-		out.println("Statement <br/>");
-		stmt = conn.createStatement();
-		String sql = "SELECT * FROM mung_member WHERE id = '"+id+"' AND pass = '"+pass+"'";
-		System.out.println(sql);
-		rs = stmt.executeQuery(sql);
-		
-	}else if(statement.equals("pstmt")){
-		out.println("PreparedStatement <br/>");
-		
-		String sql = "SELECT * FROM mung_member WHERE id = ? AND pass = ?";
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, id);
-		pstmt.setString(2, pass);
-		rs = pstmt.executeQuery();
-		
-	}else if(statement.equals("cstmt")){
-		out.println("CallableStatement <br/>");
-		String sql = "call loginCheck(?, ?)";
-		cstmt = conn.prepareCall(sql);
-		cstmt.setString(1, id);
-		cstmt.setString(2, pass);
-		rs = cstmt.executeQuery();
-	}
-	
-	// ResultSet 객체가 정상적으로 생성이 됐고 검색된 행이 존재 할때
-	if(rs != null && rs.next()){
-		int num = rs.getInt("num");
-		String rsId = rs.getString(2);
-		String rsPass = rs.getString(3);
-		String rsName = rs.getString("name");
-		String rsEmail = rs.getString(5);
-		String rsJoinDate = rs.getString(6);
-		
-		out.println("num : " + num + "<br/>");
-		out.println("rsId : " + rsId + "<br/>");
-		out.println("rsPass : " + rsPass + "<br/>");
-		out.println("rsName : " + rsName + "<br/>");
-		out.println("rsAddr : " + rsEmail + "<br/>");
-		
-	}else{ 
-%>
-		alert("등록된 회원정보가 없습니다. 회원가입하세요.");
-		location.href="join.jsp";
-<%
-	}
+<s:query var="rs" dataSource="java/MySQLDB">
+	SELECT * FROM mung_member WHERE id = ? AND pass = ?
+	<s:param>${param.id}</s:param>
+	<s:param>${param.pass}</s:param>
+</s:query>  
 
-	if(rs != null) rs.close();
-	if(stmt != null) stmt.close();
-	if(conn != null) conn.close();
+ <c:choose>
+ 	<c:when test="${rs.rowCount > 0}">
+ 	<!-- rs.rows[0].name -->
+ 		<!-- private int num;
+	private String id;
+	private String pass;
+	private String name;
+	private String email;
+	private Date joinDate; -->
+ 		<jsp:setProperty property="num" name="member" value="${rs.rows[0].num}"/>
+ 		<jsp:setProperty property="name" name="member"  value="${rs.rows[0].name}"/>
+ 		<jsp:setProperty property="email" name="member"  value="${rs.rows[0].email}"/>
+ 		<jsp:setProperty property="joinDate" name="member"  value="${rs.rows[0].joinDate}"/>
+            
+ 		<script>
+ 		   alert('로그인이 완료되었습니다. 환영합니다.');
+           location.replace('main.jsp');
+        </script>
+ 	</c:when>
+ 	<c:otherwise>
+ 		<c:remove var="member" scope="session"/>
+ 		<script>
+      	  alert('해당하는 회원 정보를 찾을 수 없습니다. 아이디와 비밀번호를 다시 확인해주세요.');
+       	  location.replace('login.jsp');
+		</script>
+ 	</c:otherwise>
+ </c:choose>
+ 
+ <!--  
+ // 자동로그인 - 로그인 정보 저장 요청 처리
+		if(rememberMe != null) {	// 자동로그인 체크박스 체크
+			
+			byte[] bytes = id.getBytes();	// 문자열을 byte[]로 반환 
+			// byte[]로 변환된 문자열을 64바이트의 새로운 방식의 byte[]로 반환
+			byte[] encodedUid = java.util.Base64.getEncoder().encode(bytes);
+			System.out.println("uid : " + id);
+			// byte[]에 저장된 data를 이용하여 문자열 생성 
+			id = new String(encodedUid);
+			System.out.println("encodedUid : " + id);
+			
+			// 인증완료된 사용자의 uid값을 사용자 PC브라우저 Cookie로 저장 
+			Cookie cookie = new Cookie("uid", id);
+			cookie.setMaxAge(60*60*24*15);	// 초단위
+			cookie.setPath("/");
+			response.addCookie(cookie);
+		}
+			response.sendRedirect(request.getContextPath() + "/main.jsp");
 %>
-<h4><a href="login.jsp">로그인 페이지</a></h4>
+-->
+
+</body>
+</html>

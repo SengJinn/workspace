@@ -2,6 +2,9 @@
 INSERT INTO digital_member(u_id, u_pw, u_name, u_phone, u_birth)
 VALUES('admin', 'admin', 'MASTER', '01000000000', '20240308');
 
+INSERT INTO digital_member(u_id, u_pw, u_name, u_phone, u_birth)
+VALUES('jjiiccsj@naver.com', '12345', '최기근', '01022412782', '20020308');
+
 SELECT * FROM digital_member;
 
 CREATE TABLE IF NOT EXISTS digital_member(

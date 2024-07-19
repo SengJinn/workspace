@@ -7,8 +7,8 @@
 		type="javax.sql.DataSource"
 		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
 		driverClassName="com.mysql.cj.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/digital_jsp"
-		username="digital"
+		url="jdbc:mysql://10.100.205.157:3306/mung_project"
+		username="mung_admin"
 		password="1234"
 	 />
 	 	<!-- 

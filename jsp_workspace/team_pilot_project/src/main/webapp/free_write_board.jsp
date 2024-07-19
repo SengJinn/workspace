@@ -23,8 +23,8 @@
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		conn = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/digital_jsp",	// 
-				"digital",
+				"jdbc:mysql://10.100.205.157:3306/mung_project",	// 
+				"mung_admin",
 				"1234"
 			);
 			out.println("DB 연결 완료" + conn);

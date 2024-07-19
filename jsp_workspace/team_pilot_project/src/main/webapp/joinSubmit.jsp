@@ -19,14 +19,6 @@
         request.getRequestDispatcher("join.jsp").forward(request, response);
         return;
     }
-
-    // 예시로 고정된 확인 코드
-    String expected_code = "1234";
-    if (!verification_code.equals(expected_code)) {
-        request.setAttribute("msg", "확인 코드가 올바르지 않습니다.");
-        request.getRequestDispatcher("join.jsp").forward(request, response);
-        return;
-    }
     
 	
 %>

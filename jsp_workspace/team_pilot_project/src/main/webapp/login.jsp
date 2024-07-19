@@ -88,13 +88,13 @@
 	<h1 class="loginTitle">♥LOGIN♥</h1>
 	<br/>
     <div class="div">
-        <form action="loginCheck.jsp">
+        <form action="loginCheck.jsp" method="post">
             <input type="text" placeholder="아이디" class="in" name="id">
             <input type="password" placeholder="비밀번호" class="in" name="pass">
             <input type="submit" id="btn" value="로그인"><br>
         </form>
         <label>
-        	<input type="checkbox" class="ftitle" /><span>로그인 정보 기억</span>
+        	<input type="checkbox" class="ftitle" name="rememberMe" /><span>로그인 정보 기억</span>
         </label>
         <br/>
          <br/>

@@ -1,10 +1,8 @@
-package utils;
+package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * database 연결 작업 및 자원해제 담당 class
@@ -21,8 +19,8 @@ public class JDBCUtil {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			conn = DriverManager.getConnection(
-				"jdbc:mysql://10.100.205.157:3306/mung_project",
-				"mung_admin",
+				"jdbc:mysql://localhost:3306/digital_jsp",
+				"digital",
 				"1234"
 			);
 		} catch (ClassNotFoundException e) {
@@ -33,11 +31,6 @@ public class JDBCUtil {
 		return conn;
 	} // end getConnection()
 	
-	
-	/*
-	 * 매개변수로 전달 받은 외부자원 사용 class 의 자원해제
-	 */
-	// ... => 가변형 인자열
 	public static void close(AutoCloseable... closer) {
 		for(AutoCloseable c : closer) {
 			if(closer != null) {
@@ -48,31 +41,4 @@ public class JDBCUtil {
 		} // end for
 	} // end close
 	
-	
-//	public static void close(Connection conn) {
-//		if(conn != null) {
-//			try {
-//				conn.close();
-//			} catch (SQLException e) {}
-//		}
-//	} // end close
-//	
-//	public static void close(ResultSet rs) {
-//		if(rs != null) {
-//			try {
-//				rs.close();
-//			} catch (SQLException e) {}
-//		}
-//	} // end close
-//	
-//	public static void close(Statement stmt) {
-//		if(stmt != null) {
-//			try {
-//				stmt.close();
-//			} catch (SQLException e) {}
-//		}
-//	} // end close
-	
 }
-
-
