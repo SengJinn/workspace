@@ -47,7 +47,7 @@ try {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${param.num}번째 게시물</title>
 <style>
 table {
 	margin: auto;
@@ -79,11 +79,14 @@ input[type="submit"] {
 	background-color: rgb(245, 212, 46);
 }
 
+.bt2{
+	text-align:center;
+}
+
 
 </style>
 </head>
 <body>
-
 	<table>
 		<tr>
 			<td><h2>게시글</h2></td>
@@ -112,10 +115,16 @@ input[type="submit"] {
 				<pre><%=free.getMessage()%></pre>
 			</td>
 		</tr>
+		<tr>
+			<td class="bt2" colspan="2">
+				<a href="free.jsp">[목록]</a>
+				&nbsp;|&nbsp;
+				<a href="freeDetail_update.jsp?num=${free.num}">[수정]</a>
+				&nbsp;|&nbsp;
+				<a href="freeDetail_delete.jsp?num=${free.num}">[삭제]</a>
+			</td>
+		</tr>
 	</table>
-
-
-
 </body>
 </html>
 

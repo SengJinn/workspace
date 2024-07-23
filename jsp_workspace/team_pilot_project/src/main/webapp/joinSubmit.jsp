@@ -19,9 +19,10 @@
         request.getRequestDispatcher("join.jsp").forward(request, response);
         return;
     }
-    
+
 	
 %>
+	
 
 <!DOCTYPE html>
 <html lang="en">

@@ -60,11 +60,20 @@
             cursor: pointer;
         }
         
+        #btn:hover{
+    		background-color: ffdc72;
+   		 }
+
         #btn:active {
 		    transform: scale(0.95);
 		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 		    background-color: FFCC00;
+		    transition: 0.2s;
         }
+        
+
+   		 
+
 
         .text {
             text-decoration: none;
@@ -98,7 +107,7 @@
         </label>
         <br/>
          <br/>
-        <a href="" class="text">비밀번호를 잊어버리셨나요?</a> <br/>
+        <a href="forgotPassword.jsp" class="text">비밀번호를 잊어버리셨나요?</a> <br/>
         <a href="join.jsp" class="text">회원가입</a>
     </div>
     <br/>

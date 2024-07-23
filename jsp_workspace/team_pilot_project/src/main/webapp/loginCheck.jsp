@@ -32,6 +32,27 @@
  		<jsp:setProperty property="name" name="member"  value="${rs.rows[0].name}"/>
  		<jsp:setProperty property="email" name="member"  value="${rs.rows[0].email}"/>
  		<jsp:setProperty property="joinDate" name="member"  value="${rs.rows[0].joinDate}"/>
+        
+	<%
+			// 자동로그인 - 로그인 정보 저장 요청 처리
+			String rememberMe = request.getParameter("rememberMe");
+			if (rememberMe != null) { // 자동로그인 체크박스 체크
+				String id = request.getParameter("id");
+				byte[] bytes = id.getBytes(); // 문자열을 byte[]로 반환 
+				// byte[]로 변환된 문자열을 64바이트의 새로운 방식의 byte[]로 반환
+				byte[] encodedUid = java.util.Base64.getEncoder().encode(bytes);
+				// byte[]에 저장된 data를 이용하여 문자열 생성 
+				id = new String(encodedUid);
+				
+				// 인증완료된 사용자의 uid값을 사용자 PC브라우저 Cookie로 저장 
+				Cookie cookie = new Cookie("uid", id);
+				cookie.setMaxAge(60 * 60 * 24 * 15); // 초단위
+				cookie.setPath("/");
+				response.addCookie(cookie);
+			}
+	%>
+        
+        %>
             
  		<script>
  		   alert('로그인이 완료되었습니다. 환영합니다.');
@@ -47,27 +68,7 @@
  	</c:otherwise>
  </c:choose>
  
- <!--  
- // 자동로그인 - 로그인 정보 저장 요청 처리
-		if(rememberMe != null) {	// 자동로그인 체크박스 체크
-			
-			byte[] bytes = id.getBytes();	// 문자열을 byte[]로 반환 
-			// byte[]로 변환된 문자열을 64바이트의 새로운 방식의 byte[]로 반환
-			byte[] encodedUid = java.util.Base64.getEncoder().encode(bytes);
-			System.out.println("uid : " + id);
-			// byte[]에 저장된 data를 이용하여 문자열 생성 
-			id = new String(encodedUid);
-			System.out.println("encodedUid : " + id);
-			
-			// 인증완료된 사용자의 uid값을 사용자 PC브라우저 Cookie로 저장 
-			Cookie cookie = new Cookie("uid", id);
-			cookie.setMaxAge(60*60*24*15);	// 초단위
-			cookie.setPath("/");
-			response.addCookie(cookie);
-		}
-			response.sendRedirect(request.getContextPath() + "/main.jsp");
-%>
--->
+
 
 </body>
 </html>

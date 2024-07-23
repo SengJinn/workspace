@@ -59,16 +59,24 @@
             border:1px solid gray;
             border-radius:20px
         }
-        
-		.inner-menu-item1{
+       
+		.inner-menu-item1 {
 			margin-top: 15px;
 		}
-
-
-		.inner-menu-item2{
-			margin-bottom: 15px;
+		
+		.inner-menu-item2 {
+			margin-bottom: 20px;
 		}
-
+		
+		.inner-menu-item3 {
+			margin-bottom: 20px;
+		}
+		
+		.inner-menu-item4 {
+			margin-bottom: 20px;
+		}
+		
+		
         .outer-menu-item:hover .inner-menu{
             display: block;
             border:0px;
@@ -111,6 +119,9 @@
                     <li class="outer-menu-item2">
                         <span class="menu-title2"><a href="login.jsp">LOGIN</a></span>
                     </li>
+                    <li class="outer-menu-item2">
+                        <span class="menu-title2"><a href="join.jsp">JOIN</a></span>
+                    </li>
                     <% } else { %>
                     <li class="outer-menu-item2">
                         <span class="menu-title2"><%= member.getName() %>님, 반갑습니다.</span>
@@ -118,10 +129,11 @@
                     <li class="outer-menu-item2">
                         <span class="menu-title2"><a href="logOut.jsp">LOGOUT</a></span>
                     </li>
-                    <% } %>
-                     <li class="outer-menu-item2">
-                        <span class="menu-title2"><a href="join.jsp">JOIN</a></span>
+                    <li class="outer-menu-item2">
+                        <span class="menu-title2"><a href="myInfo.jsp">MY INFO</a></span>
                     </li>
+                    <% } %>
+                  
 	
 				</ul>
           	</div>
@@ -139,7 +151,9 @@
                         <span class="menu-title">멍터테인먼트</span>
                         	<ul class="inner-menu">
                            		<li class="inner-menu-item1"><a href="WorldCup.jsp">멍상형 월드컵</a></li><br/>
-                           		 <li class="inner-menu-item2"><a href="mungQuiz.jsp">멍멍 퀴즈존</a></li>
+                           		<li class="inner-menu-item2"><a href="mungQuiz.jsp">멍멍 퀴즈존</a></li>
+                           		<li class="inner-menu-item3"><a href="mungrockGame.jsp">뼈다귀 게임</a></li>
+                           		<li class="inner-menu-item4"><a href="brick/start.html">멍돌깨기 게임</a></li>
                             </ul>
                     </li>
                 </ul>
@@ -148,5 +162,3 @@
 
 	</div>
 </header>
-
-

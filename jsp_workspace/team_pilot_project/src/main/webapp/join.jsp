@@ -19,7 +19,7 @@
         font-family: "Jua", sans-serif;
         text-align: center;
         font-size: 40px;
-        color: black;
+        color: 3A2400;
     }
 
     .body {
@@ -35,6 +35,11 @@
         padding: 20px;
     }
     
+     input[type='text'].in2 {
+    	width: 60%;
+    	margin-right: 55px;
+    }
+    
     input[type='text'],
     input[type='password'],
     input[type='submit'] {
@@ -46,12 +51,14 @@
     }
     
     input[type='email'] {
-        width: 100%;
+        width: 60%;
         padding: 10px;
         box-sizing: border-box;
         border-radius: 5px;
         border: none;
+        margin-right: 55px;
     }
+    
     
     input[type='text'].in,
     input[type='password'].in,
@@ -61,32 +68,32 @@
         border: 1px solid lightgray;
     }
 
-    #btn {
-        background-color: rgb(245,212,46);
-        color: white;
-        cursor: pointer;
+    .btn{
+            background-color: rgb(245,212,46);
+            margin-bottom: 15px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 0;
+        }
+        
+    .btn:hover{
+    	background-color: ffdc72;
     }
-    
-    #btn:active {
-        transform: scale(0.95);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        background-color: FFCC00;
-    }
-    
-    #submitButton{
-        margin-left: 53px;
-        background-color: rgb(245,212,46);
-        color: white;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-    }
-    
-    #submitButton:active {
-        transform: scale(0.95);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        background-color: FFCC00;
-    }
+        
+    .btn:active{
+    		background-color: FFCC00;
+		    transform: scale(0.95);
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		    border-radius: 5px;
+		    border: 0;
+		    transition: 0.2s;
+        }     
+        
+     #joinBtn{
+     	width: 100%;
+     	height: 40px;
+     }   
     
     .text {
         text-decoration: none;
@@ -99,64 +106,7 @@
     }
 </style>
 
-<script>
-    function checkId() {
-        var id = document.getElementById("id").value;
-        if (id === "") {
-            alert("아이디를 입력해주세요.");
-            return;
-        }
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "checkId.jsp", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                alert(xhr.responseText);
-            }
-        };
-        xhr.send("id=" + encodeURIComponent(id));
-    }
 
-    function validateForm() {
-        var pass = document.getElementsByName("pass")[0].value;
-        var upw_confirm = document.getElementsByName("upw_confirm")[0].value;
-        if (pass !== upw_confirm) {
-            alert("비밀번호가 일치하지 않습니다. 다시 입력해 주세요.");
-            document.getElementsByName("upw_confirm")[0].focus();
-            return false;
-        }
-        var verificationStatus = document.getElementById("verificationStatus").value;
-        if (verificationStatus !== "true") {
-            alert("인증을 완료해 주세요.");
-            return false;
-        }
-        return true;
-    }
-
-    function verifyCode() {
-        var verificationCode = document.getElementsByName("verification_code")[0].value;
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "verify_code.jsp", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var response = xhr.responseText.trim();
-                if (response === "success") {
-                    alert("인증이 완료되었습니다.");
-                    document.getElementById("verificationStatus").value = "true";
-                } else {
-                    alert("인증 코드가 올바르지 않습니다.");
-                }
-            }
-        };
-        xhr.send("verification_code=" + encodeURIComponent(verificationCode));
-    }
-
-    let msg = '<%= request.getAttribute("msg") != null ? request.getAttribute("msg") : "" %>';
-    if (msg != '') {
-        alert(msg);
-    }
-</script>
 </head>
 
 <body class="body">
@@ -165,30 +115,20 @@
     <h1 class="joinTitle">♥JOIN US♥</h1>
     <br/>
     <div class="div">
-        <form action="sendVerificationCode.jsp" method="post">
+        <form id="joinForm" action="joinSubmit.jsp" method="post">
             <input type="text" name="id" id="id" placeholder="아이디" class="in" value="<%= request.getParameter("id") != null ? request.getParameter("id") : "" %>" required>
-            <input type="button" name="uidCheck" id="idCheckButton" value="아이디중복체크" onclick="checkId()">
-            <div id="idCheckResult" style="color:red; margin-top: 10px;"></div>
             <input type="password" name="pass" placeholder="비밀번호" class="in" value="<%= request.getParameter("pass") != null ? request.getParameter("pass") : "" %>" required>
             <input type="password" name="passA" placeholder="비밀번호 확인" class="in" value="<%= request.getParameter("passA") != null ? request.getParameter("passA") : "" %>" required>
-            <input type="text" name="name" placeholder="이름" class="in" value="<%= request.getParameter("name") != null ? request.getParameter("name") : "" %>" required>
-            <input type="email" name="email" placeholder="이메일" class="in" value="<%= request.getParameter("email") != null ? request.getParameter("email") : "" %>" required>
-            <button type="submit" id="btn">본인인증</button>
-        </form>
-        <form action="joinSubmit.jsp" method="post" onsubmit="return validateForm()">
-            <input type="text" name="verification_code" placeholder="확인 코드 입력" class="in" required>
-            <input type="button" value="인증확인" onclick="verifyCode()">
-            <input type="hidden" id="verificationStatus" value="false">
-            <input type="hidden" name="id" value="<%= request.getParameter("id") != null ? request.getParameter("id") : "" %>">
-            <input type="hidden" name="pass" value="<%= request.getParameter("pass") != null ? request.getParameter("pass") : "" %>">
-            <input type="hidden" name="passA" value="<%= request.getParameter("passA") != null ? request.getParameter("passA") : "" %>">
-            <input type="hidden" name="name" value="<%= request.getParameter("name") != null ? request.getParameter("name") : "" %>">
-            <input type="hidden" name="email" value="<%= request.getParameter("email") != null ? request.getParameter("email") : "" %>">
+            <input type="text" name="name" id="name" placeholder="이름" class="in" value="<%= request.getParameter("name") != null ? request.getParameter("name") : "" %>" required>
+            <input type="email" id="email" name="email" placeholder="이메일" class="in" value="<%= request.getParameter("email") != null ? request.getParameter("email") : "" %>" required>
+            <button type="submit" class="btn" id="acceptEmail">본인인증</button>
+            <input type="text" name="verification_code" id="emailCode" placeholder="확인 코드 입력" class="in in2" required>
+            <input type="button" class="btn" value="인증확인" id="emailAcceptBtn">
+
             <br/>
-            <input type="submit" id="btn" value="회원가입">
+            <input type="button" class="btn" id="joinBtn" value="회원가입">
         </form>
-        <br/>
-        <a href="" class="text">확인 코드를 받지 못 하셨나요?<br/>이곳을 클릭하여 재전송 받으세요.</a> 
+        <a href="login.jsp" class="text">이미 회원이신가요?<br/>이곳을 클릭하여 로그인하세요.</a> 
         <br/>
         <br/>
     </div>
@@ -196,6 +136,73 @@
     <br/>
     <br/>
 </body>
+
+<script>
+//메일발송 이벤트 처리
+let emailCode = ''; // 발송된 인증 코드 저장
+
+acceptEmail.onclick = function(){
+	
+	//메일 발송 요청 시 - 메일 발송 버튼 비활성화
+	this.setAttribute("disabled", "disabled");
+
+	let email = document.querySelector("#email");
+	fetch("sendVerificationCode.jsp",{ 
+		method : "POST",
+		// 수신자 이메일 : 인증 받을 이메일 주소를 파라미터로 전달
+		body : new URLSearchParams({email : email.value})
+	})
+	.then(res => res.json())
+	.then(result => {
+		console.log(result)
+		// 발신한 코드 정보 저장
+		emailCode = result;
+		// 메일 인증 코드 발송 완료
+		alert('이메일 인증 코드 발송 완료! 이메일을 확인해주세요!');
+		// emailCodeWrap.style.display = "block" ;
+	})
+	.catch(error => console.log(error));
+	
+}
+
+
+// 인증코드 확인 버튼 이벤트 처리
+document.querySelector("#emailAcceptBtn").onclick = function(){
+	let userCode = document.querySelector("#emailCode").value;
+	let message = "";
+	if(userCode != "" && emailCode == userCode){
+		// 인증코드 일치
+		alert("이메일 인증이 완료되었습니다.");
+		message = "이메일 인증 완료";
+		boolUid = true;
+		// 이메일 발송 버튼 disabled 속성 제거
+		acceptEmail.removeAttribute("disabled");
+		acceptEmail.style.display = "none";
+		// emailCodeWrap.style.display = "none";
+	}else{
+		alert("인증 코드를 다시 확인해 주세요.");
+		message = "인증 코드를 다시 확인해 주세요.";
+		boolUid = false;
+	}
+	// 결과 메세지 출력
+	// let elP = acceptEmail.parentNode.querySelector(".result");
+	// showMessage(elP, message, boolUid);
+};// end 인증 코드 확인
+
+
+// 회원 가입 버튼 클릭 시 각 요소의 입력값 검증 여부 확인
+document.querySelector("#joinBtn").onclick = function(){
+	if(!boolUid){
+		alert("이메일 인증을 확인해주세요.");
+		document.querySelector("#email").focus();
+	} else{
+		// joinForm tag submit 이벤트 실행
+		document.querySelector("#joinForm").submit();
+	}
+};
+
+</script>
+
 
 </html>
 <%@ include file="footer.jsp"%>

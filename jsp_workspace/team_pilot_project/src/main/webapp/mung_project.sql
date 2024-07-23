@@ -21,6 +21,9 @@ SELECT * FROM mung_member;
 -- 테이블 구조 확인
 DESC mung_member; 
 
+DELETE FROM mung_member WHERE num =15;
+
+
 -- =====================================================================================
 -- [멍뮤니티 SQL] : free_write.sql
 
@@ -41,6 +44,8 @@ CREATE TABLE IF NOT EXISTS freewrite(
 SELECT * FROM freewrite;
 -- 테이블 구조 확인
 DESCRIBE freewrite; 
+
+DELETE FROM freewrite WHERE num = 2;
 
 -- =====================================================================================
 -- [명령문]
@@ -69,3 +74,16 @@ DESCRIBE freewrite;
 
 -- 계정 삭제
 -- DROP USER 'admin_mung'@'%';
+
+
+CREATE TABLE scores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    score INT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+SELECT * FROM scores;
+
+

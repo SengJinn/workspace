@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>벽돌깨기</title>
+<style>
+    #gameContainer {
+        position: relative;
+        width: 600px;
+        height: 500px;
+        border: 1px solid black;
+    }
+    #gameCanvas {
+        display: block;
+    }
+    #backButton {
+        position: absolute;
+        top: 5px; 
+        right: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: transparent;
+        color: white;
+        font-weight: bold;
+        border: none;
+        transition: background-color 0.5s;
+    }
+    #backButton:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+</style>
+</head>
+<body>
+    <div id="gameContainer">
+        <button id="backButton">BACK</button>
+        <canvas id="gameCanvas" width=600 height=500></canvas>
+    </div>
+    <script type="module" src="app.js"></script>
+    <script>
+        document.getElementById('backButton').addEventListener('click', () => {
+            window.location.href = 'level.html';
+        });
+    </script>
+</body>
+</html>

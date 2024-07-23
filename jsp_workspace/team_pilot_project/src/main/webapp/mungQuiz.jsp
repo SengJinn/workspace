@@ -8,51 +8,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상식 퀴즈</title>
     <style>
-    body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f8f8f8;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
-
-main {
-    padding: 20px;
-}
-
-.quiz-question {
-    margin-bottom: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-</style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        main {
+            padding: 20px;
+        }
+        .quiz-question {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .quiz-question.active {
+            display: block;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>멍멍 퀴즈존</h1>
     </header>
     <main>
-        <form action="mungAnswer.jsp" method="post">
-            <div class="quiz-question">
+        <form id="quiz-form" action="mungAnswer.jsp" method="post">
+            <div class="quiz-question active">
                 <p>1. 대한민국의 수도는?</p>
                 <input type="radio" name="question1" value="서울" id="q1a1" required>
                 <label for="q1a1">서울</label><br>
@@ -88,10 +86,25 @@ button:hover {
                 <label for="q3a4">화성</label>
             </div>
 
-            <button type="submit">제출</button>
-            
+            <button type="button" onclick="showNextQuestion()">다음</button>
         </form>
     </main>
+
+    <script>
+        let currentQuestion = 0;
+
+        function showNextQuestion() {
+            const questions = document.querySelectorAll('.quiz-question');
+            if (currentQuestion < questions.length - 1) {
+                questions[currentQuestion].classList.remove('active');
+                currentQuestion++;
+                questions[currentQuestion].classList.add('active');
+            } else {
+            	alert('모든 퀴즈를 완료했습니다!');
+                document.getElementById('quiz-form').submit();
+            }
+        }
+    </script>
 </body>
 </html>
 <%@ include file="footer.jsp" %>

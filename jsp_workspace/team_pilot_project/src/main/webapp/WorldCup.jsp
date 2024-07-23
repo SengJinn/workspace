@@ -11,7 +11,7 @@
 		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');	
 		@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 		
-			*{
+			.worldcup{
 				 margin: 0;
   				 box-sizing: border-box;
   				 font-family: "Noto Sans KR", sans-serif;
@@ -49,7 +49,7 @@
 		
 		</style>
 		</head>
-		<body>
+		<body class="worldcup">
 		  <div class="box1">
 		  	<br/>
 			<h1>♥멍상형 월드컵♥</h1>

@@ -29,6 +29,13 @@
 			);
 			out.println("DB 연결 완료" + conn);
 			
+			if(title == "" || guestName == "" || checkNumber == "" || message == ""){
+				out.println("<script>");
+				out.println("alert('입력하지 않은 칸이 있는지 다시 확인해주세요.')");
+				out.println("location.href='write.jsp';");
+				out.println("</script>");
+			}else{
+			
 			String sql = "INSERT INTO freewrite VALUES(null, ?, ?, ?, ?, now())";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, title);
@@ -37,13 +44,12 @@
 			pstmt.setString(4, message);
 			
 			int result = pstmt.executeUpdate();
-			
 		
 			out.println("<script>");
 			out.println("alert('게시글 등록이 완료되었습니다.')");
 			out.println("location.href='free.jsp';");
 			out.println("</script>");
-			
+			}
 		}catch(ClassNotFoundException e){
 			out.println("Driver class를 찾을 수 없음<br/>");
 		}catch(SQLException e){

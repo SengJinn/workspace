@@ -61,25 +61,31 @@
   		float:left;
   		font-size: 1em;
   		transition: transform 0.2s ease, box-shadow 0.2s ease;
+  		margin-left: 40px;
 	}
-
-	.introduce+.insta{
-		margin-left: 40px;
-		cursor: pointer;
+	
+	.introduce:hover {
+		background-color: 58504e;
+	}
+	
+	.insta:hover {
+		background-color: ffdc72;
 	}
 	
 	.introduce:active {
     transform: scale(0.95);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: 140500;
+    transition: 0.2s;
 	}
 	
 	.insta:active {
     transform: scale(0.95);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: FFCC00;
+    transition: 0.2s;
 	}
-	
+		
 	.puppy{
 		display: inline-block;
 		float: right;
@@ -110,7 +116,7 @@
 	<br/>
 	<br/>
 	<br/>
-	<div class="whitebox"><h2>▶지도(PLACE) 체크 바로가기!</h2></div>
+	<div class="whitebox"><a href=""><h2>▶지도(PLACE) 체크 바로가기!</a></h2></div>
 </div>	
 </body>
 

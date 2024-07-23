@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="application/json; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.mail.*" %>
 <%@ page import="jakarta.mail.internet.*" %>
 <%@ page import="java.util.*" %>
@@ -14,7 +14,6 @@
         int verificationCode = (int)(Math.random() * 9000) + 1000; // 1000 ~ 9999
         // 세션에 저장
         session.setAttribute("verificationCode", verificationCode);
-
         // 구글 메일 인증 계정 정보
         GoogleAuthenticator auth = new GoogleAuthenticator();
         
@@ -34,7 +33,7 @@
         InternetAddress to = new InternetAddress(email); // 사용자가 입력한 이메일로 변경
         msg.setRecipient(Message.RecipientType.TO, to);
         // 발신자 지정
-        msg.setFrom(new InternetAddress("jiyeonkim0528@gmail.com", "개편한부산"));
+        msg.setFrom(new InternetAddress("gaepyunhae@gmail.com", "개편한부산"));
         // 제목 지정
         msg.setSubject("[개편한 부산] 인증 코드", "UTF-8");
         // 내용 지정
@@ -42,11 +41,10 @@
         
         // 메일 발송
         Transport.send(msg); // 메일 발송 결과가 전달될 때까지 Blocking
-        request.setAttribute("msg", "인증 코드가 발송되었습니다. 이메일을 확인해 주세요.");
-        request.getRequestDispatcher("join.jsp").forward(request, response);
+		out.print(verificationCode);
     } catch (Exception e) {
-        request.setAttribute("msg", "메일 발송 실패");
-        request.getRequestDispatcher("join.jsp").forward(request, response);
+
         e.printStackTrace(); // 예외 출력 추가
+        out.print("");
     }
 %>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>벽돌깨기 시작화면</title>
+<style>
+    #startScreen { 
+        width: 600px; 
+        height: 500px; 
+        border: 1px solid black; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        flex-direction: column; 
+    }
+    #imageContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    #gifImage, #staticImage {
+        width: 150px;
+        height: auto;
+        margin: 0 10px;
+    }
+    #startButton {
+        width: 200px;
+        height: 100px;
+        font-size: 24px;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        background-color: #f0f0f0;
+        transition: color 0.5s;
+    }
+    @keyframes rainbow {
+        0% { color: red; }
+        14% { color: orange; }
+        28% { color: yellow; }
+        42% { color: green; }
+        57% { color: blue; }
+        71% { color: indigo; }
+        85% { color: violet; }
+        100% { color: red; }
+    }
+    #startButton:hover {
+        animation: rainbow 1s infinite;
+    }
+</style>
+</head>
+<body>
+    <div id="startScreen">
+        <div id="imageContainer">
+            <img id="gifImage" src="https://media1.giphy.com/media/wss8Ni604nLhCvVFaW/giphy-preview.gif" alt="Game GIF">
+        </div>
+        <button id="startButton">GAME START</button>
+    </div>
+    <script>
+        document.getElementById('startButton').addEventListener('click', () => {
+            window.location.href = 'level.html';
+        });
+    </script>
+</body>
+</html>
