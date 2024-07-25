@@ -6,12 +6,12 @@
 	@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 	
-	body {
+	.mainBody {
     margin: 0;
     padding: 0;
 	}
 	
-	.mainbody{
+	.mainDiv{
 		background-color:rgb(255,246,189);
 		margin: 0px;
 	}
@@ -96,6 +96,7 @@
 		height:120px;
 		text-align: left;
 		padding: 5px 0px 0px 0px;
+		border-bottom: 1px solid lightgray;
 	}
 	
 	h2:hover{
@@ -105,8 +106,8 @@
 </style>
 
 
-<body  style="text-align:center;">
-<div class="mainbody">
+<body class="mainBody" style="text-align:center;">
+<div class="mainDiv">
 	<img src="puppy.png" class="puppy"/>
 	<br/>
 	<h1 class="gaebusan">개편한 부산</h1>
@@ -116,9 +117,13 @@
 	<br/>
 	<br/>
 	<br/>
-	<div class="whitebox"><a href=""><h2>▶지도(PLACE) 체크 바로가기!</a></h2></div>
+	<div class="whitebox"><a href="mungPlaceIndex.jsp"><h2>▶지도(PLACE) 체크 바로가기!</a></h2></div>
 </div>	
+
 </body>
 
+<%@ include file="mainPreview.jsp" %>
+
+<%@ include file="mainSlide.jsp" %>
 
 <%@ include file="footer.jsp" %>

@@ -3,6 +3,15 @@
 <%
     session.invalidate(); // 세션 무효화
 %>
+
+ <%
+ 	Cookie cookie = new Cookie("uid","");
+ 	cookie.setMaxAge(0);
+ 	cookie.setPath("/");
+ 	
+ 	response.addCookie(cookie);
+ %>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,15 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s"%> --%>
+
 <%@ include file="header.jsp" %>
-<%@ page import="vo.FreeWriteVO" %>
-<%@ page import="java.util.ArrayList.*" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>게시판</title>
+<title>멍플레이스</title>
 <style>
-    body {
+
+	/* mungPlaceIndex.jsp 공통 style */
+	.mungPlaceIndexBody {
         margin: 0;
         padding: 0;
         display: flex;
@@ -31,62 +35,9 @@
         height: 100%;
         position: relative;
     }
-    table {
-        margin: 0 auto;
-        width: 800px;
-        border-radius: 5px;
-        border-collapse: collapse;
-        border-top: none;
-    }
-    .header {
-        background-color: rgb(255,246,189);
-        text-align: center;
-        border-top: 1px lightgray solid; 
-        margin: 0px;
-    }
-    .table td, .table th {
-        border-bottom: 1px lightgray solid; 
-        height: 30px;
-        font-size: 14px;
-    }
-    .num {
-        width: 50px;
-    }
-    .title {
-        width: 470px;
-    }
-    .body {
-        text-align: center;
-    }
-    .body .title {
-        padding-left: 30px;
-        text-align: left;
-    }
-    .body .title:hover {
-        text-decoration-line: underline;
-    }
-    button {
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
-        border: 0;
-        outline: 1.5px rgb(255,187,0) solid;
-        border-radius: 5px;
-        padding-left: 10px;
-        background-color: rgb(245,212,46);
-    }
-    button:active {
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
-        border: 0;
-        border-radius: 5px;
-        outline: 1.5px rgb(27, 76, 155) solid;
-        padding-left: 10px;
-        background-color: rgb(68, 136, 244);
-    }
 
-    
+
+    /* 지도 style */
     .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
     .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
     .map_wrap {position:relative;width:100%;height:100%;}
@@ -126,46 +77,14 @@
 </style>
 <%@ page import="java.sql.*, utils.*" %>
 </head>
-<body>
+<body class="mungPlaceIndexBody">
 
 <div class="content">
     <div class="board-container">
-        <table class="table">
-            <tr><td colspan="4"><h2>자유 게시판</h2></td></tr>
-            <tr class="header">
-                <td class="num">번호</td>
-                <td class="title">제목</td>
-                <td>작성자</td>
-                <td>작성날짜</td>
-            </tr>
-            <%
-                Connection conn = JDBCUtil.getConnection();
-                String sql = "SELECT num, title, guestName, writeDate FROM freewrite ORDER BY num DESC";
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery(sql);
-                while(rs.next()){
-                    int num = rs.getInt("num");
-                    String title = rs.getString("title");
-                    String guestName = rs.getString("guestName");
-                    String writeDate = rs.getString("writeDate");
-            %>
-            <tr class="body">
-                <td><%=num%></td>
-                <td class="title"><a href="freeDetail.jsp?num=<%=num%>" style="text-decoration:none;color:black;"> <%=title %> </a></td>
-                <td><%=guestName %></td>
-                <td><%=writeDate %></td>
-            </tr>
-            <%
-                } 
-                JDBCUtil.close(rs, stmt, conn);
-            %>
-        </table>
-        <br>
-        <table>
-            <tr>
-                <td><button onclick="location.href='write.jsp'">글쓰기</button></td>
-            </tr>
-        </table>
+    	<!-- ******************************************** -->
+    	<!-- 화면 왼쪽에 배치될 멍플레이스 라운지(게시판 형태)include -->
+    	<!-- ******************************************** -->
+    	<%@ include file="mungPlaceLounge.jsp" %>
     </div>
     <div class="map-container">
         <div class="map_wrap">

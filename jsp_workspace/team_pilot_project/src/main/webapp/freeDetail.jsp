@@ -24,7 +24,7 @@ try {
 		free.setGuestName(rs.getString(3));
 		free.setCheckNumber(rs.getString(4));
 		free.setMessage(rs.getString(5));
-		free.setWriteDate(rs.getTimestamp(6));
+		free.setWriteDate(rs.getDate(6));
 		/*
 		num INT PRIMARY KEY AUTO_INCREMENT COMMENT '게시글 번호',
 		title VARCHAR(20) NOT NULL COMMENT '게시글 제목',
@@ -49,10 +49,29 @@ try {
 <meta charset="UTF-8">
 <title>${param.num}번째 게시물</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+.detailBody{
+	 background-color: rgb(255, 246, 189);
+	  font-family: "Noto Sans KR", sans-serif;
+}
+
+.detailDiv{
+		margin:auto;
+        width: 700px;
+        background-color: white;
+        border-radius: 20px;
+        padding: 30px;
+}
+
+
 table {
 	margin: auto;
 }
 
+.underbar{
+	border-bottom: 1px solid lightgray;
+}
 
 .message {
 	border: 1.5px rgb(245, 212, 46) solid;
@@ -86,25 +105,27 @@ input[type="submit"] {
 
 </style>
 </head>
-<body>
+<br/> <br/> <br/>
+<body class="detailBody">
+<div class="detailDiv">
 	<table>
 		<tr>
 			<td><h2>게시글</h2></td>
 		</tr>
 		<tr>
-			<td class="header">제목</td>
-			<td>
+			<td class="header underbar">제목</td>
+			<td class="underbar">
 				<jsp:getProperty name="free" property="title"/>
 			</td>
 		</tr>
 		<tr>
-			<td class="header">작성자</td>
-			<td>
+			<td class="header underbar"">작성자</td>
+			<td class="underbar">
 				<jsp:getProperty name="free" property="guestName"/>
 			</td>
 		</tr>
 		<tr>
-			<td class="header">작성일</td>
+			<td class="header underbar"">작성일</td>
 			<td>
 				<jsp:getProperty name="free" property="writeDate"/>
 			</td>
@@ -115,17 +136,21 @@ input[type="submit"] {
 				<pre><%=free.getMessage()%></pre>
 			</td>
 		</tr>
+
 		<tr>
 			<td class="bt2" colspan="2">
+				<br/> <br/>
 				<a href="free.jsp">[목록]</a>
-				&nbsp;|&nbsp;
+				&nbsp;&nbsp;
 				<a href="freeDetail_update.jsp?num=${free.num}">[수정]</a>
-				&nbsp;|&nbsp;
+				&nbsp;&nbsp;
 				<a href="freeDetail_delete.jsp?num=${free.num}">[삭제]</a>
 			</td>
 		</tr>
 	</table>
+</div>
 </body>
+<br/> <br/> <br/>
 </html>
 
 <%@ include file="footer.jsp"%>

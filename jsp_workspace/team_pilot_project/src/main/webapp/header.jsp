@@ -2,10 +2,28 @@
 <%@ page import="java.util.*" %>
 <%@ page import="vo.MungMemberVO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<c:set var="path" value="${pageContext.request.contextPath}" scope="session"/>
+
 
 <%
     MungMemberVO member = (MungMemberVO) session.getAttribute("member");
 %>
+
+ <c:if test="${!empty cookie.u_id and empty sessionScope.member}">
+ 	<s:query var="rs" dataSource="jdbc/MySQLDB">
+ 		SELECT * FROM digital_member WHERE u_id = ?
+ 		<s:param>${cookie.u_id.value}</s:param>
+ 	</s:query>
+ 	<c:if test="${rs.rowCount > 0}">
+ 		<jsp:useBean id="mungMember" class="vo.MungMemberVO" scope="session"/>
+ 		<c:forEach var="columnName" items="${rs.columnNames}">
+ 			<c:set target="${mungMember}" property="${columnName}" value="${rs.rows[0][columnName]}"/>
+ 		</c:forEach>
+ 	</c:if>
+ </c:if>
 
 
 <style>
@@ -18,13 +36,9 @@
 	a:active{
 		color:#FF8000;
 	}
+
 	
-	li {
-		list-style:none;
-		padding-left: 0;
-	}	
-	
-	.header{
+	.headerheader{
 		height: 50px;
 		background-color:rgb(255,246,189); 
 		border-bottom: 1px lightgray solid;
@@ -39,17 +53,22 @@
             position: relative;
             width: 150px;
             display: inline-blcok;
+            list-style:none;
+			padding-left: 0;
         }
         
         .outer-menu-item2{
             float: right;
             position: relative;
             display: inline-blcok;
+                        list-style:none;
+			padding-left: 0;
         }
         
 		
         .inner-menu{
             /* inner-menu 화면에 출력 안되도록 */
+            list-style:none;
             display: none;
             position: absolute;
             background-color: white;
@@ -107,7 +126,7 @@
 	
 </style>
 
-<header class="header">
+<header class="headerheader">
 	<div id="page-wrapper">
   
             <nav id="main-navigation2">
@@ -153,7 +172,7 @@
                            		<li class="inner-menu-item1"><a href="WorldCup.jsp">멍상형 월드컵</a></li><br/>
                            		<li class="inner-menu-item2"><a href="mungQuiz.jsp">멍멍 퀴즈존</a></li>
                            		<li class="inner-menu-item3"><a href="mungrockGame.jsp">뼈다귀 게임</a></li>
-                           		<li class="inner-menu-item4"><a href="brick/start.html">멍돌깨기 게임</a></li>
+                           		<li class="inner-menu-item4"><a href="brick/start.html" target="_blank">멍돌깨기 게임</a></li>
                             </ul>
                     </li>
                 </ul>

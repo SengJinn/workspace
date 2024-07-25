@@ -1,11 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <head>
     <meta charset="UTF-8">
     <title>홈페이지 메인</title>
     <style>
-    	.slideshow-container {
+ .slideshow-container {
   position: relative;
   max-width: 100%;
   margin: auto;
@@ -16,6 +14,7 @@
 .mySlides {
   display: none;
   width: 100%;
+  height: 80%;
 }
 
 /* 이전 버튼, 다음 버튼 스타일링 */
@@ -25,13 +24,17 @@
   top: 50%;
   width: auto;
   padding: 16px;
-  margin-top: -22px;
+  margin-top: -100px;
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 30px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+}
+
+.prev{
+	left: 0;
 }
 
 .next {
@@ -45,6 +48,7 @@
 }
 
 /* 슬라이드 쇼 인디케이터 */
+/*
 .dot {
   cursor: pointer;
   height: 15px;
@@ -55,7 +59,7 @@
   display: inline-block;
   transition: background-color 0.6s ease;
 }
-
+*/
 .active, .dot:hover {
   background-color: #717171;
 }
@@ -77,30 +81,30 @@
 <div class="slideshow-container">
 
   <div class="mySlides fade">
-    <img src="image1.jpg" style="width:100%">
+    <img src="dog1.png" style="width:100%">
   </div>
 
   <div class="mySlides fade">
-    <img src="image2.jpg" style="width:100%">
+    <img src="dog2.png" style="width:100%">
   </div>
 
   <div class="mySlides fade">
-    <img src="image3.jpg" style="width:100%">
+    <img src="dog3.png" style="width:100%">
   </div>
 
   <!-- 이전, 다음 버튼 -->
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
-<br>
+
 
 <!-- 슬라이드 쇼 인디케이터 -->
-<div style="text-align:center">
+<!--  <div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
-
+-->
 <script>
 var slideIndex = 1;
 showSlides(slideIndex);

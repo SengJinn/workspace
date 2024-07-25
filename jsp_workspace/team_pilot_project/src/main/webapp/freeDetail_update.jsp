@@ -76,7 +76,7 @@
     <tr><td><input type="text" name="guestName" value="${rs.rows[0].guestName}" 
     			readonly style="font-weight:bold;color:gray;background-color:lightgray;"></td></tr>
     <tr><td class="header">확인 번호</td></tr>
-    <tr><td><input type="password" name="checkNumber" value="${rs.rows[0].checkNumber}"></td></tr>
+    <tr><td><input type="password" name="checkNumber"></td></tr>
     <tr><td class="header">내용</td></tr>
     <tr><td><textarea name="message">${rs.rows[0].message}</textarea></td></tr>
     <tr><td class="bts"><input type="submit" value="수정완료"></td></tr>
