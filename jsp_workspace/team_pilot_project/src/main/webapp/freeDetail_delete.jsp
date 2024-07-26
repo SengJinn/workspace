@@ -10,9 +10,19 @@
 <meta charset="UTF-8">
 <title>${param.num}번째 게시물</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+	.deleteDetail{
+		background-color: rgb(255, 246, 189);
+		 font-family: "Noto Sans KR", sans-serif;
+	}
+	
 	.div1{
 		text-align:center;
 		margin : 300px auto;
+        width: 600px;
+        background-color: white;
+        border-radius: 20px;
+        padding: 30px;
 	}
 
 	input[type="password"]{
@@ -24,29 +34,33 @@
     }
 
     input[type="submit"] {
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
-        border: 0;
-        outline: 1.5px rgb(255,187,0) solid;
-        border-radius: 5px;
-        padding-left: 10px;
-        background-color: rgb(245,212,46);
+    width: 70px;
+    height: 30px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 5px;
+    padding-left: 10px;
+    background-color: rgb(245, 212, 46);
+    color: white;
     }
+    
     input[type="submit"]:active {
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
-        border: 0;
-        border-radius: 5px;
-        outline: 1.5px rgb(27, 76, 155) solid;
-        padding-left: 10px;
-        background-color: rgb(68, 136, 244);
+	    transform: scale(0.95);
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	    background-color: FFCC00;
+	    transition: 0.2s;
     }
+    
+    input[type="submit"]:hover {
+    background-color: ffdc72;
+    cursor: pointer;
+}
+    
+    
 </style>
 
 </head>
-<body>
+<body class= "deleteDetail" >
 	<div class="div1">
 		<h2>확인용 번호를 입력하면 삭제됩니다.</h2>
 		<form action="freeDetail_deleteSubmit.jsp" method="POST">

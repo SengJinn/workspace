@@ -15,16 +15,23 @@
 				 margin: 0;
   				 box-sizing: border-box;
   				 font-family: "Noto Sans KR", sans-serif;
+  				 background-color: rgb(255, 246, 189);
 			}	
 			
 			.box1 {
 				text-align:center;
-				background-color:rgb(255,246,189);
+				margin:auto;
+    		    width: 900px;
+		        background-color: white;
+		        border-radius: 20px;
+		        padding: 30px;
 			}
 		
 			img {
 				width:400px;
 				height:400px;
+				border-radius: 15px;
+				border: 1px solid rgb(245, 212, 46);
 			}
 			
 			img:hover{
@@ -50,10 +57,12 @@
 		</style>
 		</head>
 		<body class="worldcup">
+		<br/>
+		<br/>
 		  <div class="box1">
 		  	<br/>
 			<h1>♥멍상형 월드컵♥</h1>
-			<br/>
+
 			<p id="cal"></p>
 			<br/>
 			<img id="image" onclick="change(0)">
@@ -61,6 +70,9 @@
 			<br/>
 			<br/>
 		  </div>
+		  <br/>
+		  <br/>
+		  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 			<script>
 			text = "오늘 밤 주인공은 개야 개! 당신의 강아지를 골라주세요.";
 			firstEndText= "16강 종료! 계속해서 골라주세요.";
@@ -98,6 +110,41 @@
 				cnt2++;
 			}// end showImg
 		
+			function firework() {
+				  var duration = 15 * 100;
+				  var animationEnd = Date.now() + duration;
+				  var defaults = { startVelocity: 25, spread: 360, ticks: 50, zIndex: 0 };
+				  //  startVelocity: 범위, spread: 방향, ticks: 갯수
+
+				  function randomInRange(min, max) {
+				    return Math.random() * (max - min) + min;
+				  }
+
+				  var interval = setInterval(function () {
+				    var timeLeft = animationEnd - Date.now();
+
+				    if (timeLeft <= 0) {
+				      return clearInterval(interval);
+				    }
+
+				    var particleCount = 50 * (timeLeft / duration);
+				    // since particles fall down, start a bit higher than random
+				    confetti(
+				      Object.assign({}, defaults, {
+				        particleCount,
+				        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+				      })
+				    );
+				    confetti(
+				      Object.assign({}, defaults, {
+				        particleCount,
+				        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+				      })
+				    );
+				  }, 250);
+				}
+
+			
 			function change(n){
 				if(cnt2 < 20){
 					cnt++;
@@ -126,7 +173,7 @@
 					if(count == 1){document.getElementById('cal').innerHTML=firstEndText;}
 					if(count == 2){document.getElementById('cal').innerHTML=secondEndText;}
 					if(count == 3){document.getElementById('cal').innerHTML=thirdEndText;}
-					if(count == 4){document.getElementById('cal').innerHTML=lastEndText;}
+					if(count == 4){document.getElementById('cal').innerHTML=lastEndText; firework();}
 					
 				}
 			

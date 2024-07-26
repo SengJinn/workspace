@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <title>홈페이지 메인</title>
     <style>
+   
  .slideshow-container {
   position: relative;
   max-width: 100%;
@@ -81,15 +82,15 @@
 <div class="slideshow-container">
 
   <div class="mySlides fade">
-    <img src="dog1.png" style="width:100%">
+    <img src="mungSlidePic/puppySlide1.png" style="width:100%">
   </div>
 
   <div class="mySlides fade">
-    <img src="dog2.png" style="width:100%">
+    <img src="mungSlidePic/puppySlide2.png" style="width:100%">
   </div>
 
   <div class="mySlides fade">
-    <img src="dog3.png" style="width:100%">
+    <img src="mungSlidePic/puppySlide3.png" style="width:100%">
   </div>
 
   <!-- 이전, 다음 버튼 -->

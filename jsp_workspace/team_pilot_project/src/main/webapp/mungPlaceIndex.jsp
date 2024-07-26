@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s"%> --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="header.jsp" %>
 
 <!DOCTYPE html>
@@ -13,12 +11,13 @@
 <style>
 
 	/* mungPlaceIndex.jsp 공통 style */
-	.mungPlaceIndexBody {
-        margin: 0;
+	.mungPlace{
+		margin: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
         height: 100vh;
+        background-color:rgb(255,246,189); 
     }
     .content {
         display: flex;
@@ -35,7 +34,6 @@
         height: 100%;
         position: relative;
     }
-
 
     /* 지도 style */
     .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
@@ -77,14 +75,23 @@
 </style>
 <%@ page import="java.sql.*, utils.*" %>
 </head>
-<body class="mungPlaceIndexBody">
+<body class="mungPlace">
 
 <div class="content">
     <div class="board-container">
     	<!-- ******************************************** -->
     	<!-- 화면 왼쪽에 배치될 멍플레이스 라운지(게시판 형태)include -->
     	<!-- ******************************************** -->
-    	<%@ include file="mungPlaceLounge.jsp" %>
+    	<c:choose>
+    		<c:when test="${!empty param.num}">
+				<jsp:include page="mungPlaceLounge_Detail.jsp">
+					<jsp:param value="${param.num}" name="num"/>
+				</jsp:include>	    		
+    		</c:when>
+    		<c:otherwise>
+		    	<%@ include file="mungPlaceLounge.jsp" %>
+    		</c:otherwise>
+    	</c:choose>
     </div>
     <div class="map-container">
         <div class="map_wrap">

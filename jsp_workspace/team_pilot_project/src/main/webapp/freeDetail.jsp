@@ -53,7 +53,7 @@ try {
 
 .detailBody{
 	 background-color: rgb(255, 246, 189);
-	  font-family: "Noto Sans KR", sans-serif;
+	 font-family: "Noto Sans KR", sans-serif;
 }
 
 .detailDiv{

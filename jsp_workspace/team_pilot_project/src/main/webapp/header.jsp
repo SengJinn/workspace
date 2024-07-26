@@ -76,7 +76,8 @@
             width: 100%;
             text-align:left;
             border:1px solid gray;
-            border-radius:20px
+            border-radius:20px;
+             z-index: 3;
         }
        
 		.inner-menu-item1 {

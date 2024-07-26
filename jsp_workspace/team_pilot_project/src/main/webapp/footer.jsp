@@ -9,6 +9,7 @@
 			color:gray;
 			font-family: "Noto Sans KR", sans-serif;
 			border-top: 1px lightgray solid;
+			background-color:rgb(255,246,189); 
 		}
 		
 		.text1{

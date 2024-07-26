@@ -50,7 +50,7 @@ table {
 }
 
 .freeHeader {
-    background-color: rgb(245, 212, 46);
+    background-color:rgb(255,246,189);
     text-align: center;
     border-top: 1px lightgray solid;
     margin: 0px;
@@ -95,7 +95,7 @@ button {
 }
 
 button:hover {
-    background-color: ffdc72;
+   	 background-color: ffdc72;
     cursor: pointer;
 }
 

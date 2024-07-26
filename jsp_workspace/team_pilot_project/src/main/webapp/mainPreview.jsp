@@ -6,12 +6,12 @@
 
 <s:query var="result" dataSource="java/MySQLDB">
 	SELECT * FROM freewrite ORDER BY num DESC 
-	LIMIT 5
+	LIMIT 7
 </s:query>
 
 <s:query var="result2" dataSource="java/MySQLDB">
 	SELECT * FROM place_lounge ORDER BY num DESC 
-	LIMIT 5
+	LIMIT 7
 </s:query>
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
 }
 
 .latest-posts div {
-   width: 30%;
+   width: 33%;
    box-shadow: 0px 0px 7px lightgray;
    padding : 20px;
 }
@@ -60,6 +60,7 @@ a{
 
 .previewtitle{
 	color: #FFCC00;
+	margin-left: 180px;
 }
 </style>
 

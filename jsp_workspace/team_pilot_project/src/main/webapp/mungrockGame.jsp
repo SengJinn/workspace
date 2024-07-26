@@ -6,7 +6,12 @@
     <meta charset="UTF-8">
     <title>피하기 게임</title>
     <style>
-    
+ 
+.gameArea{
+	margin:0;
+	padding: 0;
+	background-color:rgb(255,246,189);
+}    
    
 #gameArea {
     width: 800px;
@@ -17,6 +22,7 @@
     background-image: url('grass.png'); 
     background-size: cover;
 	margin-left: 550px;
+	
 }
 
 #dog {
@@ -63,12 +69,18 @@
 }
 </style>
 </head>
+<br/>
+<br/>
+<br/>
 <body class="gameArea">
     <div id="gameArea">
         <div id="dog"></div>
         <div id="score">점수: 0</div>
         <div id="timer">남은 시간: 60</div> <!-- 남은 시간을 표시할 div 추가 -->
     </div>
+    <br/>
+    <br/>
+    <br/>
 </body>
 
 <script>
