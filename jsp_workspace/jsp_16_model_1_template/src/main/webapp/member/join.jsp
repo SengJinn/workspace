@@ -4,7 +4,7 @@
 <jsp:include page="/common/header.jsp" />
 <style>
 	/* 전체 테이블 */
-	table{
+	table{ 
 		max-width:500px;
 		margin:0 auto;
 	}
@@ -198,8 +198,8 @@
 	let emailCode = ''; // 발송된 인증 코드 저장
 	
 	acceptEmail.onclick = function(){
-		//메일 발송 요청 시 - 메일 발송 버튼 비활성화
-		this.setAttribute("disabled", "disabled");
+		// 메일 발송 요청 시 - 메일 발송 버튼 비활성 화
+		this.setAttribute("disabled","disabled");
 		
 		let u_id = document.querySelector("#u_id");
 		fetch("sendMail.jsp",{ 
@@ -208,16 +208,15 @@
 			body : new URLSearchParams({u_id : u_id.value})
 		})
 		.then(res => res.json())
-		.then(result => {
-			console.log(result)
+		.then(result => { 
+			console.log(result);
 			// 발신한 코드 정보 저장
 			emailCode = result;
 			// 메일 인증 코드 발송 완료
 			alert('이메일 인증 코드 발송 완료! 이메일을 확인해주세요!');
-			emailCodeWrap.style.display = "block" ;
+			emailCodeWrap.style.display = "block";
 		})
 		.catch(error => console.log(error));
-		
 	}
 	
 	// 인증코드 확인 버튼 이벤트 처리
@@ -225,11 +224,11 @@
 		let userCode = document.querySelector("#emailCode").value;
 		let message = "";
 		if(emailCode == userCode){
-			// 인증코드 일치
-			alert("이메일 인증이 완료되었습니다.")
+			// 인증 코드 일치
+			alert("이메일 인증이 완료되었습니다.");
 			message = "이메일 인증 완료";
 			boolUid = true;
-			// 이메일 발송 버튼 disabled 속성 제거
+			// 이메일 발송 버튼  disabled 속성 제거
 			acceptEmail.removeAttribute("disabled");
 			acceptEmail.style.display = "none";
 			emailCodeWrap.style.display = "none";
@@ -237,32 +236,32 @@
 			message = "인증 코드를 다시 확인해 주세요.";
 			boolUid = false;
 		}
+		
 		// 결과 메세지 출력
 		let elP = acceptEmail.parentNode.querySelector(".result");
 		showMessage(elP, message, boolUid);
-	}// end 인증 코드 확인
+	}; // end 인증 코드 확인
 	
-	// 비밀번호 체크
+	// 비밀번호 체크 
 	let boolPassword = false;
 	let u_pw = document.querySelector("#u_pw");
 	let re_pw = document.querySelector("#re_pw");
 	
-	//특수문자 포함 비밀번호
+	// 특수문자 포함 비밀번호
 	var regexPass = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;	
 	
 	u_pw.onkeyup = function(){
 		let val = this.value;
 		let elP = this.nextElementSibling;
 		let message = "";
-		// 비밀번호 정규 표현식과 일치하는지 확인
+		// 비밀번호 정규 표현식과 일치하는 지 확인
 		boolPassword = regexPass.test(val);
 		
 		if(boolPassword){
 			message = "사용가능한 비밀번호입니다.";
 		}else{
-			message = "특수문자 포함 영문/숫자 조합 8~16자 이내 작성";
+			message = "특수문자 포함 영문/숫자 조합 8~16자이내 작성";
 		}
-		
 		showMessage(elP, message, boolPassword);
 	};
 	
@@ -274,41 +273,111 @@
 		
 		let elP = this.nextElementSibling;
 		let message = "비밀번호가 일치하지 않습니다.";
-		// 비밀번호 작성란의 형식에 맞게끔 작성을 햇는지 여부 확인
+		// 비밀번호 작성란의 형식에 맞게끔 작성을 했는지 여부 확인
 		if(boolPassword){
-			
 			if(val == originalPass){
 				boolPassCheck = true;
 				message = "비밀번호가 일치합니다.";
 			}
-			
 		}else{
 			boolPassCheck = false;
 			message = "비밀번호를 먼저 확인해 주세요.";
 		}
-		showMessage(elP, message, boolPassCheck);
+		showMessage(elP,message, boolPassCheck);
 	};
 	
-	// 회원 가입 버튼 클릭 시 각 요소의 입력값 검증 여부 확인
+	// 생년월일 작성란 체크
+	var boolBirth = false;
+	
+	let birth = document.querySelector("#u_birth");
+	
+	var regexBirth = /^[0-9]{4}[0-9]{2}[0-9]{2}$/;
+	
+	birth.onkeyup = function(){
+		let tempVal = this.value;
+		let message = "20020505 년월일 형식으로 작성";
+		if(regexBirth.test(tempVal)){
+			boolBirth = true;
+			message = "사용가능합니다.";
+		}else{
+			boolBirth = false;
+		}
+		let elP = this.nextElementSibling;
+		// 사용가능 여부에 따라 메세지 출력
+		showMessage(elP,message,boolBirth);
+	};
+	
+	// 이름 작성란 체크
+	var boolName = false;
+	let name = document.querySelector("#u_name");
+	// 한글 2~6자 이내 가 - 힣
+	var regexName = /^[\uac00-\ud7a3]{2,6}$/;								
+	name.onkeyup = function(){
+		let tempVal = this.value;
+		let elP = this.nextElementSibling;
+		let message = "2 ~ 6이내 한글로 작성";
+		if(regexName.test(tempVal)){
+			boolName = true;
+			message = "사용가능한 이름";
+		}else{
+			boolName = false;
+		}
+		showMessage(elP, message , boolName);
+	};
+	
+	
+	// 전화 번호 체크
+	var boolPhone = false;
+	// mobile -표시 없이 숫자만
+	var regexMobile = /^[0-9]{2,3}?[0-9]{3,4}?[0-9]{4}$/;
+	let phone = document.querySelector("#u_phone");
+	phone.onkeyup = function(){
+		// keyup 될때 정규표현식과 일치여부 체크
+		let tempVal = this.value;
+		let elP = this.nextElementSibling;
+		let message = "- 제외 숫자만 입력";
+		boolPhone = regexMobile.test(tempVal);
+		if(boolPhone){
+			message = "사용가능합니다.";
+		}
+		showMessage(elP,message,boolPhone);
+	};
+	
+	// 회원 가입 버튼 클릭 시 각 요소의 입력값 검증 여부 확인 
 	document.querySelector("#joinBtn").onclick = function(){
+		
 		if(!boolUid){
 			alert("id(이메일)정보를 확인해주세요.");
 			document.querySelector("#u_id").focus();
-		}else if(!booPassword){
+		}else if (!boolPassword){
 			alert("비밀번호를 확인해주세요.");
 			u_pw.focus();
 		}else if(!boolPassCheck){
 			alert("비밀번호가 일치하는지 확인해주세요.");
 			re_pw.focus();
-		}
-		else{
+		}else if(!boolName){
+			alert("이름을 정확하게 입력해주세요.");
+			name.focus();
+		}else if(!boolBirth){
+			alert("생년월일을 정확하게 입력해주세요.");
+			birth.focus();
+		}else if(!boolPhone){
+			alert("전화번호를 정확하게 입력해주세요.");
+			phone.focus();
+			// u_info 체크박스 입력태그가 체크된 상태면 true, 아니면 false
+		}else if(!document.querySelector("#u_info").checked){
+			alert("개인정보 이용동의를 확인해주세요.");
+		}else {
 			// joinForm tag submit 이벤트 실행
 			document.querySelector("#joinForm").submit();
 		}
 	};
-	
 </script>
 <jsp:include page="/common/footer.jsp" />
+
+
+
+
 
 
 

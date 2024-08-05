@@ -28,22 +28,18 @@
 	response.setHeader("Content-Disposition","attachment; fileName="+original);
 	
 	byte bytes[] = new byte[4096];
-	
+	// 서버에 업로드된 파일과 연결된 입력 스트림
 	FileInputStream fis = new FileInputStream(downloadPath);
-	
+	// 요청한 사용한 브라우저로 출력 할 스트림
 	OutputStream os = response.getOutputStream();
+	int numRead;
+	while((numRead = fis.read(bytes, 0, bytes.length)) != -1){ // EOF
+		os.write(bytes, 0, numRead);
+	}
 	
-%>
-
-
-
-	response.setHeader("Content-Disposition","attachment; fileName="+original);
-	
-	byte bytes[] = new byte[4096];
-	
-	FileInputStream fis = new FileInputStream(downloadPath);
-	
-	OutputStream os = response.getOutputStream();
+	os.flush();
+	os.close();
+	fis.close();
 	
 %>
 
