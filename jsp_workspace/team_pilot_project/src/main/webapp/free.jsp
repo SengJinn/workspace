@@ -30,6 +30,7 @@
     padding: 0;
     font-family: "Noto Sans KR", sans-serif;
     background-color: rgb(255, 246, 189);
+    text-align: center;
 }
 
 .freeDiv{

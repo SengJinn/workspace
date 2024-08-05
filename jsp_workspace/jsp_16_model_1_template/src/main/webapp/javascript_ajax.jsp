@@ -146,26 +146,17 @@
 					age : age
 				})
 			})
-			.then( (response) => response.json() )
+			.then((response)=>response.json())
 			.then( data => {
-				console.log("이전 then 에서 전달된 response.json() ");
+				console.log("이전 then에서 전달된 response.json()");
 				console.log(data);
 			})
 			.catch((error)=> console.log(error));
+			
+			
 		};
 		
 	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 

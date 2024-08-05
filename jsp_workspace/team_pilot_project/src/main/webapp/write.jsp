@@ -9,6 +9,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>글쓰기</title>
 <style>
+
+	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+.writeBody{
+	 background-color: rgb(255, 246, 189);
+	 font-family: "Noto Sans KR", sans-serif;
+}
+
+.writeDiv{
+		margin:auto;
+        width: 650px;
+        background-color: white;
+        border-radius: 20px;
+        padding: 30px;
+}
+
+
     table {
         margin: auto;
     }
@@ -31,29 +48,34 @@
     .header {
         height: 30px;
     }
-    input[type="submit"] {
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
-        border: 0;
-        outline: 1.5px rgb(255,187,0) solid;
-        border-radius: 5px;
-        padding-left: 10px;
-        background-color: rgb(245,212,46);
-    }
-    input[type="submit"]:active {
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
-        border: 0;
-        border-radius: 5px;
-        outline: 1.5px rgb(27, 76, 155) solid;
-        padding-left: 10px;
-        background-color: rgb(68, 136, 244);
-    }
+    
+input[type="submit"] {
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 5px;
+    padding-left: 10px;
+    background-color: rgb(245, 212, 46);
+    color: white;
+}
+
+input[type="submit"]:hover {
+    background-color: ffdc72;
+    cursor: pointer;
+}
+
+input[type="submit"]:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: FFCC00;
+    transition: 0.2s;
+}
 </style>
 </head>
-<body>
+<body class="writeBody">
+<br/><br/>
+<div class="writeDiv">
 <form action="free_write_board.jsp" method="post">
 <table> 
     <tr><td><h2>글쓰기</h2></td></tr>
@@ -65,10 +87,12 @@
     <tr><td><input type="text" placeholder="확인용 번호를 입력하세요" name="checkNumber"></td></tr>
     <tr><td class="header">내용</td></tr>
     <tr><td><textarea placeholder="내용을 입력하세요" name="message"></textarea></td></tr>
-    <tr><td><input type="submit" value="등록"></td></tr>
+    <tr><td> <br/> <input type="submit" value="등록"></td></tr>
 </table>
 </form>
-
+</div>
+<br/>
+<br/>
 
 </body>
 </html>

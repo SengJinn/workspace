@@ -13,8 +13,8 @@
 %>
 
  <c:if test="${!empty cookie.u_id and empty sessionScope.member}">
- 	<s:query var="rs" dataSource="jdbc/MySQLDB">
- 		SELECT * FROM digital_member WHERE u_id = ?
+ 	<s:query var="rs" dataSource="java/MySQLDB">
+ 		SELECT * FROM mung_member WHERE id = ?
  		<s:param>${cookie.u_id.value}</s:param>
  	</s:query>
  	<c:if test="${rs.rowCount > 0}">
