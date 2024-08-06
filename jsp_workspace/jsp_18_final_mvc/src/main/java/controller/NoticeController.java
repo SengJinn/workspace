@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import service.NoticeService;
 import service.NoticeServiceImpl;
+import util.FactoryUtil;
 import vo.NoticeVO;
 
 @WebServlet("*.do")
@@ -25,10 +26,13 @@ public class NoticeController extends HttpServlet {
 		
 		// *.do pattern에서 어떤 요청이 들어왔는지 분류
 		// contextPath를 포함한 전체 요청 경로
+		/*
 		String requestURI = request.getRequestURI();
 		// 변경 가능한 프로젝트별 요청 경로(path)
 		String contextPath = request.getContextPath();
 		String command = requestURI.substring(contextPath.length() + 1);
+		*/
+		String command = FactoryUtil.getCommand(request); 
 		System.out.println("공지 Controller 요청 정보 : " + command);
 		
 		String nextPage = null;
@@ -41,7 +45,7 @@ public class NoticeController extends HttpServlet {
 		String fail = "/board/notice/notice_fail.jsp";
 		
 		if(command.equals("notice.do")) {
-			//List<NoticeVO> noticeList = service.noticeAllList();
+			// List<NoticeVO> noticeList = service.noticeAllList();
 			// 페이징 처리된 게시글 목록
 			List<NoticeVO> noticeList = service.noticeList(request);
 			request.setAttribute("noticeList", noticeList);		
@@ -84,12 +88,12 @@ public class NoticeController extends HttpServlet {
 			}
 		}
 		
-		//게시글 삭제 요청 처리 - noticeDelete.do
+		// 게시글 삭제 요청 처리 - noticeDelete.do
 		if(command.equals("noticeDelete.do")) {
 			nextPage = service.noticeDelete(request) ? suc : fail;
 		}
 		
-		// 검색된 게시글 목록 - noticeSearch.do
+		//  검색된 게시글 목록 - noticeSearch.do
 		if(command.equals("noticeSearch.do")) {
 			// 검색된 게시글 목록
 			ArrayList<NoticeVO> noticeList = service.search(request);
@@ -102,8 +106,6 @@ public class NoticeController extends HttpServlet {
 		}else {
 			request.getRequestDispatcher(fail).forward(request, response);
 		}
-		
-
 		
 	}
 

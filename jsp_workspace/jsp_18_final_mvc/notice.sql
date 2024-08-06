@@ -30,8 +30,11 @@ SELECT * FROM notice_board WHERE notice_title LIKE '%동%';
 SELECT * FROM notice_board WHERE notice_title LIKE CONCAT('%', '서울', '%');
 
 -- 검색된 전체 게시글 개수
-SELECT count(*) FROM notice_board
-WHERE notice_author LIKE CONCAT('%','안녕','%');
+SELECT count(*) FROM notice_board WHERE notice_author LIKE CONCAT('%','안녕','%');
+
+SELECT * FROM notice_board
+WHERE notice_title LIKE CONCAT('%','안녕','%')
+ORDER BY notice_num DESC limit 0, 15;
 
 INSERT INTO notice_board (
 SELECT null,notice_category, notice_author,notice_title,notice_content,notice_date FROM notice_board
@@ -45,5 +48,22 @@ VALUES(null,'공지','최기근','장난입니다.','내용이 없습니다.내�
 
 SELECT * FROM notice_board
 WHERE 
+
+
+INSERT INTO notice_board (
+	SELECT
+		null, notice_category,
+		notice_author, notice_title,
+		notice_content, notice_date
+	FROM notice_board
+);
+
+
+
+
+
+
+
+
 
 

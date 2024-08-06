@@ -20,22 +20,28 @@ public class TestDAO {
 		System.out.println("test 수행 전");
 	}
 	
-	@Test // 이 메소드가 테스트하기 위한 기능을 정의 메소드 임을 명시
+	@Test
+	public void getSearchTotalCount() {
+		int totalCount = dao.getSearchListCount("title", "로또");
+		System.out.println("totalCount : " + totalCount);
+	}
+	
+	// @Test // 이 메소드가 테스트하기 위한 기능을 정의 메소드 임을 명시
 	public void getAllListTest() {
 		List<NoticeVO> noticeList = dao.getAllList();
 		System.out.println(noticeList);
 	}
 	
-	@Test
+	// @Test
 	public void noticeWriteTest() {
-		for(int i=0; i<100; i++) {
-		NoticeVO vo = new NoticeVO();
-		vo.setNotice_category("공지");
-		vo.setNotice_author("MASTER");
-		vo.setNotice_title("김동하 바보");
-		vo.setNotice_content("예?");
-		boolean isSuccess = dao.noticeWrite(vo);
-		System.out.println("noticeWriteTest : " + isSuccess);
+		for(int i = 0; i < 100; i++) {
+			NoticeVO vo = new NoticeVO();
+			vo.setNotice_category("공지");
+			vo.setNotice_author("MASTER");
+			vo.setNotice_title("서울에 사시는 김동하 바보 " +i);
+			vo.setNotice_content("예?");
+			boolean isSuccess = dao.noticeWrite(vo);
+			System.out.println("noticeWriteTest : " + isSuccess);
 		}
 	}
 	

@@ -53,10 +53,33 @@ DELETE FROM mvc_member WHERE num = 6 ;
 
 SELECT * FROM mvc_member_backup;
 
+/**********************************************************************************/
+-- 등록된 회원이면 참여 가능한 답변형 게시물 정보를 저장할 table
+CREATE TABLE qna_board(
+	qna_num INT PRIMARY KEY AUTO_INCREMENT, 	-- 글번호
+	qna_title VARCHAR(200) NOT NULL,			-- 게시글 제목
+	qna_content TEXT NOT NULL,					-- 글 내용
+	qna_writer_num INT NOT NULL,				-- 작성자 회원번호
+	qna_readcount INT DEFAULT 0,				-- 조회 수
+	qna_date TIMESTAMP DEFAULT NOW()			-- 게시글 작성 시간
+);
 
+SELECT
+	Q.qna_num AS qnaNum,
+	Q.qna_title AS qnaTitle,
+	Q.qna_content AS qnaContent,
+	Q.qna_writer_num AS qnaWriterNum,
+	Q.qna_readcount AS qnaReadCount,
+	Q.qna_date AS qnaDate,
+	M.name AS qnaName
+FROM qna_board AS Q JOIN mvc_member AS M
+ON Q.qna_writer_num = M.num;
 
+SELECT * FROM qna_board AS Q JOIN mvc_member AS M
+ON Q.qna_writer_num = M.num;
 
-
+SELECT Q.*, M.name AS qna_name FROM qna_board AS Q JOIN mvc_member AS M
+WHERE Q.qna_writer_num = M.num;
 
 
 

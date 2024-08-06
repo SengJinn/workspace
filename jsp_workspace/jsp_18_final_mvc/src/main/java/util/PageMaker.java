@@ -1,8 +1,5 @@
 package util;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-
 public class PageMaker {
 
 	private int totalCount; // 전체 게시물의 개수
@@ -14,6 +11,10 @@ public class PageMaker {
 	private int maxPage;
 
 	Criteria cri; // 게시물 검색 정보
+	
+	public PageMaker() {
+		cri = new Criteria();
+	}
 
 	public void calcPaging() {
 
@@ -95,6 +96,7 @@ public class PageMaker {
 
 	public void setDisplayPageNum(int displayPageNum) {
 		this.displayPageNum = displayPageNum;
+		calcPaging();
 	}
 
 	public Criteria getCri() {
@@ -103,19 +105,18 @@ public class PageMaker {
 
 	public void setCri(Criteria cri) {
 		this.cri = cri;
+		calcPaging();
 	}
-
-
-	public String encoding(String keyword) {
-		if (keyword == null || keyword.trim().length() == 0) {
-			return "";
-		}
-		try {
-			return URLEncoder.encode(keyword, "UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-			return "";
-		}
+	
+	// 매개변수로 이동할 페이지 번호를 전달 받아
+	// get 방식의 쿼리 스트링을 문자열로 반환
+	public String makeQuery(int page) {
+		// ?page=2&perPageNum=15
+		// ?page=${i}&perPageNum=${pageMaker.cri.perPageNum}
+		String queryString = "?";
+		queryString += "page="+page;
+		queryString += "&perPageNum="+cri.getPerPageNum();
+		return queryString;
 	}
 
 	@Override
@@ -125,13 +126,5 @@ public class PageMaker {
 				+ cri + "]";
 	}
 
-
-	/*
-	 * public String makeSearchQuery(int page) { UriComponents uc =
-	 * UriComponentsBuilder.newInstance() .queryParam("page",page)
-	 * .queryParam("perPageNum", cri.getPerPageNum()) .queryParam("searchType",
-	 * ((SearchCriteria)cri).getSearchType()) .queryParam("keyword",
-	 * ((SearchCriteria)cri).getKeyword()) .build(); return uc.toString(); }
-	 */
 
 }

@@ -1,2 +1,5 @@
-/controller/
+/dao/
 /service/
+/test/
+/util/
+/controller/
