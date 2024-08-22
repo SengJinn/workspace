@@ -145,6 +145,36 @@
 		    <version>${org.springframework-version}</version>
 		</dependency>
 		
+		<!-- 
+			MyBatis(ibatis) ORM Framework
+			ORM Object Relational Mapping
+			객체 관계형 매핑
+			데이터 베이스에서 검색된 내용을 객체로 매핑함과 동시에
+			데이터 베이스 자원관리를 자동화 시켜주는 프레임 워크
+		 -->
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.5.16</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <!--  version 2.x.x는 java1.8 version 이상 -->
+		    <version>2.1.2</version>
+		    <!--  version 3.x.x는 java17 version 이상 -->
+		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.34</version>
+			<scope>provided</scope>
+		</dependency>
+		
 		       
 	</dependencies>
     <build>

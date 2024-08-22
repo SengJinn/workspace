@@ -4,5 +4,6 @@
 <jsp:include page="header.jsp" />
 <section>
 	<h1>MAIN</h1>
+	<a href="${pageContext.request.contextPath}/common/NewFile.html">뉴파일</a>
 </section>
 <jsp:include page="footer.jsp" />

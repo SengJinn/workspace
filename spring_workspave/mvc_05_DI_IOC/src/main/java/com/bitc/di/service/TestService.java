@@ -3,6 +3,7 @@ package com.bitc.di.service;
 import org.springframework.stereotype.Service;
 
 import com.bitc.di.dao.TestDAO;
+import com.bitc.di.dao.TestDBCPImpl;
 
 @Service
 public class TestService {
@@ -11,6 +12,8 @@ public class TestService {
 
 //	@Autowired
 	public TestService(TestDAO dao) {
+		// this.dao = new TestDAOImpl();
+		// this.dao = new TestDBCPImpl();
 		this.dao = dao;
 	}
 
@@ -20,6 +23,7 @@ public class TestService {
 	public void testService(String message) {
 		System.out.println("testService : " + message);
 		dao.select(message);
+		// this.dao = new TestDAOImpl();
 	}
 
 }

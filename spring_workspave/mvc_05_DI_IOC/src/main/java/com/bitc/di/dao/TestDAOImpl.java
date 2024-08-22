@@ -2,7 +2,7 @@ package com.bitc.di.dao;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
+// @Repository
 public class TestDAOImpl implements TestDAO {
 
 	@Override

@@ -16,25 +16,28 @@ import com.bitc.di.vo.TestBoardVO;
 import lombok.RequiredArgsConstructor;
 
 /***
- * DI(Dependency Injection) - 의존성 주입 spring 에서 관리되는 bean(instance) 객체를 우리가 원하는
- * 필드에 주입받아 사용하게 해주는 annotation
- * 
- * @Autowired @Qualifier @Inject @Resource 범용성 스프링 전용 스프링 전용 자바에서 지원 자바에서 지원 연결성
- *            타입에 맞춰서 주입 Bean의 name을 타입에 맞춰서 주입 이름으로 검색 후 이용하여 주입 @Named를 이용해서
- *            타입으로 검색
- * @Autowired 와 함께 사용 이름으로 제한 독립적인 사용 x
+ *	DI(Dependency Injection) - 의존성 주입
+ *  spring 에서 관리되는 bean(instance) 객체를 우리가 원하는 필드에 주입받아 
+ *  사용하게 해주는 annotation
+ *  
+ *  			@Autowired			@Qualifier					@Inject				@Resource       
+ *  범용성		스프링 전용			     스프링 전용				   자바에서 지원			자바에서 지원
+ *  연결성	  타입에 맞춰서 주입			Bean의 name을				  타입에 맞춰서 주입			이름으로 검색 후
+ *									이용하여 주입					@Named를 이용해서		타입으로 검색
+ *								@Autowired 와 함께 사용	  			 이름으로 제한
+ *									독립적인 사용 x
  *
- * @Inject @Named @Resource - 자바 1.8까지만 기본 포함.
- * 
+ *  @Inject @Named @Resource - 자바 1.8까지만 기본 포함.
+ *	
  */
 @Controller
 @RequiredArgsConstructor
 public class MainController {
 
+	private final TestDAO td;
+	
 	@Autowired
 	private TestService ts;
-
-	private final TestDAO td;
 
 	@Inject
 	@Named("board")
@@ -66,6 +69,7 @@ public class MainController {
 
 	@GetMapping("main")
 	public String main() {
+		// ts = new TestService();
 		System.out.println("uploadPath : " + uploadPath);
 		System.out.println("imgPath : " + imgPath);
 		System.out.println("MainController : " + ts);
@@ -73,4 +77,5 @@ public class MainController {
 		System.out.println("MainController : " + testBoard);
 		return "home";
 	}
+	
 }

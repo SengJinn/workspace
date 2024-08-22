@@ -1,7 +1,11 @@
 package com.bitc.di.controller.home;
 
+import javax.annotation.PostConstruct;
+import javax.servlet.ServletContext;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,8 +16,8 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * 
- * context:component-scan 으로 Bean으로 등록되는 @Annotation @Controller, @Service
- * , @Repository
+ * context:component-scan 으로 Bean으로 등록되는 @Annotation 
+ * @Controller, @Service, @Repository
  * 
  * @Component 그외에 의미를 두지 않는 Bean을 등록하고 관리하기 위한 annotation
  * @Component 의 하위 형태로 @Controller, @Service , @Repository가 추가되어있음.
@@ -22,11 +26,22 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class HomeController {
-
+	
+	@Autowired 
+	ServletContext context;
+	
 // 	@Autowired		// 의존성 주입
 	private final TestService ts; // = new TestService();
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
+	
+	@PostConstruct
+	public void init() {
+		System.out.println("Homecontroller init --------  ");
+		System.out.println(context);
+		System.out.println("Homecontroller init --------  ");
+	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {

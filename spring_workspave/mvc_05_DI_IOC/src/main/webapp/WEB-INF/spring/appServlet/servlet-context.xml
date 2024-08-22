@@ -21,6 +21,7 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	
 	<!-- new com.bitc.di.vo.TestBoardVO(1) -->
 	<beans:bean id="board" class="com.bitc.di.vo.TestBoardVO">
 		<beans:constructor-arg value="1"/>

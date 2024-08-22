@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTT 서비스 사이트</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Noto Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- 사용자 정의 CSS 파일 -->
+</head>
+<body class="bg-dark text-light">
+    <!-- 헤더 -->
+    <header class="bg-dark text-light py-3 shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="#" class="logo text-light text-decoration-none">OTT 서비스</a>
+            <nav>
+                <a href="#" class="text-light mx-2 text-decoration-none">홈</a>
+                <a href="#" class="text-light mx-2 text-decoration-none">장르</a>
+                <a href="#" class="text-light mx-2 text-decoration-none">추천</a>
+                <a href="#" class="text-light mx-2 text-decoration-none">내 계정</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 메인 콘텐츠 -->
+    <div class="container my-4">
+        <!-- 히어로 섹션 -->
+        <div class="hero d-flex align-items-center justify-content-center position-relative rounded-3 overflow-hidden mb-4" style="height: 80vh; background-image: url('path-to-your-hero-image.jpg'); background-size: cover; background-position: center;">
+            <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-black opacity-60"></div>
+            <div class="position-relative text-center text-light z-index-1">
+                <h1 class="display-3 mb-3">지금 바로 시청하기!</h1>
+                <p class="lead">무제한 콘텐츠를 즐기세요</p>
+                <a href="#" class="btn btn-danger btn-lg mt-4">지금 시청하기</a>
+            </div>
+        </div>
+
+        <!-- 콘텐츠 섹션 -->
+        <h2 class="text-light mb-4">인기 콘텐츠</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card bg-dark border-0">
+                    <img src="path-to-your-image1.jpg" class="card-img-top" alt="Content 1">
+                    <div class="card-body">
+                        <h5 class="card-title">콘텐츠 제목 1</h5>
+                        <p class="card-text">콘텐츠 설명 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark border-0">
+                    <img src="path-to-your-image2.jpg" class="card-img-top" alt="Content 2">
+                    <div class="card-body">
+                        <h5 class="card-title">콘텐츠 제목 2</h5>
+                        <p class="card-text">콘텐츠 설명 2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark border-0">
+                    <img src="path-to-your-image3.jpg" class="card-img-top" alt="Content 3">
+                    <div class="card-body">
+                        <h5 class="card-title">콘텐츠 제목 3</h5>
+                        <p class="card-text">콘텐츠 설명 3</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 추가 콘텐츠 항목을 여기에 추가할 수 있습니다. -->
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer class="bg-dark text-light text-center py-3 mt-4">
+        <p class="mb-1">&copy; 2024 OTT 서비스. 모든 권리 보유.</p>
+        <p class="mb-0"><a href="#" class="text-light text-decoration-none">개인정보 보호정책</a> | <a href="#" class="text-light text-decoration-none">이용 약관</a></p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
