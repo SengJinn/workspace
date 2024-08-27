@@ -17,5 +17,7 @@ SELECT * FROM tbl_board;
 INSERT INTO tbl_board(title,content,writer) 
 SELECT title,content,writer FROM tbl_board;
 
+DROP TABLE tbl_board;
+
 commit;
 

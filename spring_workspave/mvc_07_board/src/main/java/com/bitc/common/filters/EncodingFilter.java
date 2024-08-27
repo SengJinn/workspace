@@ -11,17 +11,16 @@ import javax.servlet.ServletResponse;
 public class EncodingFilter implements Filter {
 
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+	public void doFilter(ServletRequest request, 
+						ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-
 		System.out.println("doFilter EncodingFilter Start");
-		//전처리
+		// 전처리
 		request.setCharacterEncoding("utf-8");
 		
 		chain.doFilter(request, response);
 		
 		System.out.println("doFilter EncodingFilter End");
-
 	}
 
 }
