@@ -1,0 +1,24 @@
+/* 푸터 */
+.footer {
+  background-color: #000000;
+  color: #e5e5e5;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 0px;	
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  position : relative;
+  transform : translateY(0%);
+ 
+}
+
+.footer a {
+  color: #e5e5e5;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

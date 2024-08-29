@@ -1,0 +1,36 @@
+/* 네비게이션 바 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.header img {
+  height: 40px;
+}
+
+.header .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header .nav-links a {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.header .nav-links a:hover {
+  text-decoration: underline;
+}
+
+i {
+	color: #fff;
+}

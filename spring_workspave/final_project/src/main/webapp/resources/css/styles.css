@@ -1,4 +1,5 @@
 /* 전체 페이지 스타일 */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -7,43 +8,11 @@ body {
   overflow-x: hidden;
 }
 
-/* 네비게이션 바 */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-}
-
-.header img {
-  height: 40px;
-}
-
-.header .nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.header .nav-links a {
-  color: #e5e5e5;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.header .nav-links a:hover {
-  text-decoration: underline;
-}
 
 /* 배너 */
 .banner {
   position: relative;
-  height: 500px;
+  height: 1000px;
   background-size: cover;
   background-position: center;
   color: #e5e5e5;
@@ -64,7 +33,7 @@ body {
 }
 
 .banner .button {
-  background-color: #e50914;
+  background-color: #ffa200;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -104,20 +73,3 @@ body {
   transform: scale(1.05);
 }
 
-/* 푸터 */
-.footer {
-  background-color: #000000;
-  color: #e5e5e5;
-  padding: 20px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.footer a {
-  color: #e5e5e5;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
