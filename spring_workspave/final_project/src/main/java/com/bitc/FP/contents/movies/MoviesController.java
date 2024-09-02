@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("contents/movies/")
 public class MoviesController {
 
+	@GetMapping("movies")
+	public void movies() throws Exception  {
+		
+	}
+	
 	@GetMapping("movies_detail")
 	public void moviesDetail() throws Exception  {
 		

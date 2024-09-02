@@ -1,4 +1,7 @@
 /* 네비게이션 바 */
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 .header {
   position: fixed;
   top: 0;

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VVV - 라라랜드</title>
     <link rel="stylesheet" href="${path}/resources/css/movies_detail_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     
 </head>
 

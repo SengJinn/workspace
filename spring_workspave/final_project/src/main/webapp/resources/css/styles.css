@@ -1,18 +1,18 @@
 /* 전체 페이지 스타일 */
 
-body {
+/* body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   background-color: #141414;
   color: #e5e5e5;
   overflow-x: hidden;
 }
 
 
-/* 배너 */
+
 .banner {
   position: relative;
-  height: 1000px;
+  height: 800px;
   background-size: cover;
   background-position: center;
   color: #e5e5e5;
@@ -43,7 +43,7 @@ body {
 }
 
 .banner .button:hover {
-  background-color: #f40612;
+  background-color: #ffbe4d;
 }
 
 /* 영화 목록 */
@@ -72,4 +72,4 @@ body {
 .section .movie-list img:hover {
   transform: scale(1.05);
 }
-
+*/
