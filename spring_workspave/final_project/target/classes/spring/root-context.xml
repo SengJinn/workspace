@@ -27,6 +27,6 @@
 		<!-- <property name="mapperLocations" value="classpath:mybatis/sql/*.xml"/> -->
 	</bean>
 	
-	<mybatis-spring:scan base-package="com.bitc.FP.*.dao"/>
+	<mybatis-spring:scan base-package="com.bitc.FP.*"/>
 		
 </beans>

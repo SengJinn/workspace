@@ -143,10 +143,19 @@ h2 {
         }
 
         .card img {
-            width: 50px;
+            width: 100px;
             margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        
+        .card .heart-icon {
+        	width: 75px;
         }
 
+		.card .profile-icon {
+        	width: 85px;
+        }
+		
         .card h3 {
             font-size: 1.5em;
             margin-bottom: 10px;
@@ -217,6 +226,7 @@ h2 {
 		    height: 1px;
 		    border:solid 0;
 		}
+		
 </style>
 
 </head>
@@ -249,24 +259,24 @@ h2 {
       <div class="card-container">
 	 
         <div class="card">
-            <img src="device-icon.png" alt="디바이스 아이콘">
+            <img src="${path}/resources/images/content_icon.png" alt="디바이스 아이콘" class="content-icon">
             <h3>고화질 컨텐츠를 감상</h3>
-            <p>컴퓨터, 모바일, TV 등 여러 기기에서 좋아하는 영화와 드라마를 만끽하세요.</p>
+            <p>컴퓨터, 모바일, TV 등 여러 기기에서 좋아하는<br/>영화와 드라마를 만끽하세요.</p>
         </div>
         <div class="card">
-            <img src="heart-icon.png" alt="하트 아이콘">
+            <img src="${path}/resources/images/heart_icon.png" alt="하트 아이콘" class="heart-icon">
             <h3>마음에 드는 컨텐츠를 다운로드</h3>
-            <p>버튼 하나로 간단하게 저장하고 오프라인에서 감상해보세요.</p>
+            <p>버튼 하나로 간단하게 저장하고<br/>오프라인에서 감상해보세요.</p>
         </div>
         <div class="card">
-            <img src="TV-icon.png" alt="TV 아이콘">
+            <img src="${path}/resources/images/film_icon.png" alt="TV 아이콘" class="film-icon">
             <h3>많은 컨텐츠를 골라보는 재미</h3>
-            <p>영화, 드라마, 해외 시리즈, 다큐멘터리 등 VIVIVIEW만의 컨텐츠를 누리세요.</p>
+            <p>영화, 드라마, 해외 시리즈, 다큐멘터리 등<br/>VIVIVIEW만의 컨텐츠를 누리세요.</p>
         </div>
         <div class="card">
-            <img src="profile-icon.png" alt="프로필 아이콘">
+            <img src="${path}/resources/images/profile_icon.png" alt="프로필 아이콘" class="profile-icon">
             <h3>자신만의 프로필로 컨텐츠를 즐겨찾기</h3>
-            <p>요금제에 따라 ID당 최대 4개의 프로필을 제공합니다. 나만의 프로필로 시청해보세요.</p>
+            <p>요금제에 따라 ID당 최대 4개의 프로필을 제공합니다.<br/>나만의 프로필로 시청해보세요.</p>
         </div>
     </div>
 
