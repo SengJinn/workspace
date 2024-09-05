@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+</head>
+<body>
+    <img src="img/pome.png" alt="강아지 그림입니다." id="dog" width="120">
+    <img />
+
+    <button id="attr">attr</button>
+    <button id="prop">prop</button>
+    <button id="control">속성 제어</button>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        // 요소.onclick = function(){};
+        // 요소.addEventListener("click", function(){});
+        $("#dog").click(function(){
+
+            // this.setAttribute("width", 240);
+            // let w = this.getAttribute("width");
+            // 매개변수가 attr이 1개면 setattribute 여러개면 getattribute
+            $(this).attr("width", "360");
+            let w = $(this).attr("width");
+            console.log(w);
+        });
+
+        $("#attr").click(function(){
+            let source = $("#dog").attr("src");
+            alert(source);
+        });
+
+        $("#prop").click(function(){
+            let source = $("#dog").prop("src");
+            alert(source);
+        });
+
+        $("#control").click(function(){
+            console.log($("img"));
+            /*
+            $("img").attr("src", "img/rice.png");
+            $("img").attr("alt", "밥풀때기입니다.");
+            $("img").attr("width", "120");
+            */
+           // JSON JavaScript Object Notation
+           let obj = {
+                name : "동하",
+                att : function(){
+                    console.log("나는 바보다");
+                },
+                age : 67
+           };
+           console.log(obj.name);
+           obj.att();
+
+           $("img").attr({
+                alt : "밥풀",
+                src : "img/rice.png",
+                width : 240
+           });
+
+           $("img").css({
+                margin : 200,
+                background : "hotpink",
+                position : "fixed",
+                left: 0
+           });
+
+        });
+    </script>
+
+</body>
+</html>

@@ -237,7 +237,7 @@ h2 {
             <nav>
             	<a href="${path}/home"><img src="${path}/resources/images/logo.png" alt="Logo" class="logo"></a>
             	<div class="button-wrapper">
-            	<button class="join-btn">회원가입</button>
+            	<button class="join-btn" onclick="location.href='${path}/member/join' ">회원가입</button>
                 <button class="login-btn">로그인</button>
                 
                 </div>

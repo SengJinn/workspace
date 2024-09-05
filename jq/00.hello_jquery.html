@@ -1,0 +1,35 @@
+<!-- 00.hello_jquert.html -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+
+        window.onload = function(){
+            console.log("문서 준비 완료 시 실행되는 함수");
+        };
+        // jQuery 문법 또는 jQuery 함수임을 명시하는 keyword
+        // jQuery   0r    $
+        // jQuery(document).ready(function(){});
+
+        $(function(){
+            console.log('문서가 모두 준비되면 실행되는 함수');
+        });
+
+        let _ = $.noConflict();
+
+        _(document).ready(function(){
+            console.log('jQuery log');
+        });
+
+    </script>
+ </head>
+ <body>
+    
+ </body>
+ </html>
