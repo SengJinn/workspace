@@ -14,10 +14,10 @@ import com.bitc.test.model.MemberVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
-
+	
 // 	@Autowired
 	private DataSource ds; // 의존성 주입
-
+	
 	public void setDataSource(DataSource ds) {
 		this.ds = ds;
 	}
@@ -30,35 +30,31 @@ public class MemberDAOImpl implements MemberDAO {
 	public boolean memberJoin(MemberVO member) {
 		try {
 			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("INSERT INTO test_mvc(id,pass,name) VALUES(?,?,?)");
+			pstmt = conn.prepareStatement(
+				"INSERT INTO test_mvc(id,pass,name) VALUES(?,?,?)"
+			);
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getPass());
 			pstmt.setString(3, member.getName());
 			int result = pstmt.executeUpdate();
-			if (result == 1) {
+			if(result == 1) {
 				return true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			try {
-				if (rs != null)
-					rs.close();
-			} catch (SQLException e) {
-			}
-
+				if(rs != null) rs.close();
+			} catch (SQLException e) {}
+			
 			try {
-				if (pstmt != null)
-					pstmt.close();
-			} catch (SQLException e) {
-			}
-
+				if(pstmt != null) pstmt.close();
+			} catch (SQLException e) {}
+			
 			try {
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-			}
-
+				if(conn != null) conn.close();
+			} catch (SQLException e) {}
+			
 		}
 		return false;
 	}

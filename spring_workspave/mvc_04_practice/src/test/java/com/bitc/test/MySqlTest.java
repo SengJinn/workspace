@@ -12,7 +12,11 @@ public class MySqlTest {
 	public void testConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/digital_jsp", "digital", "1234");
+			Connection conn = DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/digital_jsp",
+				"digital",
+				"1234"
+			);
 			System.out.println(conn);
 		} catch (ClassNotFoundException e) {
 			System.out.println("Driver Class를 찾을 수 없음");
@@ -20,7 +24,8 @@ public class MySqlTest {
 			System.out.println("연결 정보 오류 : " + e.getMessage());
 		}
 	}
-
+	
+	
 	@Test
 	public void dataSource() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
@@ -28,7 +33,7 @@ public class MySqlTest {
 		ds.setUrl("jdbc:mysql://localhost:3306/digital_jsp");
 		ds.setUsername("digital");
 		ds.setPassword("1234");
-
+		
 		try {
 			Connection conn = ds.getConnection();
 			System.out.println(conn);
@@ -36,5 +41,30 @@ public class MySqlTest {
 			e.printStackTrace();
 		}
 	}
-
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

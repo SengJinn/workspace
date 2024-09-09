@@ -39,6 +39,8 @@ CREATE TABLE IF NOT EXISTS `member` (
     join_date TIMESTAMP DEFAULT NOW()
 );
 
+SELECT * FROM `member`;
+
 -- DROP TABLE IF EXISTS ;
 
 -- [프로필 공유 계정]

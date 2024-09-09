@@ -40,7 +40,7 @@ body {
     border-radius: 10px;
     width: 600px; 
     margin: auto;
-    margin-top: 430px;
+    margin-top: 570px;
 }
 
 h2 {
@@ -55,7 +55,8 @@ label {
 
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+input[type="number"] {
     width: 100%; 
     padding: 12px;
     margin-bottom: 15px;
@@ -75,6 +76,16 @@ input::placeholder {
 }
 
 .phone-section input[type="text"] {
+    flex: 3;
+    margin-right: 10px;
+}
+
+.email-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.email-section input[type="email"] {
     flex: 3;
     margin-right: 10px;
 }
@@ -132,7 +143,7 @@ input::placeholder {
 
 .join-button{
    padding: 10px;
-    /* background-color: #FFA200; */
+    background-color: #cbcbcb;
     color: white;
     border: none;
     border-radius: 5px;
@@ -148,27 +159,35 @@ input::placeholder {
 
 
     <div class="container">
-        <form class="signup-form" method="POST">
+        <form class="signup-form" method="POST" action="join">
             <h2>VIVIVIEW<br/>회원가입</h2>
             
             <br/>
             
             <label for="email">이메일</label>
-            <input type="email" id="email" placeholder="이메일 주소 입력">
+            <div class="email-section">
+                <input type="email" id="email" name="email" placeholder="이메일 주소 입력">
+                <button type="button" class="verify-button email-verify">인증번호 전송</button>
+            </div>   
+            
+            <input type="text"  placeholder="인증 번호 입력">
 
             <label for="password">비밀번호</label>
-            <input type="password" id="password" placeholder="영문, 숫자, 특수문자 조합 8~15 자리">
+            <input type="password" id="password" name="pass" placeholder="영문, 숫자, 특수문자 조합 8~15 자리">
 
             <label for="password-confirm">비밀번호 확인</label>
             <input type="password" id="password-confirm" placeholder="비밀번호 다시 입력">  
+            
+            <label for="age">나이</label>
+            <input type="number" id="age" name="age" placeholder="만 14세 이상만 가입 가능합니다.">
 
             <label for="phone">휴대폰 번호</label>
             <div class="phone-section">
-                <input type="text" id="phone" placeholder="휴대폰 번호 입력">
-                <button type="button" class="verify-button">인증번호 전송</button>
+                <input type="text" id="phone" name="phone" placeholder="휴대폰 번호 입력">
+                <button type="button" class="verify-button phone-verify">인증번호 전송</button>
             </div>
 	
-			<input type="text" id="phone" placeholder="인증 번호 입력">
+			<input type="text" placeholder="인증 번호 입력">
 			
             <div class="agreements">
                 <div class="checkbox-item">
@@ -177,17 +196,17 @@ input::placeholder {
                 </div>
 
                 <div class="checkbox-item">
-                    <input type="checkbox" id="age-confirm" name="agree-check" class="checkbox-check">
-                    <label for="age-confirm">만 14세 이상입니다.</label>
+                    <input type="checkbox" id="age-confirm" name="agree-check" class="checkbox-check neccessarycheck1">
+                    <label for="age-confirm">[필수] 만 14세 이상입니다.</label>
                 </div>
 
                 <div class="checkbox-item">
-                    <input type="checkbox" id="terms" name="agree-check" class="checkbox-check">
+                    <input type="checkbox" id="terms" name="agree-check" class="checkbox-check neccessarycheck2">
                     <label for="terms">[필수] 서비스 이용약관 동의</label>
                 </div>
 
                 <div class="checkbox-item">
-                    <input type="checkbox" id="privacy" name="agree-check" class="checkbox-check">
+                    <input type="checkbox" id="privacy" name="agree-check" class="checkbox-check neccessarycheck3">
                     <label for="privacy">[필수] 개인정보 수집 및 이용 동의</label>
                 </div>
 
@@ -220,35 +239,44 @@ input::placeholder {
             	    }
             	    else{
             	        $(".checkbox-check").prop("checked",false);
-            	        $(".join-button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#303033"}).prop("disabled",true);
+            	        $(".join-button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#fff"}).prop("disabled",true);
             	    }
-            	});
-/* 
-            	// 모든 체크박스를 클릭하면 버튼 활성화시키기
-            	$('.checkbox-item').click(function(){
-            	    var tmpp = $(this).prop('checked'); 
-            	    //자식 체크 전체 체크시, 부모 체크박스 체크 됨
-            	    var tt = $(".checkbox-item").length;
-            	    var ss = $(".checkbox-item:checked").length;
             	    
-            	    //선택한 체크박스 값이 true 이거나 체크박스 1개 이상 체크시 버튼 활성화시키기
-            	    if(tmpp==true || ss>0){
+            	    // agree-all이 비활성화 될 경우 나머지 목록도 체크 해제
+            	    if(!agree_all){
+            	    	$(".checkbox-check").prop("checked",false);
+            	    }
+   
+            	    
+            	});
+
+            	// 모든 체크박스를 클릭하면 버튼 활성화시키기
+            	$('.checkbox-check').click(function(){
+            		
+            	    var neccessarycheck1 = $(".neccessarycheck1").prop('checked'); 
+            	    var neccessarycheck2 = $(".neccessarycheck2").prop('checked'); 
+            	    var neccessarycheck3 = $(".neccessarycheck3").prop('checked'); 
+            	    
+            	    var somecheck = $(".checkbox-check").length;
+            	    var checkedbox = $(".checkbox-check:checked").length;
+            	    
+            	    //선택한 체크박스 값이 true면 버튼 활성화
+            	    if(neccessarycheck1==true && neccessarycheck2==true && neccessarycheck3==true){
             	    $(".join-button").css({"backgroundColor":"#FFA200","cursor":"pointer","color":"#fff"}).prop("disabled",false);
             	    }
             	    else{
-            	    $(".join-button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#303033"}).prop("disabled",true);
+            	    $(".join-button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#fff"}).prop("disabled",true);
             	    }
             	    
-            	    
-            	    // 체크박스가 모두 선택되었을 때 상위 체크박스 선택되도록 설정
-            	    if(tt == ss){
+            	    // 체크박스가 모두 선택되었을 때 모두 동의 체크박스가 선택되도록 설정
+            	    if(somecheck == checkedbox){
             	    	$("#agree-all").prop("checked",true);
             	    }else{
             	    	$("#agree-all").prop("checked",false);
             	    }
             	    
             		}); 
-            	 */
+
             	});
             
             </script>

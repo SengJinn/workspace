@@ -15,9 +15,9 @@ import lombok.RequiredArgsConstructor;
 @Service("ms")
 @RequiredArgsConstructor // lombok
 public class MemberServiceImpl implements MemberService {
-
+	
 // 	@Autowired
-	private final MemberDAO dao; // = new MemberDAOImpl();
+	private final MemberDAO dao; //  = new MemberDAOImpl();
 
 	@Override
 	public boolean memberJoin(MemberVO member) {

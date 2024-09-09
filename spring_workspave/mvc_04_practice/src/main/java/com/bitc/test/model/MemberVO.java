@@ -7,10 +7,19 @@ import lombok.Data;
  */
 @Data
 public class MemberVO {
-
-	private int num; // 회원 번호
-	private String id; // 회원 아이디
-	private String pass; // 회원 비밀번호
-	private String name; // 회원 이름
-
+	
+	private int num;					// 회원 번호
+	private String id;					// 회원 아이디
+	private String pass;				// 회원 비밀번호
+	private String name;				// 회원 이름
+	
 }
+
+
+
+
+
+
+
+
+

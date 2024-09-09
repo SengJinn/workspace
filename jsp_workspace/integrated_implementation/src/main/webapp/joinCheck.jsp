@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <%@ page import="java.io.*, java.util.*" %>
 
-<jsp:useBean id="member" class="VO.JoinServlet" />
+<jsp:useBean id="member" class="vo.JoinServlet" />
 <jsp:setProperty property="*" name="member" />
 
 <c:catch var="e">

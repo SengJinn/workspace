@@ -18,9 +18,9 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("member/*")
 @RequiredArgsConstructor
 public class MemberController {
-
-	private final MemberService ms; // = new MemberServiceImpl();
-
+	
+	private final MemberService ms; //  = new MemberServiceImpl();
+	
 	// member/join
 	@GetMapping("join")
 	public void join() {
@@ -30,18 +30,26 @@ public class MemberController {
 		// return "member/join";
 		System.out.println("join() 호출");
 	}
-
+	
 	@GetMapping("login")
-	public void login() {
-	}
-
+	public void login() {}
+	
 	@PostMapping("join")
 	public String join(MemberVO member) {
 		boolean isJoin = ms.memberJoin(member);
-		if (isJoin) {
+		if(isJoin) {
 			return "redirect:/member/login";
 		}
 		return "member/join";
 	}
-
+	
 }
+
+
+
+
+
+
+
+
+
