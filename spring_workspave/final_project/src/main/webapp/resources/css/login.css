@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     display: block; 
     min-height: 80vh;
     background: url('../img/member/background.png') no-repeat;
@@ -117,3 +117,8 @@ body {
 .register p a:hover {
     text-decoration: underline;
 }
+
+button:hover {
+  background-color: #ffbe4d;
+}
+

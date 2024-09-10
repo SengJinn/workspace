@@ -125,8 +125,6 @@ h2 {
     gap: 20px; /* 버튼 사이의 간격을 설정 */
 }
 
-
-
       .card-container {
             display: flex;
             justify-content: space-around;
@@ -227,6 +225,14 @@ h2 {
 		    border:solid 0;
 		}
 		
+		button:hover {
+		    background-color: #ffbe4d;
+		}
+		
+		.login-btn:hover{
+			background-color: rgba(255, 255, 255, 0.4);
+		}
+		
 </style>
 
 </head>
@@ -238,7 +244,7 @@ h2 {
             	<a href="${path}/home"><img src="${path}/resources/images/logo.png" alt="Logo" class="logo"></a>
             	<div class="button-wrapper">
             	<button class="join-btn" onclick="location.href='${path}/member/join' ">회원가입</button>
-                <button class="login-btn">로그인</button>
+                <button class="login-btn" onclick="location.href='${path}/member/login' ">로그인</button>
                 
                 </div>
             </nav>
@@ -248,7 +254,7 @@ h2 {
                 <h2>VIVIVIEW와 함께 더욱 선명해지는 당신의 세상</h2>
                 <h2>멤버십 가입을 통해 지금 바로 시작해보세요!</h2>
                 <div class="input-box">
-                    <button class="start-btn">시작하기</button>
+                    <button class="start-btn" onclick="location.href='${path}/home' ">시작하기</button>
                 </div>
             </div>
         </div>
@@ -306,7 +312,7 @@ h2 {
         <img src="${path}/resources/images/logo.png" alt="Logo" class="logo2">
         <h1 >지금 바로 시작하세요!</h1>
         <br/>
-        <button><h2>비비뷰 로그인 →</h2></button>
+        <button onclick = "location.href = '${path}/member/login' "><h2>비비뷰 로그인 →</h2></button>
         </div>
         <br/><br/><br/><br/><br/>
     </div>

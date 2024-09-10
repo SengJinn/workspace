@@ -166,28 +166,28 @@ input::placeholder {
             
             <label for="email">이메일</label>
             <div class="email-section">
-                <input type="email" id="email" name="email" placeholder="이메일 주소 입력">
+                <input type="email" id="email" name="email" placeholder="이메일 주소 입력" required>
                 <button type="button" class="verify-button email-verify">인증번호 전송</button>
             </div>   
             
             <input type="text"  placeholder="인증 번호 입력">
 
             <label for="password">비밀번호</label>
-            <input type="password" id="password" name="pass" placeholder="영문, 숫자, 특수문자 조합 8~15 자리">
+            <input type="password" id="password" name="pass" placeholder="영문, 숫자, 특수문자 조합 8~15 자리" required>
 
             <label for="password-confirm">비밀번호 확인</label>
-            <input type="password" id="password-confirm" placeholder="비밀번호 다시 입력">  
+            <input type="password" id="password-confirm" placeholder="비밀번호 다시 입력" required>  
             
             <label for="age">나이</label>
-            <input type="number" id="age" name="age" placeholder="만 14세 이상만 가입 가능합니다.">
+            <input type="number" id="age" name="age" placeholder="만 14세 이상만 가입 가능합니다." min="14" required>
 
             <label for="phone">휴대폰 번호</label>
             <div class="phone-section">
-                <input type="text" id="phone" name="phone" placeholder="휴대폰 번호 입력">
+                <input type="text" id="phone" name="phone" placeholder="휴대폰 번호 입력" required>
                 <button type="button" class="verify-button phone-verify">인증번호 전송</button>
             </div>
 	
-			<input type="text" placeholder="인증 번호 입력">
+			<input type="text" placeholder="인증 번호 입력" required>
 			
             <div class="agreements">
                 <div class="checkbox-item">

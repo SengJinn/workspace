@@ -1,39 +1,52 @@
-/* 네비게이션 바 */
-*{
-	font-family: 'Noto Sans KR', sans-serif;
-}
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-}
+  * {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+  }
 
-.header img {
-  height: 40px;
-}
+  .header img {
+    height: 50px;
+  }
 
-.header .nav-links {
-  display: flex;
-  gap: 20px;
-}
+  .header .left-array {
+    display: flex;
+    gap: 30px;
+    margin-left: 20px; /* 로고와 left-array 사이의 간격 추가 */
+  }
 
-.header .nav-links a {
-  color: #e5e5e5;
-  text-decoration: none;
-  font-size: 16px;
-}
+  .left-array a{
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 18px;
+  }
 
-.header .nav-links a:hover {
-  text-decoration: underline;
-}
+  .header .nav-links {
+    display: flex;
+    gap: 30px;
+    margin-left: auto; /* 오른쪽으로 밀어내어 남은 공간을 차지하게 함 */
+    align-items: center;
+  }
 
-i {
-	color: #fff;
-}
+  .header .nav-links a {
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .header a:hover {
+    text-decoration: underline;
+  }
+
+  i {
+    color: #fff;
+  }

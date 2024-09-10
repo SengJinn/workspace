@@ -31,7 +31,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void logOut(HttpServletRequest request, HttpServletResponse response) {
-
+		
 	}
 
 }

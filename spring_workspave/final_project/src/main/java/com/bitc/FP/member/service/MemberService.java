@@ -34,6 +34,6 @@ public interface MemberService {
 	 * @param request  - 로그아웃 요청 처리에 필요한 Session 정보
 	 * @param response - 쿠키 정보 삭제를 위한 정보
 	 */
-//	void logOut(HttpServletRequest request, HttpServletResponse response);
+	void logOut(HttpServletRequest request, HttpServletResponse response);
 
 }
