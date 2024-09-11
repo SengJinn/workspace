@@ -7,6 +7,10 @@
 
 <c:set var="path" value="${pageContext.request.contextPath}" scope="session"/>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.2/sweetalert2.all.min.js"></script>
+
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+
 <style>
 	 * {
     font-family: 'Noto Sans KR', sans-serif;
@@ -60,6 +64,10 @@
   i {
     color: #fff;
   }
+  
+
+  
+
 </style>
 
 <!-- iconbox 설정 -->
@@ -92,9 +100,40 @@
 </header>
 
 <script>
-  function logout() {
-    if (confirm('로그아웃 하시겠습니까?')) {
-      window.location.href = "${path}/member/logout";
-    }
-  }
+var confirm = function(msg, title) {
+    Swal.fire({
+        title: title,
+        text: msg,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: '예',
+        cancelButtonText: '아니오',
+        confirmButtonColor: '#FFA200',
+        cancelButtonColor: '#888'
+    }).then((result) => {
+        if (result.isConfirmed) {     
+            Swal.fire({
+                title: '',
+                text: '로그아웃 되었습니다.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1200 // 1.2초 후 자동으로 사라지게 설정
+            }).then(() => {
+                window.location.href = "${path}/member/logout";
+            });
+        } else {
+            Swal.fire({
+                title: '',
+                text: '로그아웃을 취소했습니다.',
+                icon: 'error',
+                showConfirmButton: false,
+                timer: 1000 // 1초 후 자동으로 사라지게 설정
+            });
+        }
+    });
+}
+
+function logout() {
+    confirm('정말 로그아웃 하시겠습니까?', '로그아웃 확인');
+}
 </script>

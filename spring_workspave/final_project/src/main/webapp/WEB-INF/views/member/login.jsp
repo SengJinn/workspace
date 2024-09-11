@@ -12,13 +12,16 @@
 <link rel="stylesheet" href="${path}/resources/css/login.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.2/sweetalert2.min.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.2/sweetalert2.all.min.js"></script>
 
 </head>
 <body>
 
 	<div class="wrapper">
 		<form action="login" method="post">
-			<h1>Login</h1>
+			<h1>LOGIN</h1>
 			<div class="input-box">
 				<input type="text" placeholder="이메일" name="email" required />
                 <i class='bx bxs-user'></i>
@@ -42,15 +45,32 @@
         </div>
 	</div>
 
-    <script>
-        window.onload = function() {
-            // 메시지가 존재하면 alert 창을 띄우기
-            var msg = "${msg}";
-            if (msg) {
-                alert(msg);
-            }
-        }
-    </script>
+	<script>
+	    window.onload = function() {
+	        // 메시지가 존재하면 SweetAlert 창 띄우기
+	        var msg = "${msg}";
+	        if (msg) {
+	            Swal.fire({
+	                title: '알림',
+	                text: msg,
+	                icon: 'warning',
+	                confirmButtonColor: '#FFA200',
+	            });
+	        }
+	    	
+	        var joinSuccess = "${joinSuccess}";
+	        // joinSuccess 메시지가 존재하면 SweetAlert 창 띄우기  
+	        if (joinSuccess) {
+	            Swal.fire({
+	                title: '알림',
+	                text: joinSuccess,
+	                icon: 'success',
+	                confirmButtonColor: '#FFA200',
+	            });
+	        }
+	        
+	    }
+	</script>
 
 
 </body>

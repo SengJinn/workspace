@@ -225,9 +225,29 @@ input::placeholder {
             <input type="submit" value="회원가입" class="join-button" disabled /> 
             </div>
             
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.2/sweetalert2.all.min.js"></script>
+            <script>
+    	    window.onload = function() {
+
+    	        var joinFail = "${joinFail}";
+    	        // joinFail 메시지가 존재하면 SweetAlert 창 띄우기
+    	        if (joinFail) {
+    	            Swal.fire({
+    	                title: '알림',
+    	                text: joinFail,
+    	                icon: 'warning',
+    	                confirmButtonColor: '#FFA200',
+    	            });
+    	        }
+    	        
+    	    }
+    	    
+            </script>
+            
+            
             <script src="http://code.jquery.com/jquery-latest.min.js"></script>
             <script>
-            
             $(document).ready(function(){
             	//전체 체크 클릭 시, 나머지 체크 
             	$("#agree-all").click(function(){

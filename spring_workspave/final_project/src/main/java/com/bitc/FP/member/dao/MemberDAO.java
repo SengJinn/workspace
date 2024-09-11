@@ -25,14 +25,20 @@ public interface MemberDAO {
 	@Select("SELECT * FROM member WHERE email = #{email}")
 	MemberVO memberLogin(String email);
 	
-//
-//	/**
-//	 * @implNote - 자동 로그인용 사용자 id 로 정보 검색
-//	 * 
-//	 * @param id - id 값으로 사용자 정보 확인 - cookie 자동 로그인
-//	 * @return MemberVO - id가 일치하는 사용자 정보
-//	 * @return null - id가 일치하는 사용자 정보가 존재하지 않음을 의미
-//	 */
-//	MemberVO getMemberById(String id);
+    /**
+     * @implNote - 이메일 중복 확인
+     * @param email - 확인할 이메일 
+     */
+    @Select("SELECT COUNT(*) FROM member WHERE email = #{email}")
+    int emailExists(String email);
+	
+    /**
+     * @implNote - 전화번호 중복 확인
+     * @param phone - 확인할 전화번호 
+     */
+    @Select("SELECT COUNT(*) FROM member WHERE phone = #{phone}")
+    int phoneExists(String phone);
+    
+
 
 }

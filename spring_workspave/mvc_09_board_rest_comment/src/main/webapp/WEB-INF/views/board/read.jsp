@@ -33,9 +33,19 @@
 		}
 	</script>
 	
-	<%@ include file = "/WEB-INF/views/comment/comment.jsp" %>
+	<%@ include file="/WEB-INF/views/comment/comment.jsp" %>
+	
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 

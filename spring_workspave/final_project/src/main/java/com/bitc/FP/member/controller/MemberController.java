@@ -58,12 +58,24 @@ public class MemberController {
 	
 	
 	@PostMapping("join")
-	public String join(MemberVO member) {
-		boolean isJoin = ms.memberJoin(member);
+	public String join(MemberVO member, RedirectAttributes rttr) {
+		
+		boolean isJoin = ms.memberJoin(member); 
+		// isJoin에 member가 존재할 때
 		if (isJoin) {
+			
+			String joinSuccess = "회원가입에 성공했습니다. 로그인 페이지로 이동합니다.";
+	    	rttr.addFlashAttribute("joinSuccess", joinSuccess);
 			return "redirect:/member/login";
+			
+		} else {
+			
+	    	String joinFail = "이메일 혹은 전화번호가 이미 등록되어 있습니다. 다시 확인해주세요.";
+	    	rttr.addFlashAttribute("joinFail", joinFail);
+			return "redirect:/member/join";
+		
 		}
-		return "member/join";
+
 	}
 	
 	@PostMapping("login")
@@ -95,8 +107,6 @@ public class MemberController {
 	        return "redirect:/home";
 	        
 	    } else {
-	        // 로그인 실패 시 세션에 에러 메시지를 저장하고 로그인 페이지로 리다이렉트
-	        // request.getSession().setAttribute("error", "Invalid username or password");
 	    	
 	    	String msg = "이메일 혹은 비밀번호가 일치하지 않습니다.";
 	    	rttr.addFlashAttribute("msg", msg);

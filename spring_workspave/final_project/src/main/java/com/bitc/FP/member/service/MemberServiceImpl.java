@@ -22,8 +22,14 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public boolean memberJoin(MemberVO member) {
-		return dao.memberJoin(member);
-	}
+        // 전화번호 & 이메일 중복 체크
+        if (dao.emailExists(member.getEmail()) > 0 || dao.phoneExists(member.getPhone()) > 0) {
+            // 전화번호나 이메일이 이미 존재하는 경우
+            return false;
+        }
+        // 둘 다 존재하지 않는 경우
+        return dao.memberJoin(member);
+    }
 
 	@Override
 	public MemberVO memberLogin(LoginDTO dto) {
