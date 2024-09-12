@@ -9,7 +9,7 @@
 		padding:10px;
 		border:1px solid #ccc;
 		margin: 15px 0;
-		height:150px;
+		/* height:150px; */
 	}
 	
 	#modDiv{
@@ -57,7 +57,64 @@
 
 	var bno = '${boardVO.bno}';		// 댓글을 등록할 게시글 번호
 	
-	getCommentList();
+	let page = 1;
+	
+	listPage(page);
+	
+	function listPage(page){
+		// 어떤게시글에 댓글 목록.
+		// 몇번째 페이지 인가.
+		let url = "${path}/comments/"+bno+"/"+page;
+		$.getJSON(url,function(data){
+			console.log(data);
+			console.log(data.list);
+			console.log(data.pm);
+			printPage(data);
+		});
+	}
+	
+	// 댓글 목록 comments ul 에 출력하는 함수
+	function printPage(data){
+		// data.list = [CommentVO, CommentVO ... ]
+		let str = "";
+		
+		$(data.list).each(function(){
+			console.log(this);
+			let cno = this.cno;
+			let cAuth = this.commentAuth;
+			let cText = this.commentText;
+			console.log(cno+"-"+cAuth+"-"+cText);
+			str += "<li>";
+			str += cno + "-" + cAuth +"<br/><hr/>"+cText;
+			str += "<br/><hr/>";
+			str += getTime(this.regdate);
+			str += "<br/><hr/>";
+			str += "<button onclick='modDiv(this,"+cno+",\""+cAuth+"\",\""+cText+"\");'>MODIFY</button>";
+			str += "</li>";
+		});
+		
+		// $("#comments").innerHTML = str;
+		$("body").prepend($("#modDiv"));
+		$("#modDiv").css("display","none");
+		if(page == 1){
+			$("#comments").html(str);	
+		}else{
+			$("#comments").append(str);
+		}
+		
+		if(page < data.pm.maxPage){
+			let str = "<button onclick='nextPage(this);' style='width:100%;padding:10px;'>더볼래?</button>";
+			$("#comments").append(str);
+		}
+	}
+	
+	function nextPage(nextBtn){
+		$(nextBtn).remove();
+		page++;
+		listPage(page);
+	}
+	
+	// getCommentList();
 	
 	// 전체 댓글 목록 검색 후 출력
 	function getCommentList(){
@@ -99,6 +156,8 @@
 		});
 		
 		// $("#comments").innerHTML = str;
+		$("body").prepend($("#modDiv"));
+		$("#modDiv").css("display","none");
 		$("#comments").html(str);
 	}
 	
@@ -120,6 +179,9 @@
 		$("#modDiv").css("display", "none");
 		// 이벤트가 발생한 button 태그요소의 부모 li요소 뒤에 수정 창 추가(이동)
 		$(el).parent().after($("#modDiv"));
+		// $(el).parent().before($("#modDiv"));
+		// $(el).parent().append($("#modDiv"));
+		// $(el).parent().prepend($("#modDiv"));
 		$("#modDiv").slideDown("slow");
 	}
 	
@@ -171,6 +233,7 @@
 			success : function(result){
 				// 응답이 성공하면 실행될 함수
 				alert(result);
+				getCommentList();
 			},
 			error : function(res){
 				console.log(res);
@@ -196,6 +259,8 @@
 				"Content-Type" : "application/json"
 			},
 			// queryString : ?commentText=text&commentAuth=auth
+			// JSON.parse(); == 문자열 type의 json 데이터를 javascript 객체로 변환
+			// JSON.stringify(); == javascript 객체를 JSON 형식의 문자열로 변환
 			data : JSON.stringify({
 				commentText : text,
 				commentAuth : auth
@@ -209,8 +274,36 @@
 		});
 	});
 	
+	/*
+		댓글 삭제 요청 처리
+	*/
+	$("#delBtn").click(function(){
+		
+		let cno = $("#modCno").text();
+		
+		$.ajax({
+			type : "DELETE",
+			url : "${path}/comments/"+cno,
+			dataType : "text",
+			success : function(result){
+				alert(result);
+				if(result == "SUCCESS"){
+					// $("#modDiv").parent(); == ul#comments
+					console.log($("#modDiv").parent());
+					console.log($("#modDiv").parent().first());
+					getCommentList();
+				}
+			}
+		});
+	});	
 	
 </script>
+
+
+
+
+
+
 
 
 

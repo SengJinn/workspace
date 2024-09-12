@@ -173,7 +173,7 @@ input::placeholder {
             <input type="text"  placeholder="인증 번호 입력">
 
             <label for="password">비밀번호</label>
-            <input type="password" id="password" name="pass" placeholder="영문, 숫자, 특수문자 조합 8~15 자리" required>
+            <input type="password" id="password" name="pass" placeholder="영문, 숫자 조합 8~30 자리" minlength='8' maxlength='30' required>
 
             <label for="password-confirm">비밀번호 확인</label>
             <input type="password" id="password-confirm" placeholder="비밀번호 다시 입력" required>  
@@ -196,17 +196,17 @@ input::placeholder {
                 </div>
 
                 <div class="checkbox-item">
-                    <input type="checkbox" id="age-confirm" name="agree-check" class="checkbox-check neccessarycheck1">
+                    <input type="checkbox" id="age-confirm" name="agree-check" class="checkbox-check necessarycheck1">
                     <label for="age-confirm">[필수] 만 14세 이상입니다.</label>
                 </div>
 
                 <div class="checkbox-item">
-                    <input type="checkbox" id="terms" name="agree-check" class="checkbox-check neccessarycheck2">
+                    <input type="checkbox" id="terms" name="agree-check" class="checkbox-check necessarycheck2">
                     <label for="terms">[필수] 서비스 이용약관 동의</label>
                 </div>
 
                 <div class="checkbox-item">
-                    <input type="checkbox" id="privacy" name="agree-check" class="checkbox-check neccessarycheck3">
+                    <input type="checkbox" id="privacy" name="agree-check" class="checkbox-check necessarycheck3">
                     <label for="privacy">[필수] 개인정보 수집 및 이용 동의</label>
                 </div>
 
@@ -273,9 +273,9 @@ input::placeholder {
             	// 모든 체크박스를 클릭하면 버튼 활성화시키기
             	$('.checkbox-check').click(function(){
             		
-            	    var neccessarycheck1 = $(".neccessarycheck1").prop('checked'); 
-            	    var neccessarycheck2 = $(".neccessarycheck2").prop('checked'); 
-            	    var neccessarycheck3 = $(".neccessarycheck3").prop('checked'); 
+            	    var necessarycheck1 = $(".necessarycheck1").prop('checked'); 
+            	    var necessarycheck2 = $(".necessarycheck2").prop('checked'); 
+            	    var necessarycheck3 = $(".necessarycheck3").prop('checked'); 
             	    
             	    var somecheck = $(".checkbox-check").length;
             	    var checkedbox = $(".checkbox-check:checked").length;
