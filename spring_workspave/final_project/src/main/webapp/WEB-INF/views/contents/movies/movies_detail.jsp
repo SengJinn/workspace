@@ -40,12 +40,11 @@
     display: none; /* 실제 라디오 버튼 숨기기 */
 }
 
-/* 별점 기본 색상 */
 .rating-stars label {
     font-size: 24px;
     color: #ddd; 
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-    transition: color 0.3s; /* 색상 전환 효과 */
+    cursor: pointer; 
+    transition: color 0.3s; 
 }
 
 /* 별점 선택 시 노란색으로 변경 */
@@ -59,28 +58,31 @@
 }
 
 .review-section {
-    display: flex; /* Flexbox를 사용하여 자식 요소들을 나란히 배치 */
-    gap: 10px; /* 요소 간 간격 설정 */
+    display: flex; 
+    gap: 10px; 
 }
 
-/* 제출 버튼 스타일 */
 .submit-button {
     background-color:#FFA200; 
-    color: #fff; /* 텍스트 색상 */
-    border: none; /* 기본 테두리 제거 */
-    border-radius: 8px; /* 버튼 모서리 둥글게 */
-    padding: 10px 20px; /* 패딩 조정 */
-    font-size: 16px; /* 폰트 크기 조정 */
-    cursor: pointer; /* 커서 포인터로 변경 */
-    transition: background-color 0.3s; /* 배경색 전환 효과 */
+    color: #fff; 
+    border: none; 
+    border-radius: 8px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
 }
 
 button:hover {
   background-color: #ffbe4d;
 }
 
-/* 텍스트 영역 스타일 */
-input[name="review"] {
+.submit-button.disabled {
+    background-color: #ccc;
+    cursor: default;
+}
+
+input[name="mr_comment"] {
     background-color: #333; 
     color: #fff; 
     border: 1px solid #444; 
@@ -114,6 +116,9 @@ hr {
 <body>
  
     <main>
+    
+    <input type="hidden" id="loginStatus" value="${!empty sessionScope.member}">
+    
         <section class="main-banner">
             <div class="overlay"></div>
             <div class="content">
@@ -140,39 +145,37 @@ hr {
         
         <br/><hr/><br/>
         
-      <!-- 로그인 안 하면 평점 남기는 창이 아예 안 보임 귀찮아서 일단 이렇게 해놓음 -->  
-      <c:choose>
-      <c:when test="${!empty sessionScope.member}">   
-      <section class="rating">
-            <h2>평점 남기기</h2>
-            <form action="#" method="post">
+       
+      <section class="rating">    
+      <h2>평점 남기기</h2>      
+            <form action="movies_rating" method="post">
+            <input type="hidden" name="email" value="${sessionScope.member.email}">
+            <input type="hidden" name="mv_num" value="1"> <!--  value="${sessionScope.movie.mv_num}"-->
                 <div class="rating-stars">
                 	<!-- 고민해보고 required 추가해야 할 것 같으면 추가 -->
-                    <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">&#9733;</label>
-                    <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">&#9733;</label>
-                    <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">&#9733;</label>
-                    <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">&#9733;</label>
-                    <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stars">&#9733;</label>
+                    <input type="radio" id="star1" name="mr_stars" value="1"><label for="star1" title="1 star">&#9733;</label>
+                    <input type="radio" id="star2" name="mr_stars" value="2"><label for="star2" title="2 stars">&#9733;</label>
+                    <input type="radio" id="star3" name="mr_stars" value="3"><label for="star3" title="3 stars">&#9733;</label>
+                    <input type="radio" id="star4" name="mr_stars" value="4"><label for="star4" title="4 stars">&#9733;</label>
+                    <input type="radio" id="star5" name="mr_stars" value="5"><label for="star5" title="5 stars">&#9733;</label>
                 </div>
                  <div class="review-section">
-                <input type="text" name="review" maxlength='100' placeholder="영화에 대한 100자 리뷰를 남겨보세요! 위의 별을 클릭하여 별점을 입력할 수 있습니다." rows="4" cols="50"></input>
+                <input type="text" name="mr_comment" maxlength='100' placeholder="영화에 대한 100자 리뷰를 남겨보세요! 위의 별을 클릭하여 별점을 입력할 수 있습니다." rows="4" cols="50" required ></input>
                 <button type="submit" class="submit-button">리뷰 입력</button>
                 </div>
             </form>
         </section>
-        </c:when>
-        <c:otherwise>
-        <br/>
-        </c:otherwise>
-    	</c:choose>
-        
+
+        <c:forEach var="ratingBoard" items="${ratingList}">
         <section class="user-rating">
         	<h2>평점 둘러보기</h2>
-        	<p><i class='bx bxs-user'></i>승진이가승진했다 ★★★★★</p> <p class="user-comment">뭔가어쩌구저쩌구한평가를남겨봅시다!Lorem ipsum</p>
+        	<p><i class='bx bxs-user'></i>${ratingBoard.email} ★★★★★</p> <p class="user-comment">${ratingBoard.mr_comment}</p>
+        <!--  
         	<p><i class='bx bxs-user'></i>유리가부순유리창 ★★★★★</p> <p class="user-comment">뭔가어쩌구저쩌구한평가를남겨봅시다!Lorem ipsum 뭔가어쩌구저쩌구한평가를남겨봅시다!Lorem ipsum</p>
        		<p><i class='bx bxs-user'></i>석희가만든석회암 ★★★★★</p> <p class="user-comment">뭔가어쩌구저쩌구한평가를남겨봅시다!Lorem ipsum 뭔가어쩌구저쩌구렛츠고</p>
+        -->
         </section>
-		
+		</c:forEach>
 		<br/>
 		
         <section class="recommended">
@@ -198,13 +201,19 @@ hr {
     <script>
         $(document).ready(function() {
         	
+        			      //${!empty sessionScope.member}
+            var isLogin = $('#loginStatus').val() === 'true'; // 사용자가 로그인되어 있으면 isLogin은 true가 됨
+
+            if (!isLogin) {
+                $('input[name="review"]').attr('placeholder', '로그인 후 사용할 수 있습니다.').prop('disabled', true);
+                $('.submit-button').addClass('disabled').prop('disabled', true);
+            }
+        	 
         	 var selectedCount = 0; //별점 값을 저장할 변수
         	
             $('.rating-stars label').on('click', function() {
                 // 현재 클릭된 별의 for속성 값을 가져와서 별의 id값을 저장함
                 var clickedStar = $(this).attr('for');
-
-                selectedCount = 0; // 변수 초기화
                 
                 // 모든 별을 selected 클래스 값을 초기화
                 $('.rating-stars label').removeClass('selected');
@@ -212,8 +221,7 @@ hr {
                 // 클릭된 별의 값보다 작거나 같은 별들에 'selected' 클래스를 추가
                 $('.rating-stars label').each(function() {
                     if ($(this).attr('for') <= clickedStar) {
-                        $(this).addClass('selected');
-                        selectedCount++; // 선택된 별의 개수만큼 변수 증가 나중에 세션에 저장해서 DB에 넘기거나 radio value값을 DB로 넘겨야 할 듯??
+                        $(this).addClass('selected'); 
                     }
                 });
             });

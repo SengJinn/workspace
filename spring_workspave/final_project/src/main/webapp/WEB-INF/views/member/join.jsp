@@ -281,7 +281,7 @@ input::placeholder {
             	    var checkedbox = $(".checkbox-check:checked").length;
             	    
             	    //선택한 체크박스 값이 true면 버튼 활성화
-            	    if(neccessarycheck1==true && neccessarycheck2==true && neccessarycheck3==true){
+            	    if(necessarycheck1==true && necessarycheck2==true && necessarycheck3==true){
             	    $(".join-button").css({"backgroundColor":"#FFA200","cursor":"pointer","color":"#fff"}).prop("disabled",false);
             	    }
             	    else{
