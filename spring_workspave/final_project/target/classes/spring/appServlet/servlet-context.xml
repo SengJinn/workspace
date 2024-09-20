@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -13,7 +15,9 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- 정적파일 처리  -->
 	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/resources/**" location="/resources/img/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -21,8 +25,13 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.bitc.*, com.bitc.FP.*.controller, com.bitc.FP.*.service, com.bitc.FP" />
+	<!--  spring bean으로 등록될 수 있도록 지정  -->
+	<context:component-scan base-package="com.bitc.*.controller, com.bitc.*.*.controller, com.bitc.*.service, com.bitc.*.*.service" />
 	
+	<!-- 공통적으로 적용, 간접적으로 전처리 후처리, 
+		 AOP : 반복적인 코드를 줄이고 핵심 비즈니스 로직에만 집중  -->
+	<aop:aspectj-autoproxy />
+	<context:component-scan base-package="com.bitc.*.aop" />
 	
 	
 </beans:beans>

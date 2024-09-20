@@ -1,0 +1,48 @@
+#imageSelectModal, #updateImageModal {
+    display: none; /* 숨김 상태로 시작 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* 반투명 배경 */
+}
+
+.imageModalContent {
+	background-color: gray;
+    margin: 25% auto;
+    padding: 20px;
+    border: 2px solid #888;
+    width: 700px; /* 넓이 조절 */
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: #000000;
+    color: #e5e5e5;
+}
+
+.selectHeader p {
+	font-size: 36px;
+	font-weight: 600;
+}
+
+.selectBody {
+	height: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+
+.selectBody img {
+	margin-top: 20px;
+	height: 150px;
+	width: 150px;
+	transition: transform 0.3s ease;
+}
+
+.selectBody img:hover {
+	transform: scale(1.1);
+}

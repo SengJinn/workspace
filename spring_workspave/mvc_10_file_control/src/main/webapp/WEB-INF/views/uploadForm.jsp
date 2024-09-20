@@ -28,6 +28,16 @@
 		<input type="file" name="files" multiple/> 
 		<button>제출</button>
 	</form>
+	
+	<hr/>
+	<h1>Request Parameter Upload 2</h1>
+	<form action="uploadDTO" method="POST" enctype="multipart/form-data">
+		<input type="text" name="auth" /> <br/>
+		<textarea name="content"></textarea> <br/>
+		<input type="file" name="profile" accept="image/*"/> <br/>
+		<input type="file" name="files" multiple/> 
+		<button>제출</button>
+	</form>
 </body>
 </html>
 

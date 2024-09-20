@@ -22,11 +22,9 @@
 
 	<bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds"/>
-		<!-- <property name="configLocation" value="classpath:mybatis/MyBatisConfig.xml"/> -->
-		<!-- <property name="typeAliasesPackage" value="com.bitc.board.vo, com.bitc.common.util"/> -->
-		<!-- <property name="mapperLocations" value="classpath:mybatis/sql/*.xml"/> -->
 	</bean>
 	
-	<mybatis-spring:scan base-package="com.bitc.FP.*"/>
+	<mybatis-spring:scan base-package="com.bitc.*.dao"/>
+	<mybatis-spring:scan base-package="com.bitc.*.*.dao"/>
 		
 </beans>

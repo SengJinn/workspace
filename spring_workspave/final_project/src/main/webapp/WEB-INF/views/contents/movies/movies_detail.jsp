@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VVV - 라라랜드</title>
@@ -106,12 +107,9 @@ hr {
     height:1px;
     border:0;
 }
-
 </style>    
 
 </head>
-
-
 
 <body>
  
@@ -149,7 +147,7 @@ hr {
       <section class="rating">    
       <h2>평점 남기기</h2>      
             <form action="movies_rating" method="post">
-            <input type="hidden" name="email" value="${sessionScope.member.email}">
+            <input type="hidden" name="name" value="${currentProfile.name}">
             <input type="hidden" name="mv_num" value="1"> <!--  value="${sessionScope.movie.mv_num}"-->
                 <div class="rating-stars">
                 	<!-- 고민해보고 required 추가해야 할 것 같으면 추가 -->
@@ -165,17 +163,47 @@ hr {
                 </div>
             </form>
         </section>
+        
+<section class="user-rating">
+        <h2>평점 둘러보기</h2>
 
+<c:set var="hasRating" value="false" />
+
+<!-- ratingList를 순회하여 mr_num이 1인 항목이 있는지 확인 -->
+<c:forEach var="ratingBoard" items="${ratingList}">
+    <c:if test="${ratingBoard.mv_num == 1}">
+        <c:set var="hasRating" value="true" />
+    </c:if>
+</c:forEach>
+
+<!-- 데이터가 존재하는지 여부에 따라 출력 -->
+<c:choose>
+    <c:when test="${hasRating}">
         <c:forEach var="ratingBoard" items="${ratingList}">
-        <section class="user-rating">
-        	<h2>평점 둘러보기</h2>
-        	<p><i class='bx bxs-user'></i>${ratingBoard.email} ★★★★★</p> <p class="user-comment">${ratingBoard.mr_comment}</p>
-        <!--  
-        	<p><i class='bx bxs-user'></i>유리가부순유리창 ★★★★★</p> <p class="user-comment">뭔가어쩌구저쩌구한평가를남겨봅시다!Lorem ipsum 뭔가어쩌구저쩌구한평가를남겨봅시다!Lorem ipsum</p>
-       		<p><i class='bx bxs-user'></i>석희가만든석회암 ★★★★★</p> <p class="user-comment">뭔가어쩌구저쩌구한평가를남겨봅시다!Lorem ipsum 뭔가어쩌구저쩌구렛츠고</p>
-        -->
-        </section>
-		</c:forEach>
+            <c:choose>
+                <c:when test="${ratingBoard.mv_num == 1}">
+                    <p><i class='bx bxs-user'></i> ${ratingBoard.name}
+                        <c:choose>
+                            <c:when test="${ratingBoard.mr_stars == 5}">★★★★★</c:when>
+                            <c:when test="${ratingBoard.mr_stars == 4}">★★★★☆</c:when>
+                            <c:when test="${ratingBoard.mr_stars == 3}">★★★☆☆</c:when>
+                            <c:when test="${ratingBoard.mr_stars == 2}">★★☆☆☆</c:when>
+                            <c:when test="${ratingBoard.mr_stars == 1}">★☆☆☆☆</c:when>
+                            <c:otherwise>☆☆☆☆☆</c:otherwise>
+                        </c:choose>
+                    </p>
+                    <p class="user-comment">${ratingBoard.mr_comment}</p>
+                </c:when>
+            </c:choose>
+        </c:forEach>
+    </c:when>
+    <c:otherwise>
+        <p>등록된 평점이 없습니다.</p>
+    </c:otherwise>
+</c:choose>
+
+</section>
+
 		<br/>
 		
         <section class="recommended">
@@ -205,7 +233,7 @@ hr {
             var isLogin = $('#loginStatus').val() === 'true'; // 사용자가 로그인되어 있으면 isLogin은 true가 됨
 
             if (!isLogin) {
-                $('input[name="review"]').attr('placeholder', '로그인 후 사용할 수 있습니다.').prop('disabled', true);
+                $('input[name="mr_comment"]').attr('placeholder', '로그인 후 사용할 수 있습니다.').prop('disabled', true);
                 $('.submit-button').addClass('disabled').prop('disabled', true);
             }
         	 

@@ -74,6 +74,8 @@ CREATE TABLE IF NOT EXISTS board(
     FOREIGN KEY (email) REFERENCES `member`(email)
 );
 
+ALTER TABLE board ADD COLUMN `name` VARCHAR(20) NOT NULL after email;
+
 -- [컨텐츠 정보 테이블]
 CREATE TABLE IF NOT EXISTS movie(
 	mv_num int PRIMARY KEY AUTO_INCREMENT ,
@@ -108,6 +110,11 @@ CREATE TABLE IF NOT EXISTS movie_rating(
     FOREIGN KEY (email) REFERENCES `member`(email),
     FOREIGN KEY (mv_num) REFERENCES `movie`(mv_num)
 );
+
+ALTER TABLE movie_rating ADD COLUMN `name` VARCHAR(20) NOT NULL;
+
+SELECT * FROM movie_rating;
+DESC movie_rating;
 
 CREATE TABLE IF NOT EXISTS drama LIKE `movie`;
 

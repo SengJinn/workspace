@@ -1,4 +1,5 @@
-  * {
+/* 네비게이션 바 */
+	 * {
     font-family: 'Noto Sans KR', sans-serif;
   }
   
@@ -14,7 +15,7 @@
     z-index: 1000;
   }
 
-  .header img {
+  .header-logo {
     height: 50px;
   }
 
@@ -50,3 +51,83 @@
   i {
     color: #fff;
   }
+
+/* 프로필 메뉴 */
+.profileMenu {
+    position: relative;
+    display: inline-block;
+}
+
+.currentProfile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* 드롭다운 기본적으로 숨김 */
+/* .profileDropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 150px;
+    z-index: 1;
+} */
+
+.inner-menu{
+            /* inner-menu 화면에 출력 안되도록 */
+            list-style:none;
+		    display: none;
+		    position: absolute;
+		    top: 100%;
+		    left: 0;
+		    background-color: rgba(0,0,0,0.8);
+		    border: 1px solid #ccc;
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		    padding: 10px;
+		    width: 150px;
+		    z-index: 1;
+		    border-radius: 20px;
+		    font-size: 18px;
+		    text-align: center;
+}
+
+.profileMenu:hover .inner-menu{
+            display: block;
+            border:0px;   
+}
+
+.inner-menu * {
+	padding: 0 8px 0 8px;
+}
+
+.inner-menu > ul > li {
+	list-style:none;
+}
+
+.inner-menu-item1{
+	margin-bottom: 8px;
+}
+
+/* 현재 프로필에 마우스를 올렸을 때 드롭다운 표시
+.currentProfile:hover + .profileDropdown {
+    display: block;
+} */
+
+/* 현재 프로필 이미지 스타일 */
+.currentImg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* 현재 프로필 이름 스타일 */
+.currentName {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 18px;
+}

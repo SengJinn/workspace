@@ -1,0 +1,86 @@
+.wrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppons", sans-serif;
+    color: #e5e5e5;
+}
+
+.wrapper {
+	width: 600px;
+}
+
+section {
+	margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background: #000000;
+}
+
+.upperBox {
+    height: 110px;
+    margin-top: 70px;
+}
+
+.upperBox .title {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.upperBox .caution {
+    color: gray;
+}
+
+.lowerBox {
+    height: auto;
+}
+
+.inner1 {
+    margin-top: 20px;
+    height: auto;
+}
+
+.inner1 p {
+    text-align: center;
+}
+
+.inner1 p span {
+    font-weight: 900;
+    color: #ffa200;
+}
+
+.inner2 {
+    height: 100px;
+    display: flex;
+    /* 수직 수평 가운데 정렬 */
+    align-items: center;
+    justify-content: center;
+}
+
+/* 회원탈퇴 입력칸 */
+.inner2 input[type=text] {
+    width: 300px;
+    height: 40px;
+    margin-right: 10px;
+    padding-left: 10px;
+    font-size: 30px;
+    color: #000000;
+}
+
+.inner2 input[type=submit] {
+    width: 150px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #e5e5e5;
+    background: #ffa200;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    cursor: pointer;
+}

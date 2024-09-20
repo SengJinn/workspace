@@ -1,0 +1,29 @@
+.sideMenu {
+    width: 250px;
+    padding-top: 20px;
+    height: auto;
+    /* 네비게이션 바가 줄어들지 않게 설정 */
+    flex-shrink: 0;
+    background: #000000;
+}
+
+.sideMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;    
+}
+
+.sideMenu a {
+    color: #e5e5e5;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 10px;
+    display: block;
+    transition: transform 0.3s ease, color 0.3 ease;
+}
+
+.sideMenu a:hover {
+    color: #ffa200;
+    transform: translateX(15px);
+}

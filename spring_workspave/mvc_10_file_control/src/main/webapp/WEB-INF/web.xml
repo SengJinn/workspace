@@ -23,14 +23,15 @@
 			<param-value>classpath:/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
-		
-		<!-- MultiPart 대용량 데이터 처리 설정 -->
+
+		<!-- Multipart 대용량 데이터 처리 설정 -->
 		<multipart-config>
 			<location>C:\\Temp\\upload</location>
-			<max-file-size>20971520</max-file-size>			<!-- 20MB -->
-			<max-request-size>41943040</max-request-size>		<!-- 40MB -->
-			<file-size-threshold>20971520</file-size-threshold>		<!-- 20MB -->
+			<max-file-size>20971520</max-file-size>   <!-- 20MB -->
+			<max-request-size>41943040</max-request-size>  <!-- 40MB -->
+			<file-size-threshold>20971520</file-size-threshold>  <!-- 20MB -->
 		</multipart-config>
+		
 	</servlet>
 		
 	<servlet-mapping>
@@ -39,3 +40,11 @@
 	</servlet-mapping>
 
 </web-app>
+
+
+
+
+
+
+
+

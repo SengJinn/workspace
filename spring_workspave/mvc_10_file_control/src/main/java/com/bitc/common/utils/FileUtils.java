@@ -4,13 +4,44 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.UUID;
 
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.util.StreamUtils;
 
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class FileUtils {
+	
+	/**
+	 * file upload 처리 후 업로된 파일 이름 반환
+	 */
+	public static String uploadFile(String realPath, MultipartFile file) throws Exception{
+		String uploadFileName = "";
+		
+		UUID uid = UUID.randomUUID(); // 중복 우회를 위한 이름 설정
+		String originalName = file.getOriginalFilename();
+		// 36개에 - 4개가 추가된 문자열에서 - 특수문자 제거한 32개 문자 생성
+		// askdf-haksdj-hf23-2kjhb-23gkh
+		// == askdfhaksdjhf232kjhb23gkh
+		String savedName = uid.toString().replace("-","");
+		// askdfhaksdjhf232kjhb23gkh_원본파일이름.확장자
+		// _를 기준으로 원본파일이름을 구분할 것이기 때문에 원본파일에 포함된 _ 특수문자를 공백으로 치환
+		uploadFileName = savedName + "_"+(originalName.replace("_", " "));
+		
+		File uploadFile = new File(realPath, uploadFileName);
+		System.out.println("uploadFileName : " + uploadFileName);
+		
+		// MultipartFile.transferTo(File);
+		// MultipartFile 객체에 저장된 파일 정보를
+		// 매개변수로 전달받은 File 위치로 전송
+		file.transferTo(uploadFile);
+		
+		return uploadFileName;
+	}
 	
 	/**
 	 * 업로드 경로 와 파일이름을 매개변수로 전달 받아

@@ -100,8 +100,7 @@ body {
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
-   
-    
+
 }
 
 .recent-search .search-term {
