@@ -75,6 +75,7 @@ CREATE TABLE IF NOT EXISTS board(
 );
 
 ALTER TABLE board ADD COLUMN `name` VARCHAR(20) NOT NULL after email;
+DESC board;
 
 -- [컨텐츠 정보 테이블]
 CREATE TABLE IF NOT EXISTS movie(
@@ -82,6 +83,8 @@ CREATE TABLE IF NOT EXISTS movie(
 	image_name VARCHAR(50), -- NOT NULL,
     image_type VARCHAR(50), -- NOT NULL,
 	image LONGBLOB, -- NOT NULL,
+    image_url VARCHAR(255),
+    poster_url VARCHAR(255),
     video_name VARCHAR(50), -- NOT NULL,
 	video_type VARCHAR(50), -- NOT NULL,
     video LONGBLOB, -- NOT NULL,
@@ -91,15 +94,31 @@ CREATE TABLE IF NOT EXISTS movie(
     director VARCHAR(255),
     summary VARCHAR(255),
     `comment` VARCHAR(255),
-    star int(5.0)
+    star int(5.0),
+    age_limit int
 );
 SELECT * FROM movie;
 
 DROP TABLE movie;
+ALTER TABLE movie ADD COLUMN age_limit int after star;
+ALTER TABLE movie ADD COLUMN poster_url VARCHAR(255) after image_url;
+
 DROP TABLE movie_rating;
 
 INSERT INTO movie (mv_num, title, genre, actor, director, summary) 
-VALUES (null, '라라랜드', '뮤지컬', '라이언 고슬링, 엠마 왓슨', '데미언 셔젤', '꿈을 꾸는 사람들을 위한 별들의 도시 라라랜드. 재즈 피아니스트 세바스찬과 배우 지망생 미아, 인생에서 가장 빛나는 순간 만난 두 사람은 미완성인 서로의 무대를 만들어가기 시작한다.');
+VALUES (null, '라라랜드', '뮤지컬', '라이언 고슬링, 엠마 왓슨', '데미언 셔젤', '꿈을 꾸는 사람들을 위한 별들의 도시 라라랜드. 재즈 피아니스트 세바스찬과 배우 지망생 미아, 인생에서 가장 빛나는 순간 만난 두 사람은 미완성인 서로의 무대를 만들어가기 시작한다.', '15');
+
+INSERT INTO movie (mv_num, image_url, title, genre, actor, director, summary, age_limit) 
+VALUES (null, '/FP/resources/images/banner/lalaland.jpg','라라랜드', '뮤지컬, 드라마, 로맨스', '라이언 고슬링, 엠마 왓슨', '데미언 셔젤',
+'꿈을 꾸는 사람들을 위한 별들의 도시 라라랜드. 재즈 피아니스트 세바스찬과 배우 지망생 미아, 인생에서 가장 빛나는 순간 만난 두 사람은 미완성인 서로의 무대를 만들어가기 시작한다.', '15');
+
+SELECT * from movie;
+
+SHOW CREATE TABLE movie;
+
+alter table movie drop column  where mv_num = 1;
+
+DELETE FROM movie WHERE mv_num = 1;
 
 CREATE TABLE IF NOT EXISTS movie_rating(
 	mr_num int PRIMARY KEY AUTO_INCREMENT ,
@@ -114,6 +133,7 @@ CREATE TABLE IF NOT EXISTS movie_rating(
 ALTER TABLE movie_rating ADD COLUMN `name` VARCHAR(20) NOT NULL;
 
 SELECT * FROM movie_rating;
+DROP TABLE movie_rating;
 DESC movie_rating;
 
 CREATE TABLE IF NOT EXISTS drama LIKE `movie`;

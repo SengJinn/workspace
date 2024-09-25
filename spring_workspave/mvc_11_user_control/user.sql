@@ -1,4 +1,10 @@
-CREATE TABLE IF NOT EXISTS spring_member(
+
+-- 테이블 이름 변경 spring_member => spring_user
+RENAME TABLE spring_member TO spring_user;
+
+DESC spring_user;
+
+CREATE TABLE IF NOT EXISTS spring_user(
 	u_no INT PRIMARY KEY AUTO_INCREMENT,			-- 회원 번호
 	u_id VARCHAR(200) NOT NULL UNIQUE,				-- 회원 아이디(email)
 	u_pw VARCHAR(100) NOT NULL,						-- 비밀번호
@@ -15,4 +21,22 @@ CREATE TABLE IF NOT EXISTS spring_member(
 	u_withdraw char(1) DEFAULT 'n'					-- 회원 탈퇴 여부(회원정보 숨김)   
 );
 
-DESC spring_member;
+-- 주소 저장 column 길이 확장 , u_addr
+ALTER TABLE spring_user CHANGE COLUMN u_addr u_addr VARCHAR(200);
+
+DESC spring_user;
+
+SELECT * FROM spring_user;
+
+
+
+
+
+
+
+
+
+
+
+
+
