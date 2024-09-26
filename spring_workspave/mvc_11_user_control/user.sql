@@ -28,8 +28,59 @@ DESC spring_user;
 
 SELECT * FROM spring_user;
 
+show tables;
+
+CREATE TABLE board_tbl(
+	bno INT PRIMARY KEY auto_increment,
+	title VARCHAR(200) NOT NULL,
+	content TEXT NOT NULL,
+	regdate TIMESTAMP NULL DEFAULT now(),
+	viewcnt INT NULL DEFAULT 0,
+	showboard char(1) NULL DEFAULT 'y',
+	u_no INT NOT NULL,
+	CONSTRAINT fk_board_tbl_uno 
+	FOREIGN KEY(u_no) REFERENCES spring_user(u_no)
+);
+
+SELECT B.*, U.u_name AS writer FROM 
+board_tbl AS B JOIN spring_user AS U 
+ON B.u_no = U.u_no 
+ORDER BY bno DESC limit 0 , 10;
+
+SELECT * FROM 
+board_tbl AS B JOIN spring_user AS U; 
 
 
+UPDATE spring_user SET u_name = '원빈' 
+WHERE u_no = 3;
+
+INSERT INTO board_tbl(title,content,u_no) 
+SELECT title,content,u_no FROM board_tbl;
+
+
+
+SELECT B.*, U.u_name AS writer FROM 
+board_tbl AS B JOIN spring_user AS U 
+ON B.u_no = U.u_no 
+
+WHERE title LIKE CONCAT('%','3일','%') 
+
+-- ORDER BY bno DESC limit 0 , 10;
+
+SELECT count(*) FROM 
+board_tbl WHERE title LIKE CONCAT('%','3일','%') 
+
+SELECT count(*) FROM 
+board_tbl AS B JOIN spring_user AS U 
+ON B.u_no = U.u_no 
+WHERE title LIKE CONCAT('%','3일','%') 
+
+
+SELECT B.*, U.u_name AS writer FROM 
+board_tbl AS B JOIN spring_user AS U 
+ON B.u_no = U.u_no 
+WHERE U.u_name LIKE CONCAT('%','원','%') 	-- w			tw
+OR title LIKE CONCAT('%','3일','%') 			--  t
 
 
 

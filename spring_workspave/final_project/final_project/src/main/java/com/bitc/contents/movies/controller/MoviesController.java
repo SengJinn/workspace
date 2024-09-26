@@ -48,10 +48,14 @@ public class MoviesController {
 
 	@PostMapping("movies_rating")
 	public String movies_rating(MovieRatingVO rating, RedirectAttributes rttr) {
-
+		System.out.println(rating);
+		
 		boolean isRating = mv.movieRating(rating);
+		
 		String ratingSuccess = "";
-
+		
+		rttr.addAttribute("mv_num",rating.getMv_num());
+		
 		if (isRating) {
 			ratingSuccess = "평점이 등록되었습니다.";
 			rttr.addFlashAttribute("ratingSuccesss", ratingSuccess);

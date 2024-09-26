@@ -14,5 +14,6 @@ public class MovieVO {
 	private String director;
 	private String summary;
 	private int age_limit;
+	private int star;
 	
 }

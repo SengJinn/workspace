@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS movie(
     director VARCHAR(255),
     summary VARCHAR(255),
     `comment` VARCHAR(255),
-    star int(5.0),
+    star INT,
     age_limit int
 );
 SELECT * FROM movie;
@@ -105,12 +105,9 @@ ALTER TABLE movie ADD COLUMN poster_url VARCHAR(255) after image_url;
 
 DROP TABLE movie_rating;
 
-INSERT INTO movie (mv_num, title, genre, actor, director, summary) 
-VALUES (null, '라라랜드', '뮤지컬', '라이언 고슬링, 엠마 왓슨', '데미언 셔젤', '꿈을 꾸는 사람들을 위한 별들의 도시 라라랜드. 재즈 피아니스트 세바스찬과 배우 지망생 미아, 인생에서 가장 빛나는 순간 만난 두 사람은 미완성인 서로의 무대를 만들어가기 시작한다.', '15');
-
-INSERT INTO movie (mv_num, image_url, title, genre, actor, director, summary, age_limit) 
-VALUES (null, '/FP/resources/images/banner/lalaland.jpg','라라랜드', '뮤지컬, 드라마, 로맨스', '라이언 고슬링, 엠마 왓슨', '데미언 셔젤',
-'꿈을 꾸는 사람들을 위한 별들의 도시 라라랜드. 재즈 피아니스트 세바스찬과 배우 지망생 미아, 인생에서 가장 빛나는 순간 만난 두 사람은 미완성인 서로의 무대를 만들어가기 시작한다.', '15');
+INSERT INTO movie (mv_num,  image_url, poster_url, title, genre, actor, director, summary, star, age_limit) 
+VALUES (null, '/FP/resources/images/banners/lalaland.jpg', '/FP/resources/images/banners/lalaland_poster.jpg', '라라랜드', '뮤지컬, 드라마, 로맨스', '라이언 고슬링, 엠마 왓슨', '데미언 셔젤',
+'꿈을 꾸는 사람들을 위한 별들의 도시 라라랜드. 재즈 피아니스트 세바스찬과 배우 지망생 미아, 인생에서 가장 빛나는 순간 만난 두 사람은 미완성인 서로의 무대를 만들어가기 시작한다.', '5', '15');
 
 SELECT * from movie;
 

@@ -1,7 +1,5 @@
 package com.bitc.contents.movies.model;
 
-import java.util.Date;
-
 import lombok.Data;
 
 @Data

@@ -4,114 +4,17 @@
 
 <!DOCTYPE html>
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VVV - 라라랜드</title>
     <link rel="stylesheet" href="${path}/resources/css/movies_detail_styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <!-- iconbox 설정 -->
-	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-	
-<style>
-.rating {
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 40px;
-    padding-left: 50px;
-}
-
-.rating h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.rating form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.rating-stars {
-    display: flex;
-    gap: 5px;
-}
-
-.rating-stars input[type="radio"] {
-    display: none; /* 실제 라디오 버튼 숨기기 */
-}
-
-.rating-stars label {
-    font-size: 24px;
-    color: #ddd; 
-    cursor: pointer; 
-    transition: color 0.3s; 
-}
-
-/* 별점 선택 시 노란색으로 변경 */
-.rating-stars .selected {
-    color: #ffcc00; 
-}
-
-/* 마우스 오버 시 별점 색상 변경 */
-.rating-stars .hover {
-    color: #ffcc00; 
-}
-
-.review-section {
-    display: flex; 
-    gap: 10px; 
-}
-
-.submit-button {
-    background-color:#FFA200; 
-    color: #fff; 
-    border: none; 
-    border-radius: 8px; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    cursor: pointer; 
-    transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #ffbe4d;
-}
-
-.submit-button.disabled {
-    background-color: #ccc;
-    cursor: default;
-}
-
-input[name="mr_comment"] {
-    background-color: #333; 
-    color: #fff; 
-    border: 1px solid #444; 
-    border-radius: 8px; 
-    padding: 10px; 
-    font-size: 14px; 
-    width: 50%;
-    box-sizing: border-box; 
-}
-
-.user-rating{
-	padding-left: 50px;
-}
-
-.user-comment{
-	color: #999999;
-}
-
-hr {
-    background:#666;
-    height:1px;
-    border:0;
-}
-</style>    
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
 </head>
 
-<body>
 
+<body>
     <main>
     
     <input type="hidden" id="loginStatus" value="${!empty sessionScope.member}">
@@ -121,16 +24,28 @@ hr {
     	var movieNum = document.getElementById("movieNum").value;
     </script>
     
-        <section class="main-banner" style="background-image: url('${movie.image_url}');" >
+        <section class="main-banner" style="background-image: url('${movie.image_url}');">
             <div class="overlay"></div>
             <div class="content">
             <br/> <br/> <br/> <br/> <br/> <br/> 
             
-                <h1>라라랜드</h1>
+                <h1>${movie.title}</h1>
                 <p>2016 • 127분 • 드라마</p>
                 <button class="watchbutton" onclick="window.open('${path}/contents/movies/movies_video')">시청하기</button>
                 <p class="description">${movie.summary}</p>
-           		<p>평점 ★★★★★</p>
+                
+           		<p style="color : #ffcc00;">
+				<span style="color : white;">평점 :</span>
+				    <c:choose>
+				        <c:when test="${movie.star == 5}">★★★★★</c:when>
+				        <c:when test="${movie.star == 4}">★★★★☆</c:when>
+				        <c:when test="${movie.star == 3}">★★★☆☆</c:when>
+				        <c:when test="${movie.star == 2}">★★☆☆☆</c:when>
+				        <c:when test="${movie.star == 1}">★☆☆☆☆</c:when>
+				        <c:otherwise>☆☆☆☆☆</c:otherwise>
+				    </c:choose>
+				</p>
+           		
            		<p>♡ 좋아요 &nbsp; &nbsp; &nbsp; &nbsp; 공유하기</p>
            		<br/> 
             </div>
@@ -155,7 +70,8 @@ hr {
       <h2>평점 남기기</h2>      
             <form action="movies_rating" method="post">
             <input type="hidden" name="name" value="${currentProfile.name}">
-            <input type="hidden" name="mv_num" value="1"> <!--  value="${sessionScope.movie.mv_num}"-->
+            <input type="hidden" name="email" value="${currentProfile.email}">
+            <input type="hidden" name="mv_num" value="${movie.mv_num}">
                 <div class="rating-stars">
                 	<!-- 고민해보고 required 추가해야 할 것 같으면 추가 -->
                     <input type="radio" id="star1" name="mr_stars" value="1"><label for="star1" title="1 star">&#9733;</label>
