@@ -26,7 +26,7 @@ public class BoardQueryProvider {
 		String query = sql.toString();
 		System.out.println("searchSelectSql : "+query);
 		return query;
-	}
+	} // end searchSelectSql
 	
 	
 	// 검색된 전체 게시물 개수를 반환하는 Query
@@ -36,10 +36,7 @@ public class BoardQueryProvider {
 		sql.FROM("board_tbl AS B NATURAL JOIN spring_user AS U");
 		getSearchWhere(cri, sql);
 		return sql.toString();
-	}
-	
-	
-	
+	} // end searchSelectCount
 	
 	// Where 조건절 동적으로 생성해서  할당
 	private void getSearchWhere(SearchCriteria cri, SQL sql) {
@@ -63,9 +60,8 @@ public class BoardQueryProvider {
 			if(cri.getSearchType().contains("w")) {
 				sql.OR().WHERE(writerQuery);
 			}
-			
 		}
-	}
+	} // end getSearchWhere
 
 }
 

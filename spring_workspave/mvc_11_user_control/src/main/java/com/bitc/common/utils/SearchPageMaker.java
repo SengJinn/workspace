@@ -9,7 +9,7 @@ public class SearchPageMaker extends PageMaker{
 	public String makeQuery(int page) {
 		SearchCriteria searchCri = (SearchCriteria)cri;
 		UriComponents uri = UriComponentsBuilder.newInstance()
-							.queryParam("page", searchCri.getPage())
+							.queryParam("page", page)
 							.queryParam("perPageNum", searchCri.getPerPageNum())
 							.queryParam("searchType", searchCri.getSearchType())
 							.queryParam("keyword", searchCri.getKeyword())

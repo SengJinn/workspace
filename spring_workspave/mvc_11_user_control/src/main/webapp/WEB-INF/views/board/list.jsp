@@ -47,13 +47,28 @@
 			<c:when test="${!empty list}">
 				<!-- 게시글 리스트 목록 출력 -->
 				<c:forEach var="board" items="${list}">
-					<tr>
-						<td>${board.bno}</td>
-						<td>${board.title}</td>
-						<td>${board.writer}</td>
-						<td>${board.regdate}</td>
-						<td>${board.viewcnt}</td>
-					</tr>
+					<c:choose>
+						<c:when test="${board.showboard eq 'y'}">
+							<tr>
+								<td>${board.bno}</td>
+								<td>
+									<a href="${path}/board/readView?bno=${board.bno}">${board.title}</a>
+								</td>
+								<td>${board.writer}</td>
+								<td>${board.regdate}</td>
+								<td>${board.viewcnt}</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td></td>
+								<td>삭제된 게시글 입니다.</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 				<!-- 페이징 블럭 출력 -->
 				<tr>

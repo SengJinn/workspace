@@ -39,6 +39,28 @@ public class BoardService {
 		map.put("pm", pm);
 		return map;
 	}
+
+	// 게시글 조회수 증가
+	public void updateViewCnt(int bno) throws Exception{
+		dao.updateViewCnt(bno);
+	}
+
+	// 게시글 번호로 게시글 정보 검색
+	public BoardVO read(int bno) throws Exception{
+		return dao.read(bno);
+	}
+
+	// 게시글 수정
+	public String modify(BoardVO board) throws Exception{
+		int result = dao.modify(board);
+		return result == 1 ? "게시글 수정완료" : "게시글 수정 실패";
+	}
+
+	// 게시글 삭제 요청 처리
+	public String remove(int bno) throws Exception{
+		int result = dao.remove(bno);
+		return result == 1 ? "게시글 삭제 성공" : "게시글 삭제 실패";
+	}
 	
 }
 

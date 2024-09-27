@@ -9,6 +9,25 @@
 	<bean id="checkCookie" class="com.bitc.user.interceptor.CheckCookieInterceptor"/>
 
 	<mvc:interceptors>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/board/remove"/>
+			<bean class="com.bitc.common.interceptor.CheckTokenInterceptor"/>
+		</mvc:interceptor>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/board/read"/>
+			<bean class="com.bitc.common.interceptor.CreateTokenInterceptor"/>
+		</mvc:interceptor>
+	
+		<mvc:interceptor>
+			<mvc:mapping path="/board/*"/>
+			<mvc:mapping path="/userChat"/>
+			<mvc:exclude-mapping path="/board/readView"/>
+			<mvc:exclude-mapping path="/board/read"/>
+			<mvc:exclude-mapping path="/board/list"/>
+			<bean class="com.bitc.common.interceptor.AuthorizationInterceptor"/>
+		</mvc:interceptor>
 	
 		<mvc:interceptor>
 			<mvc:mapping path="/user/logout"/>

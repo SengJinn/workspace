@@ -167,10 +167,10 @@ input::placeholder {
             <label for="email">이메일</label>
             <div class="email-section">
                 <input type="email" id="email" name="email" placeholder="이메일 주소 입력" required>
-                <button type="button" class="verify-button email-verify">인증번호 전송</button>
+                <button class="verify-button email-verify">인증번호 전송</button>
             </div>   
             
-            <input type="text"  placeholder="인증 번호 입력">
+            <input type="text" class="validEmail" placeholder="인증 번호 입력">
 
             <label for="password">비밀번호</label>
             <input type="password" id="password" name="pass" placeholder="영문, 숫자 조합 8~30 자리" minlength='8' maxlength='30' required>
@@ -184,7 +184,7 @@ input::placeholder {
             <label for="phone">휴대폰 번호</label>
             <div class="phone-section">
                 <input type="text" id="phone" name="phone" placeholder="휴대폰 번호 입력" required>
-                <button type="button" class="verify-button phone-verify">인증번호 전송</button>
+                <button class="verify-button phone-verify">인증번호 전송</button>
             </div>
 	
 			<input type="text" placeholder="인증 번호 입력" required>
@@ -222,84 +222,122 @@ input::placeholder {
             </div>
                 
             <div class="submit-button">
-            <input type="submit" value="회원가입" class="join-button" disabled /> 
+            <input type="button" value="회원가입" class="join-button" disabled /> 
             </div>
             
-            
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.2/sweetalert2.all.min.js"></script>
-            <script>
-    	    window.onload = function() {
+        <!-- sweetalert2 -->    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.2/sweetalert2.all.min.js"></script>
+        <!-- jquery -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        
+        <script>
+$(document).ready(function() {
+	
+	var sendCode = "";
+    
+    // joinFail이 있을 경우 알림창 표시
+    var joinFail = "${joinFail}";
+    if (joinFail) {
+        Swal.fire({
+            title: '알림',
+            text: joinFail,
+            icon: 'warning',
+            confirmButtonColor: '#FFA200',
+        });
+    }
+    
+    // 전체 체크 클릭 시 나머지 체크박스들도 같이 선택되도록 설정
+    $("#agree-all").click(function(){
+        var agree_all = $("#agree-all").prop("checked");
 
-    	        var joinFail = "${joinFail}";
-    	        // joinFail 메시지가 존재하면 SweetAlert 창 띄우기
-    	        if (joinFail) {
-    	            Swal.fire({
-    	                title: '알림',
-    	                text: joinFail,
-    	                icon: 'warning',
-    	                confirmButtonColor: '#FFA200',
-    	            });
-    	        }
-    	        
-    	    }
-    	    
-            </script>
-            
-            
-            <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-            <script>
-            $(document).ready(function(){
-            	//전체 체크 클릭 시, 나머지 체크 
-            	$("#agree-all").click(function(){
-            	var agree_all = $("#agree-all").prop("checked");
-					
-            	    if(agree_all){
-            	        $(".checkbox-check").prop("checked",true);
-            	        $(".join-button").css({"backgroundColor":"#FFA200","cursor":"pointer","color":"#fff"}).prop("disabled",false);
-            	    }
-            	    else{
-            	        $(".checkbox-check").prop("checked",false);
-            	        $(".join-button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#fff"}).prop("disabled",true);
-            	    }
-            	    
-            	    // agree-all이 비활성화 될 경우 나머지 목록도 체크 해제
-            	    if(!agree_all){
-            	    	$(".checkbox-check").prop("checked",false);
-            	    }
-   
-            	    
-            	});
+        if(agree_all){
+            $(".checkbox-check").prop("checked", true);
+            $(".join-button").css({"backgroundColor":"#FFA200","cursor":"pointer","color":"#fff"}).prop("disabled", false);
+        } else {
+            $(".checkbox-check").prop("checked", false);
+            $(".join-button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#fff"}).prop("disabled", true);
+        }
+        console.log("a");
 
-            	// 모든 체크박스를 클릭하면 버튼 활성화시키기
-            	$('.checkbox-check').click(function(){
-            		
-            	    var necessarycheck1 = $(".necessarycheck1").prop('checked'); 
-            	    var necessarycheck2 = $(".necessarycheck2").prop('checked'); 
-            	    var necessarycheck3 = $(".necessarycheck3").prop('checked'); 
-            	    
-            	    var somecheck = $(".checkbox-check").length;
-            	    var checkedbox = $(".checkbox-check:checked").length;
-            	    
-            	    //선택한 체크박스 값이 true면 버튼 활성화
-            	    if(necessarycheck1==true && necessarycheck2==true && necessarycheck3==true){
-            	    $(".join-button").css({"backgroundColor":"#FFA200","cursor":"pointer","color":"#fff"}).prop("disabled",false);
-            	    }
-            	    else{
-            	    $(".join-button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#fff"}).prop("disabled",true);
-            	    }
-            	    
-            	    // 체크박스가 모두 선택되었을 때 모두 동의 체크박스가 선택되도록 설정
-            	    if(somecheck == checkedbox){
-            	    	$("#agree-all").prop("checked",true);
-            	    }else{
-            	    	$("#agree-all").prop("checked",false);
-            	    }
-            	    
-            		}); 
+    });
 
-            	});
+    // 개별 체크박스 클릭 시 버튼 활성화
+    $('.checkbox-check').click(function(){
+        var necessarycheck1 = $(".necessarycheck1").prop('checked'); 
+        var necessarycheck2 = $(".necessarycheck2").prop('checked'); 
+        var necessarycheck3 = $(".necessarycheck3").prop('checked'); 
+        
+        if(necessarycheck1 && necessarycheck2 && necessarycheck3){
+            $(".join-button").css({"backgroundColor":"#FFA200","cursor":"pointer","color":"#fff"}).prop("disabled", false);
+        } else {
+            $(".join-button").css({"backgroundColor":"#cbcbcb","cursor":"auto","color":"#fff"}).prop("disabled", true);
+        }
+		console.log("a");
+
+    });
+
+    // 이메일 인증 코드 확인
+    $(".email-verify").on("click", function(e) {
+        e.preventDefault();
+        
+        const email = $("#email").val();
+        console.log(email);
+        
+        $.ajax({
+            url: "${path}/member/checkEmail",
+            type: "POST",
+            data: {
+                email: email
+            },
+            dataType : "text",
+            success: function(response) {
+            	console.log(response);
+            	sendCode = response;
+                Swal.fire({
+                    title: '알림',
+                    text: "인증 메일을 발송했습니다.",
+                    icon: 'success',
+                    confirmButtonColor: '#FFA200',
+                });
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    title: '알림',
+                    text: "메일 발송에 실패했습니다.",
+                    icon: 'warning',
+                    confirmButtonColor: '#FFA200',
+                });
+            }
+        });
+    });
+
+    // 이메일 인증 코드 확인 함수
+    function validCheck() {
+        const validEmail = $(".validEmail").val();
+        // const emailCode = "${emailCode}"; // 서버에서 받은 인증 코드
+        
+        /*
+        $(".validEmail").input()
+        
+        */
+        
+        console.log(sendCode);
+        if(validEmail != null && validEmail == sendCode){  // 올바른 비교 연산자 사용
+            $(".join-button").attr("type", "submit");
+        } else {
+            $(".join-button").css("cursor", "not-allowed");
+            Swal.fire({
+                title: '알림',
+                text: "인증 번호가 일치하지 않습니다. 다시 한 번 확인해주세요.",
+                icon: 'warning',
+                confirmButtonColor: '#FFA200',
+            });
+        }
+    }
+    
+});
+</script>
             
-            </script>
             
         </form>
     </div>

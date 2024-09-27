@@ -49,20 +49,46 @@ public class BoardController {
 	}
 	
 	@GetMapping("readView")
-	public String readView() throws Exception{
-		// 조회수 증가 후 상세보기 페이지 이동
+	public String readView(int bno, RedirectAttributes rttr) throws Exception{
+		// 파라미터로 전달된 게시글 조회수 증가 후 상세보기 페이지 이동
+		bs.updateViewCnt(bno);
+		// return "redirect:/board/read?bno="+bno;
+		rttr.addAttribute("bno",bno);
 		return "redirect:/board/read";
 	}
 	
+	// 상세보기
 	@GetMapping("read")
-	public String read() throws Exception{
+	public String read(int bno, Model model) throws Exception{
+		BoardVO board = bs.read(bno);
+		model.addAttribute("board",board);
 		return "board/read";
 	}
 	
 	@GetMapping("modify")
-	public String modify() throws Exception{
+	public String modify(int bno, Model model) throws Exception{
+		model.addAttribute("board", bs.read(bno));
 		return "board/modify";
 	}
+	
+	@PostMapping("modify")
+	public String modify(
+				BoardVO board, // 수정할 게시글 정보
+				RedirectAttributes rttr
+			) throws Exception{
+		String msg = bs.modify(board);
+		rttr.addFlashAttribute("msg", msg);
+		rttr.addAttribute("bno", board.getBno());
+		return "redirect:/board/read";
+	}
+	
+	@PostMapping("remove")
+	public String remove(int bno, RedirectAttributes rttr) throws Exception{
+		String msg = bs.remove(bno);
+		rttr.addFlashAttribute("msg", msg);
+		return "redirect:/board/list";
+	}
+	
 }
 
 
