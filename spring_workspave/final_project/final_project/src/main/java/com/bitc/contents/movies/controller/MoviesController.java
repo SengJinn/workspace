@@ -1,12 +1,19 @@
 package com.bitc.contents.movies.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bitc.contents.movies.model.MovieRatingVO;
@@ -71,6 +78,52 @@ public class MoviesController {
 		@GetMapping("movies_video")
 		public void movies_video() throws Exception {
 		}
+		
+		
+	    @PostMapping("likeMovie")
+	    @ResponseBody
+	    public ResponseEntity<Map<String, Object>> likeMovie(@RequestBody Map<String, String> params) throws Exception {
+	    	int mv_num = Integer.parseInt(params.get("mv_num"));  
+	        int num = Integer.parseInt(params.get("num"));
+	        boolean success = mv.likeMovie(mv_num, num);
+	        
+	        Map<String, Object> response = new HashMap<>();
+	        response.put("success", success);
+	        return ResponseEntity.ok(response);
+	    }
+	    
+	    @DeleteMapping("unlikeMovie")
+	    @ResponseBody
+	    public ResponseEntity<Map<String, Object>> unlikeMovie(@RequestBody Map<String, String> params) throws Exception {
+	    	int mv_num = Integer.parseInt(params.get("mv_num"));  
+	        int num = Integer.parseInt(params.get("num"));
+	        boolean success = mv.unlikeMovie(mv_num, num);
+	        
+	        Map<String, Object> response = new HashMap<>();
+	        response.put("success", success);
+	        return ResponseEntity.ok(response);
+	    }
 
+	    @GetMapping("getLikeStatus")
+	    @ResponseBody
+	    public ResponseEntity<Map<String, Object>> getLikeStatus(@RequestParam int mv_num, @RequestParam int num) throws Exception {
+	        boolean liked = mv.isMovieLiked(mv_num, num);
+	        
+	        Map<String, Object> response = new HashMap<>();
+	        response.put("liked", liked);
+	        return ResponseEntity.ok(response);
+	    }
+
+	    
+	    @GetMapping("/search_movie")
+	    public String searchMovies(@RequestParam("keyword") String keyword, Model model) throws Exception {
+	       
+	    	List<MovieVO> searchMovies = mv.searchMovies(keyword);
+	        model.addAttribute("searchMovies", searchMovies);
+	        
+	        return "contents/movies/movies_search_result"; // 영화 리스트를 보여줄 JSP 파일의 이름
+	    }
+	    
+    
 
 } // end MoviesController class

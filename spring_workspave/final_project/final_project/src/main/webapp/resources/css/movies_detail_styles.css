@@ -10,7 +10,7 @@ body {
     position: relative;
     background-size: cover;
     background-position: center;
-    height: 650px;
+    height: 700px;
     color: white;
 }
 
@@ -27,7 +27,7 @@ body {
     position: relative;
     z-index: 2;
     padding: 50px;
-    max-width: 600px;
+    max-width: 1100px;
 }
 
 .main-banner h1 {
@@ -137,7 +137,11 @@ body {
     transition: background-color 0.3s;
 }
 
-button:hover {
+.watchbutton: hover {
+  background-color: #ffbe4d;
+}
+
+.submit-button: hover {
   background-color: #ffbe4d;
 }
 

@@ -23,5 +23,11 @@ public interface MovieService {
 	
 	List<MovieRatingVO> getRatingListByMvnum(int mv_num) throws Exception;
 	
+	boolean likeMovie(int mv_num, int num) throws Exception;
+	
+	boolean unlikeMovie(int mv_num, int num) throws Exception;
+	
+	boolean isMovieLiked(int mv_num, int num) throws Exception;
 
+	List<MovieVO> searchMovies(String keyword);
 }

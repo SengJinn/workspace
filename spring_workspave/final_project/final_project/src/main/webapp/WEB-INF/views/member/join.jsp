@@ -40,7 +40,7 @@ body {
     border-radius: 10px;
     width: 600px; 
     margin: auto;
-    margin-top: 570px;
+    margin-top: 550px;
 }
 
 h2 {
@@ -70,12 +70,12 @@ input::placeholder {
     color: #999;
 }
 
-.phone-section {
+.echeck-section {
     display: flex;
     justify-content: space-between;
 }
 
-.phone-section input[type="text"] {
+.echeck-section input[type="text"] {
     flex: 3;
     margin-right: 10px;
 }
@@ -131,7 +131,7 @@ input::placeholder {
 
 .footer-spacer {
     flex-grow: 1; /* 남은 공간을 차지하도록 설정 */
-    height: 100px;
+    height: 140px;
 }
 
 .submit-button{
@@ -147,7 +147,7 @@ input::placeholder {
     color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+
     width: 1000px;
 	font-size: 1.2em;
 }
@@ -167,11 +167,14 @@ input::placeholder {
             <label for="email">이메일</label>
             <div class="email-section">
                 <input type="email" id="email" name="email" placeholder="이메일 주소 입력" required>
-                <button class="verify-button email-verify">인증번호 전송</button>
+                <button class="verify-button email-verify">인증번호 전송</button>       
             </div>   
-            
-            <input type="text" class="validEmail" placeholder="인증 번호 입력">
-
+         	
+         	<div class="echeck-section">
+            <input type="text" class="validEmail" placeholder="인증 번호 입력" required>
+            <button class="verify-button code-verify">인증번호 확인</button>
+			</div>
+			
             <label for="password">비밀번호</label>
             <input type="password" id="password" name="pass" placeholder="영문, 숫자 조합 8~30 자리" minlength='8' maxlength='30' required>
 
@@ -182,12 +185,8 @@ input::placeholder {
             <input type="number" id="age" name="age" placeholder="만 14세 이상만 가입 가능합니다." min="14" required>
 
             <label for="phone">휴대폰 번호</label>
-            <div class="phone-section">
-                <input type="text" id="phone" name="phone" placeholder="휴대폰 번호 입력" required>
-                <button class="verify-button phone-verify">인증번호 전송</button>
-            </div>
+			<input type="text" id="phone" name="phone" placeholder="휴대폰 번호 입력" required>
 	
-			<input type="text" placeholder="인증 번호 입력" required>
 			
             <div class="agreements">
                 <div class="checkbox-item">
@@ -222,7 +221,7 @@ input::placeholder {
             </div>
                 
             <div class="submit-button">
-            <input type="button" value="회원가입" class="join-button" disabled /> 
+            <input type="submit" value="회원가입" class="join-button" disabled /> 
             </div>
             
         <!-- sweetalert2 -->    
@@ -276,7 +275,7 @@ $(document).ready(function() {
 
     });
 
-    // 이메일 인증 코드 확인
+    // 이메일 인증 코드 전송
     $(".email-verify").on("click", function(e) {
         e.preventDefault();
         
@@ -311,21 +310,22 @@ $(document).ready(function() {
         });
     });
 
-    // 이메일 인증 코드 확인 함수
-    function validCheck() {
+    // 비밀번호 확인 로직
+    $(".join-button").click(function(p) {
+        const password = $("#password").val();
+        const confirmPassword = $("#password-confirm").val();
         const validEmail = $(".validEmail").val();
-        // const emailCode = "${emailCode}"; // 서버에서 받은 인증 코드
         
-        /*
-        $(".validEmail").input()
-        
-        */
-        
-        console.log(sendCode);
-        if(validEmail != null && validEmail == sendCode){  // 올바른 비교 연산자 사용
-            $(".join-button").attr("type", "submit");
-        } else {
-            $(".join-button").css("cursor", "not-allowed");
+        if (password !== confirmPassword) {
+            p.preventDefault();  // 폼 제출 방지
+            Swal.fire({
+                title: '알림',
+                text: "비밀번호가 일치하지 않습니다. 다시 확인해주세요.",
+                icon: 'warning',
+                confirmButtonColor: '#FFA200',
+            });
+        } if (validEmail !== sendCode) {
+        	p.preventDefault();  // 폼 제출 방지
             Swal.fire({
                 title: '알림',
                 text: "인증 번호가 일치하지 않습니다. 다시 한 번 확인해주세요.",
@@ -333,7 +333,31 @@ $(document).ready(function() {
                 confirmButtonColor: '#FFA200',
             });
         }
-    }
+        
+    });
+    
+    // 이메일 인증 코드 확인 함수
+    $(".code-verify").click(function (validCheck) {
+     	const validEmail = $(".validEmail").val();
+
+        console.log(sendCode);
+        if(validEmail != null && validEmail == sendCode){
+            // $(".join-button").attr("type", "submit");
+            Swal.fire({
+                title: '알림',
+                text: "인증 번호가 확인되었습니다.",
+                icon: 'success',
+                confirmButtonColor: '#FFA200',
+            });
+        } else {
+            Swal.fire({
+                title: '알림',
+                text: "인증 번호가 일치하지 않습니다. 다시 한 번 확인해주세요.",
+                icon: 'warning',
+                confirmButtonColor: '#FFA200',
+            });
+        }
+    });
     
 });
 </script>

@@ -41,4 +41,23 @@ public class MovieServiceImpl implements MovieService {
 		return dao.getRatingListByMvnum(mv_num);
 	}
 	
+	@Override
+    public boolean likeMovie(int mv_num, int num) {
+        return dao.insertLike(mv_num, num);
+    }
+
+	@Override
+    public boolean unlikeMovie(int mv_num, int num) {
+        return dao.deleteLike(mv_num, num);
+    }
+
+	@Override
+    public boolean isMovieLiked(int mv_num, int num) {
+        return dao.isLiked(mv_num, num);
+    }
+
+    @Override
+    public List<MovieVO> searchMovies(String keyword) {
+        return dao.searchMovies(keyword);
+    }
 }

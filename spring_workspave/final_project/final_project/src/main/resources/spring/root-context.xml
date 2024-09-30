@@ -42,5 +42,5 @@
 	
 	<mybatis-spring:scan base-package="com.bitc.*.dao"/>
 	<mybatis-spring:scan base-package="com.bitc.contents.*.dao"/>
-		
+	
 </beans>
