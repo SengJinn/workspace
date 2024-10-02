@@ -1,0 +1,98 @@
+.wrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    color: #e5e5e5;
+}
+
+.wrapper {
+    width: 600px;
+    margin-top: 20px;
+}
+
+section {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin-bottom: 430px;
+}
+
+body {
+    background: #000000;
+}
+
+.upperBox {
+    height: 110px;
+}
+
+.upperBox .title {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.upperBox .caution {
+    color: gray;
+}
+
+.lowerBox {
+    height: auto;
+}
+
+.inner1 {
+    margin-top: 20px;
+    height: auto;
+}
+
+.inner1 p {
+    text-align: center;
+}
+
+.inner1 p span {
+    font-weight: 900;
+    color: #ffa200;
+}
+
+.inner2 {
+    height: 100px;
+    display: flex;
+    /* 수직 수평 가운데 정렬 */
+    align-items: center;
+    justify-content: center;
+}
+
+.inner2 p {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* 비밀번호 확인 입력칸 */
+.inner2 input[type=password] {
+    width: 300px;
+    height: 40px;
+    margin-right: 10px;
+    padding-left: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* 버튼 */
+.inner2 input[type=submit] {
+    width: 150px;
+    height: 40px;
+    font-size: 24px;
+    color: white;
+    background: #FFA200;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+
+.inner2 input[type=submit]:hover {
+	background-color: #ffbe4d;
+}

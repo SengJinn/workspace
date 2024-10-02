@@ -21,8 +21,18 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.bitc.sec" />
+	<context:component-scan base-package="com.bitc.sec.controller" />
+	<context:component-scan base-package="com.bitc.sec.service" />
 	
 	
 	
 </beans:beans>
+
+
+
+
+
+
+
+
+

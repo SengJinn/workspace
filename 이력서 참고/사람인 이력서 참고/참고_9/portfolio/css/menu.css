@@ -1,0 +1,60 @@
+header nav ul{
+  margin-left: 0;
+  list-style: none;
+}
+header nav ul li {
+  margin-top: 40px;
+  padding-left: 30px;
+  float: left;
+}
+header nav ul li a{
+  color: gray;
+  text-decoration: none;
+  font-size: 25px;
+}
+header nav ul li a:hover{
+  color: black;
+  font-style: italic;
+}
+#screen {
+  background-image: url('../img/check.jpeg');
+}
+/*
+header nav ul li a:link{
+  color: red;
+}
+header nav ul li a:visited{
+  color: black;
+}
+header nav ul li a:active{
+  color: white;
+}
+*/
+.left {
+	position: fixed;
+	top: 49%;
+	left: 0px;
+	cursor: pointer;
+}
+.right {
+	position: fixed;
+	top: 49%;
+	right: 0px;
+	cursor: pointer;
+}
+header {
+  text-align: center;
+  height: 100px;
+}
+footer {
+  height: 100px;
+}
+li {
+}
+main {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.article {
+  text-align: left;
+}

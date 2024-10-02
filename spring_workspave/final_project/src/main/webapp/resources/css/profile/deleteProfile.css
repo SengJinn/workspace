@@ -1,0 +1,101 @@
+#deleteProfileModal {
+	display: none; /* 숨김 상태로 시작 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* 반투명 배경 */
+}
+
+.deleteProfileContent {
+	background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #888;
+    width: 600px; /* 넓이 조절 */
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: #000000;
+    color: #e5e5e5;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.close:hover, .close:focus {
+	transform: scale(1.2);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Header */
+.deleteHeader > p {
+	font-size: 36px;
+	font-weight: 600;
+}
+
+/* Body */
+.deleteBody * {
+	margin: 0;
+	padding: 0;
+}
+
+.deleteBody {
+	margin-top: 30px;
+	maring-bottom: 20px;
+	hight: 200;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.deleteBody .deleteImage {
+	padding-left: 20px;
+	height: 40px;
+	width: 40px;
+}
+
+.deleteBody .deleteName {
+	font-size: 24px;
+	font-weight: 500;
+	margin-left: 15px;
+}
+
+.deletebody i {
+	font-size: 25px;
+	margin-left: 15px;
+}
+
+/* Footer */
+.deleteFooter {
+	margin-top: 20px;
+	height: 70px;
+	display: flex;
+	/* 오른쪽 정렬 */
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.deleteFooter .deleteProfileBtn {
+	margin-right: 30px;
+	width: 150px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #e5e5e5;
+    background: #ffa200;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    cursor: pointer;
+}

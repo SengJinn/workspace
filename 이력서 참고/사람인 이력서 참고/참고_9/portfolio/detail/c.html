@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hanmin_Jang_Portfolio</title>
+    <link rel="stylesheet" href="../css/menu.css" type="text/css">
+    <link rel="stylesheet" href="../css/c.css" type="text/css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <div id="screen">
+      <header>
+        <nav>
+            <!-- <a href="../main.html"><img src="../img/pkpk.png" id="me" align="left"/></a> -->
+            <ul>
+              <li><a href="../main.html">     Home         </a></li>   <!-- main -->
+              <li><a href="intro.html">       Introduction </a></li>   <!-- info, article -->
+              <li><a href="c.html">           <b>C</b>     </a></li>   <!-- pintos -->
+              <li><a href="cpp.html">         C++          </a></li>   <!-- programers,Snake -->
+              <li><a href="java.html">        Java         </a></li>   <!-- spring project -->
+              <!-- <li><a href="android.html">     Android      </a></li> -->
+              <li><a href="web.html">         Web          </a></li>   <!-- NodeJS -->
+              <li><a href="jsp.html">         JSP          </a></li>   <!-- I'm using -->
+              <li><a href="python.html">      Python       </a></li>   <!-- SnakeAI -->
+              <li><a href="bigdata.html">     Bigdata       </a></li>   <!-- putty & cloudera -->
+            </ul>
+        </nav>
+      </header><br/><br/>
+      <hr style="border: inset 10px #f6f3fa;"></div>
+      <a href="intro.html"><img src="../img/left2.png" class="left"/></a>
+      <a href="cpp.html"><img src="../img/right2.png" class="right"/></a>
+      <main>
+        <h1>Pintos project</h1>
+        <p class="article">
+          <b>프로젝트 설명:</b><br/>
+          &nbsp;&nbsp;&nbsp;Pintos 운영체제에 주요 알고리즘 제작<br/>
+          <br/>
+          <b>주요 업무:<br/></b>
+          &nbsp;&nbsp;&nbsp;알고리즘 작성, 테스트<br/>
+        </p>
+
+        <br/><h3>src/devices/timer.c</h3>
+          <img src="../img/timer_sleep.png" title="c_pintos1.zip" class="attach" align="center"/>
+          <img src="../img/timer_interrupt.png" title="c_pintos1.zip" class="attach" align="center"/>
+        <br/><h3>src/lib/kernel/list.c</h3>
+          <img src="../img/list_insert_ordered.png" title="c_pintos1.zip" class="attach" align="center"/>
+        <br/><h3>src/userprog/syscall.c</h3>
+          <img src="../img/pintos_2nd.png" title="c_pintos2.zip" class="attach" align="center"/>
+
+        <br/><h3>report</h3><br/>
+  ============<br/>
+  || ALARM CLOCK ||<br/>
+  ============<br/>
+  <br/>
+  ---- DATA STRUCTURES ----<br/>
+  <br/>
+  <p class="article">
+  >> A1: Copy here the declaration of each new or changed `struct' or<br/>
+  >> `struct' member, global or static variable, `typedef', or<br/>
+  >> enumeration.  Identify the purpose of each in 25 words or less.<br/>
+  <br/>
+  :static struct list sleep_list : To control blocked(sleep) thread lists.<br/>
+  enum intr_level old_level : To check the interrupt level before I touch.<br/>
+  struct thread->int64_t wake_tick : It is showed alarm time on the base variable "ticks" function.<br/>
+  </p>
+  <br/>
+  ---- ALGORITHMS ----<br/>
+  <br/>
+  <p class="article">
+  >> A2: Briefly describe what happens in a call to timer_sleep(),<br/>
+  >> including the effects of the timer interrupt handler.<br/>
+  <br/>
+  :The blocked threads are put in the "sleep_list" with asceding order.<br/>
+  The "timer_interrupt" function check the first element in "sleep_list" every tick<br/>
+  and pop it, if it is or is over the alarmed time.<br/>
+  <br/>
+  >> A3: What steps are taken to minimize the amount of time spent in<br/>
+  >> the timer interrupt handler?<br/>
+  <br/>
+  :In the "busy waitting" system, in every tick, the "thread_yield" is called, but in<br/>
+  this code, it only check one member variable in the first element, which means much ligther.<br/>
+  <br/>
+  </p>
+  ---- RATIONALE ----<br/>
+  <br/>
+  <p class="article">
+  >> A6: Why did you choose this design?  In what ways is it superior to<br/>
+  >> another design you considered?<br/>
+  <br/>
+  :I imagined every sleeping thread has their own timer loop. However if there are many sleeping thread, it need<br/>
+  many loops so this is absurd. To control the sleeping thread at one time, I need a data structure<br/>
+  which is "sleep_list". Also, this can be controlled by the "timer_interrupt" function. When there is no<br/>
+  sleeping thread, this design is almost similar with just "tick++", thus it is much efficient.<br/>
+  <br/>
+  </p>
+  ==================<br/>
+  || PRIORITY SCHEDULING ||<br/>
+  ==================<br/>
+  <br/>
+  ---- DATA STRUCTURES ----<br/>
+  <br/>
+  <p class="article">
+  >> B1: Copy here the declaration of each new or changed `struct' or<br/>
+  >> `struct' member, global or static variable, `typedef', or<br/>
+  >> enumeration.  Identify the purpose of each in 25 words or less.<br/>
+  <br/>
+  :None, but declared one function.<br/>
+  </p>
+  <br/>
+  ---- RATIONALE ----<br/>
+  <br/>
+  <p class="article">
+  >> B7: Why did you choose this design?  In what ways is it superior to<br/>
+  >> another design you considered?<br/>
+  <br/>
+  :By using built-in function, list_insert_ordered,<br/>
+  it becomes more neat than elaborating it in new functions.<br/>
+  </p><br/>
+<br/>
+================<br/>
+|| ARGUMENT PASSING ||<br/>
+================<br/>
+<br/>
+---- DATA STRUCTURES ----<br/>
+<p class="article"><br/>
+>> A1: Copy here the declaration of each new or changed `struct' or<br/>
+>> `struct' member, global or static variable, `typedef', or<br/>
+>> enumeration.  Identify the purpose of each in 25 words or less.<br/>
+<br/>
+: Nothing<br/>
+<br/></p>
+---- ALGORITHMS ----<br/>
+<p class="article"><br/>
+>> A2: Briefly describe how you implemented argument parsing.  How do<br/>
+>> you arrange for the elements of argv[] to be in the right order?<br/>
+>> How do you avoid overflowing the stack page?<br/>
+<br/>
+:Subtract how much I will write in stack from esp, then reversely input stack data. Also, I used memcpy, memset and strlcpy. These functions cna help to limit  length to copy.<br/>
+<br/></p>
+---- RATIONALE ----<br/>
+<br/><p class="article">
+>> A3: Why does Pintos implement strtok_r() but not strtok()?<br/>
+<br/>
+:Because argument string is constituted "file name" and "argument". We need to devide them.<br/>
+<br/>
+>> A4: In Pintos, the kernel separates commands into a executable name<br/>
+>> and arguments.  In Unix-like systems, the shell does this<br/>
+>> separation.  Identify at least two advantages of the Unix approach.<br/>
+<br/>
+:Easy to clarify a executable name, and preventing overflow by limiting length of components.<br/>
+<br/></p>
+============<br/>
+  || SYSTEM CALLS ||<br/>
+  ============<br/>
+<br/>
+---- DATA STRUCTURES ----<br/>
+<br/><p class="article">
+>> B1: Copy here the declaration of each new or changed `struct' or<br/>
+>> `struct' member, global or static variable, `typedef', or<br/>
+>> enumeration.  Identify the purpose of each in 25 words or less.<br/>
+<br/>
+static int fd_seed;<br/>
+<br/>
+static struct file_node<br/>
+{<br/>
+int fd;<br/>
+struct file* file_ptr;<br/>
+struct list_elem elem;<br/>
+};<br/>
+<br/>
+static struct list file_list;<br/>
+<br/>
+<br/>
+Those are newly declared 'struct'.<br/>
+They are for associating file descriptor and file pointer.<br/>
+<br/>
+>> B2: Describe how file descriptors are associated with open files.<br/>
+>> Are file descriptors unique within the entire OS or just within a<br/>
+>> single process?<br/>
+<br/>
+:File descriptor is increasing integer for each opening of new file.<br/>
+It is only unique within a single process.<br/>
+<br/></p>
+---- ALGORITHMS ----<br/>
+<br/><p class="article">
+>> B3: Describe your code for reading and writing user data from the<br/>
+>> kernel.<br/>
+<br/>
+:In SYSCALL_HANDLER get user data by 'f->esp' and check its validity.<br/>
+In each seperated cases, when the return value is written, put it back<br/>
+with 'f->eax' register.<br/>
+<br/>
+>> B4: Suppose a system call causes a full page (4,096 bytes) of data<br/>
+>> to be copied from user space into the kernel.  What is the least<br/>
+>> and the greatest possible number of inspections of the page table<br/>
+>> (e.g. calls to pagedir_get_page()) that might result?  What about<br/>
+>> for a system call that only copies 2 bytes of data?  Is there room<br/>
+>> for improvement in these numbers, and how much?<br/>
+<br/>
+:1~2048, save & read 1 or 2 more byte for location data. If use 2 more byte,<br/>
+it become 1~1024.<br/>
+<br/>
+>> B5: Briefly describe your implementation of the "wait" system call<br/>
+>> and how it interacts with process termination.<br/>
+<br/>
+:Not yet implemented in this project.<br/>
+<br/>
+>> B6: Any access to user program memory at a user-specified address<br/>
+>> can fail due to a bad pointer value.  Such accesses must cause the<br/>
+>> process to be terminated.  System calls are fraught with such<br/>
+>> accesses, e.g. a "write" system call requires reading the system<br/>
+>> call number from the user stack, then each of the call's three<br/>
+>> arguments, then an arbitrary amount of user memory, and any of<br/>
+>> these can fail at any point.  This poses a design and<br/>
+>> error-handling problem: how do you best avoid obscuring the primary<br/>
+>> function of code in a morass of error-handling?  Furthermore, when<br/>
+>> an error is detected, how do you ensure that all temporarily<br/>
+>> allocated resources (locks, buffers, etc.) are freed?  In a few<br/>
+>> paragraphs, describe the strategy or strategies you adopted for<br/>
+>> managing these issues.  Give an example.<br/>
+<br/>
+:First, check the validity of addresses by checking whether they are<br/>
+below PHYS_BASE, and null pointer in SYSCALL_HANDLER before call<br/>
+each system call. And in each function check and handle more exceptions<br/>
+that can be occur in each functions, including unmapped address case.<br/>
+Also for exception cases, by following the resources in line, makes<br/>
+them managed.<br/></p>
+<br/>
+<br/>
+---- SYNCHRONIZATION ----<br/>
+<br/><p class="article">
+>> B7: The "exec" system call returns -1 if loading the new executable<br/>
+>> fails, so it cannot return before the new executable has completed<br/>
+>> loading.  How does your code ensure this?  How is the load<br/>
+>> success/failure status passed back to the thread that calls "exec"?<br/>
+<br/>
+>> B8: Consider parent process P with child process C.  How do you<br/>
+>> ensure proper synchronization and avoid race conditions when P<br/>
+>> calls wait(C) before C exits?  After C exits?  How do you ensure<br/>
+>> that all resources are freed in each case?  How about when P<br/>
+>> terminates without waiting, before C exits?  After C exits?  Are<br/>
+>> there any special cases?<br/>
+<br/></p>
+---- RATIONALE ----<br/>
+<br/><p class="article">
+>> B9: Why did you choose to implement access to user memory from the<br/>
+>> kernel in the way that you did?<br/>
+<br/>
+:After see "syscall-nr.h" and the pdf file. All syscall is defined with number and, in the pdf, # of argument is "esp+1", "esp+4", etc. Therefore, I think esp could be int type.<br/>
+<br/>
+>> B10: What advantages or disadvantages can you see to your design<br/>
+>> for file descriptors?<br/>
+<br/>
+:It's easy to manage in "file_list", but it's not easy to make it.<br/>
+<br/>
+>> B11: The default tid_t to pid_t mapping is the identity mapping.<br/>
+>> If you changed it, what advantages are there to your approach?<br/>
+<br/>
+:Maybe we can use string for identify. It makes more obvious about what is the role of process or thread.<br/>
+<br/></p>
+      </main>
+      <!-- <hr> -->
+
+    <footer></footer>
+    <script>
+      $(document).keydown(function(key){
+          if(key.keyCode == 37) {
+              location.href="intro.html";
+          }
+          if(key.keyCode == 39) {
+              location.href="cpp.html";
+          }
+      });
+    </script>
+  </body>
+</html>

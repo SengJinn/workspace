@@ -1,0 +1,36 @@
+<!-- 게시판과 댓글을 나누는 선 -->
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+.line {
+	width : 96%;
+	margin-left : 3px;
+}
+
+.line2 {
+	width : 96%;
+	margin-left : 3px;
+}
+
+<!-- 작성된 댓글 목록 -->
+#comments li{
+	list-style:none;
+	border:1px solid #ccc;
+	margin-left : 0;
+	padding-left : 0;
+}
+
+#comments {
+	list-style:none;
+	margin-left : 0;
+	padding-left : 0;
+}
+
+
+<!-- 댓글 수정창 -->
+#modDiv {
+	border:1px solid black;
+	padding:10px;
+	display:none;
+}

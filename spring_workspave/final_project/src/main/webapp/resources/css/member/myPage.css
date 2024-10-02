@@ -1,0 +1,92 @@
+.wrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    color: #e5e5e5;
+}
+
+.wrapper {
+    width: 600px;
+    margin-top: 20px;
+}
+
+section {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    /* 두 요소(.sideMenue, .wrapper)의 높이를 동일하게 설정 */
+    align-items: stretch;
+}
+
+body {
+    background: #000000;
+}
+
+.upperBox {
+    height: 110px;
+}
+
+.upperBox .title {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.upperBox .caution {
+    color: gray;
+}
+
+/* 테이블 내부 */
+input[type=email], input[type=number], input[type=text]{
+    width: 350px;
+    height: 40px;
+    margin-right: 10px;
+    padding-left: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+tr {
+    height: 80px;
+}
+
+tr > td:first-child {
+    font-size: 20px;
+    padding-left: 25px;
+}
+
+td p {
+    font-size: 15px;
+    color: gray;
+    margin-top: 10px;
+}
+/* 테이블 내부 (END) */
+
+/* 버튼 박스 */
+.btnBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.btnBox #check {
+    margin: 10px;
+    width: 150px;
+    height: 40px;
+    font-size: 24px;
+    color: white;
+    background: #FFA200;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+
+.btnBox #check:hover, .btnBox #remove:hover {
+	background-color: #ffbe4d;
+}
+/* 버튼 박스 (END) */

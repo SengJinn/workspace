@@ -1,0 +1,107 @@
+/* 게시판 상세보기 스타일 */
+
+/* 전체 배경 색상 */
+
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+body {
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+}
+
+/* 컨테이너 스타일 */
+.container {
+    width: 60%;
+    margin: 100px auto 10px auto;
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.commu_title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left:28px;
+    margin-bottom: 20px;
+    color: #ffffff; 
+}
+
+.row {
+    margin-bottom: 20px; 
+}
+
+.m-5{
+	margin-left:28px;
+}
+
+.form-control-plaintext {
+    font-size: 16px;
+    font-weight: bold;
+    color: #cccccc;
+}
+
+.col-md-2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: 10px;
+}
+
+.col-md-4, .col-md-10 {
+    display: flex;
+    align-items: center;
+    padding: 10px; 
+}
+
+.col-md-4 {
+	justify-content:center;
+}
+
+.col-md-10 {
+	margin-left:-8px;
+	color: #ffffff;
+}
+
+.input-form{
+	color: #ffffff;
+}
+
+textarea.form-control {
+    width: 98%;
+    border: 1px solid #555555;
+    background-color: #2a2a2a; 
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.btn {
+    margin-right: 10px; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-warning {
+    background-color: #ff9800; 
+}
+
+.btn-danger {
+    background-color: #f44336; 
+}
+
+.btn-primary {
+    background-color: #3f51b5; 
+}
+
+.btn:hover {
+    opacity: 0.8; 
+    transition: opacity 0.3s;
+}

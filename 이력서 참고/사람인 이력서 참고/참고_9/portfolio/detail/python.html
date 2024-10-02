@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hanmin_Jang_Portfolio</title>
+    <link rel="stylesheet" href="../css/menu.css" type="text/css">
+    <link rel="stylesheet" href="../css/python.css" type="text/css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <div id="screen">
+      <header>
+        <nav>
+            <!-- <a href="../main.html"><img src="../img/pkpk.png" id="me" align="left"/></a> -->
+            <ul>
+              <li><a href="../main.html">     Home         </a></li>   <!-- main -->
+              <li><a href="intro.html">       Introduction </a></li>   <!-- info, article -->
+              <li><a href="c.html">           C            </a></li>   <!-- pintos -->
+              <li><a href="cpp.html">         C++          </a></li>   <!-- programers,Snake -->
+              <li><a href="java.html">        Java         </a></li>   <!-- spring project -->
+              <!-- <li><a href="android.html">     Android      </a></li> -->
+              <li><a href="web.html">         Web          </a></li>   <!-- NodeJS -->
+              <li><a href="jsp.html">         JSP          </a></li>   <!-- I'm using -->
+              <li><a href="python.html">      <b>Python</b></a></li>   <!-- SnakeAI -->
+              <li><a href="bigdata.html">     Bigdata       </a></li>   <!-- putty & cloudera -->
+            </ul>
+        </nav>
+      </header><br/><br/>
+      <hr style="border: inset 10px #f6f3fa;"></div>
+      <a href="jsp.html"><img src="../img/left2.png" class="left"/></a>
+      <a href="bigdata.html"><img src="../img/right2.png" class="right"/></a>
+      <main>
+        <h1>Deep Learning</h1><br/>
+        <p class="article">
+          <b>프로젝트 설명:</b><br/>
+          &nbsp;&nbsp;&nbsp;Kaggle - "Titanic Survivor Problem" Deep Learning 풀이<br/>
+          <br/>
+          <b>주요 업무:<br/></b>
+          &nbsp;&nbsp;&nbsp;알고리즘 작성<br/>
+        </p>
+        <a href="https://www.kaggle.com/" target="_blank"><img src="../img/deep_learning.png" title="https://www.kaggle.com/" width="80%" class="imgs"/></a> <br/><br/>
+
+        <h1>Reinforcement Learning</h1><br/>
+        <p class="article">
+          <b>프로젝트 설명:</b><br/>
+          &nbsp;&nbsp;&nbsp;Snake Game AI 제작<br/>
+          <br/>
+          <b>주요 업무:<br/></b>
+          &nbsp;&nbsp;&nbsp;알고리즘 작성<br/>
+        </p>
+        <img src="../img/python_reinforce.png" title="python_snakeAI.py" width="80%" class="imgs"/> <br/><br/>
+      </main>
+      <!-- <hr> -->
+
+    <footer></footer>
+    <script>
+      $(document).keydown(function(key){
+          if(key.keyCode == 37) {
+              location.href="jsp.html";
+          }
+          if(key.keyCode == 39) {
+              location.href="bigdata.html";
+          }
+      });
+    </script>
+  </body>
+</html>

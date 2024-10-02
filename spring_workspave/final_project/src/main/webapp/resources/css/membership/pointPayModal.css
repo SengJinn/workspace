@@ -1,0 +1,100 @@
+#pointPayModal {
+	display: none; /* 숨김 상태로 시작 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* 반투명 배경 */
+}
+
+.pointPayModalcontent {
+	background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #888;
+    width: 600px; /* 넓이 조절 */
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: #000000;
+    color: #e5e5e5;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.close:hover, .close:focus {
+	transform: scale(1.2);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Header */
+.modalHeader p {
+	font-size: 36px;
+	font-weight: 600;
+}
+
+/* Body */
+
+/* selectMembership */
+.selectMembership > p {
+	font-size: 24px;
+	font-weight: 600;
+	width: 250px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.selectMembership > .displayMembership {
+	margin-left: 20px;
+}
+
+/* pointBox */
+.pointBox {
+	margin-bottom: 20px;
+}
+
+.pointBox > p {
+	font-size: 24px;
+	font-weight: 600;
+	width: 250px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.pointBox > .remainPoint {
+	margin-left: 20px;
+}
+
+/* Footer */
+.modalFooter {
+	margin-top: 20px;
+	height: 70px;
+	display: flex;
+	/* 오른쪽 정렬 */
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.pointPayment {
+	margin-right: 30px;
+	width: 150px;
+    height: 40px;
+    font-size: 24px;
+    color: white;
+    background: #868e96;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    cursor: not-allowed;
+}

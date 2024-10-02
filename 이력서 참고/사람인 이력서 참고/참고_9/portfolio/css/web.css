@@ -1,0 +1,13 @@
+footer {
+  height: 100px;
+}
+main {
+  text-align: center;
+}
+.fishing {
+  cursor: pointer;
+  color: blue;
+}
+.hidden_message {
+  visibility: hidden;
+}
